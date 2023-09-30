@@ -10,8 +10,12 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     overflow: hidden;
+}
+
+.topnav-padding {
+    padding: 0 10px 0 10px;
 }
 
 .search-bar {

@@ -30,7 +30,7 @@
 
 .center-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center; 
     align-items: center;
 }
 
@@ -58,14 +58,14 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    padding: 25px;
 }
 
 .padding-25 {
-    padding: 25px;
+    padding: 25px 10px 10px 25px;
 }
 
 .save-button {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
 }

@@ -14,7 +14,7 @@
         <div class=black-rectangle>
             <img src="https://i.ibb.co/5rjj8n2/Cat-Medley-Cuteness-Galore-Funnies-Rescues-And-Appreciation.png" class="image-container img-black-rectangle"></img>
             <div>
-                <div class="flex justify-between padding-25 align-center">
+                <div class="flex padding-25 align-center justify-between">
                     <img src="https://i.ibb.co/5rjj8n2/Cat-Medley-Cuteness-Galore-Funnies-Rescues-And-Appreciation.png" class=profile-picture></img>
                     <div>
                         <p class=text-1>Author</p>
