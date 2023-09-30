@@ -1,1 +1,2 @@
-docker build -t php .
+# docker build -t php .
+docker-compose up

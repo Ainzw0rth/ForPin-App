@@ -1,0 +1,31 @@
+
+.blue-button {
+    width: 86px;
+    height: 46px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 170px;
+    background: #77D4F8;
+    color: #000;
+    font-family: Arial;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+}
+
+.black-rectangle {
+    width: 878px;
+    height: 542px;
+    flex-shrink: 0;
+    border-radius: 45px;
+    border: 1px solid #FFF;
+    background: #000;
+}
+
+
+
