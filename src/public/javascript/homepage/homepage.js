@@ -1,5 +1,5 @@
 // TODO: later find a way to connect the list to the database
-const tempImages = [
+const tempMedias = [
     'http://localhost:8080/src/public/images/testing_images/1.jpeg',
     'http://localhost:8080/src/public/images/testing_images/2.jpeg',
     'http://localhost:8080/src/public/images/testing_images/3.jpeg',
@@ -21,28 +21,41 @@ const tempImages = [
     'http://localhost:8080/src/public/images/testing_images/19.jpg',
     'http://localhost:8080/src/public/images/testing_images/20.jpg',
     'http://localhost:8080/src/public/images/testing_images/21.jpg',
-    'http://localhost:8080/src/public/images/testing_images/11.jpeg'
+    'http://localhost:8080/src/public/images/testing_images/22.gif',
+    'http://localhost:8080/src/public/images/testing_images/xavier.mp4',
+    'http://localhost:8080/src/public/images/testing_images/xavier.mp4'
 ];
 
-// for adding each images to the homepage
-function addImages() {
+// for adding each medias to the homepage
+function addMedias() {
     const canvas = document.getElementById('media_canvas');
     let i = 0;
 
-    tempImages.forEach((imageurl, index) => {
+    tempMedias.forEach((mediaurl, index) => {
         const button = document.createElement('button');
-        const image = document.createElement('img');
+        let media;
+        if (mediaurl.endsWith('.jpeg') || mediaurl.endsWith('.jpg') || mediaurl.endsWith('.png') || mediaurl.endsWith('.gif')) {
+            media = document.createElement('img');
+            media.src = mediaurl;
+            
+            media.onload = () => {
+                const numRows = Math.ceil(media.height / parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--row_increment')));
+                button.style.gridRowEnd = `span ${numRows+3}`;
+            };
+        } else {
+            media = document.createElement('video');
+            media.controls = true;
+            media.src = mediaurl;
+            media.onloadedmetadata = () => {
+                const numRows = Math.ceil(media.clientHeight / parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--row_increment')));
+                button.style.gridRowEnd = `span ${numRows+3}`;
+            };
+        }
         
-        image.onload = () => {
-            const numRows = Math.ceil(image.height / parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--row_increment')));
-            button.style.gridRowEnd = `span ${numRows+3}`;
-        };
-
-        image.src = imageurl;
-        button.appendChild(image);
+        button.appendChild(media);
         
         canvas.appendChild(button);
     })
 }
 
-addImages();
+addMedias();
