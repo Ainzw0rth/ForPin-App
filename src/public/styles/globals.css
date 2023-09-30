@@ -35,3 +35,15 @@ body {
     background-color: #77D4F8;
     border-radius: 50%;
 }
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
