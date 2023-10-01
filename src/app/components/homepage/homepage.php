@@ -9,16 +9,16 @@
     <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/public/styles/header.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/public/styles/homepage/homepage.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:8080/src/public/styles/globals.css">
-
     <title>Home Page</title>
 </head>
 
 <body>
     <?php include('../../component/navbar.php'); ?>
     <div class="media_canvas" id="media_canvas">
-    </div>
-
+        </div>
+        
     <script src="http://localhost:8080/src/public/javascript/homepage/homepage.js"></script>
+    <script src="http://localhost:8080/src/public/javascript/navbar/navbar.js"></script>
 </body>
 
 </html>
