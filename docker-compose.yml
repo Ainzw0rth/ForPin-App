@@ -9,18 +9,24 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-
+  
   db:
-    image: postgres:14.1-alpine
+    image: mysql:8.0
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
     ports:
-      - '5432:5432'
-    volumes: 
-      - ./psql:/var/lib/postgresql/data
+      - '3306:3306'
+    volumes:
+      - .:/var/lib/mysql
 
-volumes:
-  db:
-    driver: local
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+        - 8081:80
+      environment:
+        - PMA_ARBITRARY=1
+      links:
+        - db

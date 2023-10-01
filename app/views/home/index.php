@@ -9,5 +9,6 @@
 </head>
 <body>
     <?php include('app/views/component/navbar.php'); ?>
+    <p class="text-1 flex justify-center align-center">Hello <?= $data['nama'] ?></p>
 </body>
 </html>
