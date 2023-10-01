@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../public/styles/globals.css">
-    <link rel="stylesheet" type="text/css" href="../public/styles/post.css">
-    <link rel="stylesheet" type="text/css" href="../public/styles/header.css">
-    <title>Post</title>
+    <link rel="stylesheet" type="text/css" href="css/globals.css">
+    <link rel="stylesheet" type="text/css" href="css/post.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <title>ForPin | Post</title>
 </head>
 <body>
-    <?php include('component/navbar.php'); ?>
+    <?php include('../app/views/component/navbar.php'); ?>
     <div class="center-container">
         <div class=black-rectangle>
             <img src="https://i.ibb.co/5rjj8n2/Cat-Medley-Cuteness-Galore-Funnies-Rescues-And-Appreciation.png" class="image-container img-black-rectangle"></img>
