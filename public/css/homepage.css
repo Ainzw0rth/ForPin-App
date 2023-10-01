@@ -9,10 +9,9 @@ body {
 }
 
 .media_canvas {
-    width: 98vw;
+    width: 95vw;
     position: absolute;
     left: 50%;
-    margin-top: 0vw;
     transform: translate(-50%, 0);
 
     display: grid;
@@ -22,7 +21,6 @@ body {
 }
 
 .media_canvas button {
-    margin-right: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -40,3 +38,4 @@ body {
     width: 100%;
     border-radius: 15px;
 }
+
