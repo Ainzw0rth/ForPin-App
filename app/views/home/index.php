@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/globals.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="public/css/globals.css">
+    <link rel="stylesheet" type="text/css" href="public/css/header.css">
     <title>ForPin | Home</title>
 </head>
 <body>
-    <?php include('../app/views/component/navbar.php'); ?>
+    <?php include('app/views/component/navbar.php'); ?>
 </body>
 </html>
