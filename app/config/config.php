@@ -1,6 +1,6 @@
 <?php
 
-define('DB_HOST', 'db');
-define('DB_USER', 'postgres');
-define('DB_PASS', 'postgres');
-define('DB_NAME', 'forpin');
+define('DB_HOST', $_ENV['POSTGRES_HOSTNAME']);
+define('DB_USER', $_ENV['POSTGRES_USER']);
+define('DB_PASS', $_ENV['POSTGRES_PASSWORD']);
+define('DB_NAME', $_ENV['POSTGRES_DB']);

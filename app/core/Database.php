@@ -18,6 +18,7 @@ class Database {
         } catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());
         }
+        $this->createTables();
     }
 
     public function query($query) {
@@ -42,6 +43,20 @@ class Database {
         }
 
         $this->stmt->bindValue($param, $value, $type);
+    }
+
+    public function createTables() {
+        $this->query(
+            "CREATE table IF NOT EXISTS asal (
+                id SERIAL PRIMARY KEY NOT NULL,
+                nama varchar(50)
+            );"
+        );
+        $this->execute();
+        $this->query(
+            "INSERT INTO asal (nama) VALUES ('brigita');"
+        );
+        $this->execute();
     }
 
     public function execute() {
