@@ -5,13 +5,14 @@ class Database {
     private $user = DB_USER;
     private $pass = DB_PASS;
     private $db_name = DB_NAME;
+    private $port = DB_PORT;
 
     private $dbh;
     private $stmt;
 
     public function __construct() {
         try {
-            $this->dbh = new PDO('pgsql:host=' . $this->host . ';port=5432;dbname=' . $this->db_name . ';user=' . $this->user . ';password=' . $this->pass);
+            $this->dbh = new PDO('pgsql:host=' . $this->host . ';port=' . $this->port . ';dbname=' . $this->db_name . ';user=' . $this->user . ';password=' . $this->pass);
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
             // Perform database operations here
