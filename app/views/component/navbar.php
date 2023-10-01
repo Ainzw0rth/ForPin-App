@@ -2,7 +2,6 @@
     <div class="flex">
         <div class="logo"></div>
         <button class="home-button">Home</button>
-        <button class="home-button">Home</button>
     </div>
     <div class="temp" id="temp">
         <form action="" class="search-bar" id="search-input">
