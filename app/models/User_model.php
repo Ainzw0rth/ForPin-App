@@ -1,9 +1,16 @@
 <?php
 
 class User_model {
-    private $name = "Brigita";
+    private $table = 'asal';
+    private $db;
+
+    public function __construct() {
+        $this->db = new Database;
+    }
+
 
     public function getUser() {
-        return $this->name;
+        $this->db->query('SELECT * FROM ' . $this->table);
+        return $this->db->resultSet();
     }
 }
