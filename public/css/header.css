@@ -1,13 +1,12 @@
 .topnav {
     background-color: black;
-    width: 95vw;
+    width: 90vw;
     height: 75px;
-    margin: 1vw;
+    margin: 0 auto;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
 }
 
 .home-button {
@@ -28,11 +27,32 @@
     padding: 10 10px 0 10px;
 }
 
+.home-button {
+    margin: 1vw;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.temp {
+    margin-top: 3px;
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .search-bar {
     width: 60vw;
+    width: 60vw;
     height: 37px;
-    margin: 1vw;
-    flex-shrink: 0;
     border-radius: 30px;
     background: #1F1F1F;
     color: white;
@@ -40,14 +60,15 @@
     justify-content: center;
     border: none;
     display: flex;
+    z-index: 1;
 }
 
-.search-bar::placeholder {
-    padding-left: 15px;
+.search-box {
+    width: 75%;
 }
 
 .search_symbol {
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 .search-bar input {
@@ -55,42 +76,27 @@
     flex: 1;
     border: 0;
     outline: none;
-    padding: 24px 20px;
     color: white;
 }
 
-.hidden_user_inputs {
-    height: 100%;
-    width: 100%;
-    display: none;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0, 0.9);
-    color: white;
-}
-
+/* for inputs */
 .input-box {
-    position: absolute;
-    left: 50%;
-    margin-top: 1vw;
-    transform: translate(-50%, 0);
-    background-color: transparent;
-    justify-content: center;
+    width: 60vw;
+    height: 37px;
+    display: none;
+    z-index: 1;
+    color: white;
 }
 
 .filter-sort {
     background-color: #1F1F1F;
     border-radius: 15px;
-    padding-left: 2vw;
-    padding-top: 1vw;
-    padding-bottom: 1vw;
+    padding: 20px;
 }
 
 .expandable {
     display: flex;
-    gap: 7vw;
+    justify-content: space-between;
 }
 
 .filter_category {
@@ -99,14 +105,13 @@
 }
 
 .filter-dropdown {
-    width: 35vw;
-    height: 2vw;
-    margin-top: 15px;
+    width: 600px;
+    height: 35px;
+    margin-top: 0.75vw;
     background-color: #D9D9D9;
     text-align: center;
     cursor: pointer;
     border-radius: 30px;
-    font-size: 1vw;
 }
 
 .uploaded {
@@ -120,6 +125,7 @@
 
 .dropdown_symbol {
     margin: 1vw;
+    border: 1px;
 }
 
 h3 {
@@ -128,7 +134,8 @@ h3 {
 
 .expandable2 {
     display: flex;
-    gap: 40vw;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .sorting {
@@ -141,17 +148,89 @@ h3 {
 }
 
 .search_button {
-    width: 6vw;
-    height: 3vw;
+    width: 120px;
+    height: 50px;
     background-color: #77D4F8;
     border-radius: 30px;
     color: white;
     margin-top: 2vw;
-    font-size: 1vw;
+    font-size: 15px;
 }
 
-@media (min-width: 800px) and (max-width: 1240px) {
-    .topnav {
-        width: 98vw;
+/* for responsivity */
+@media screen and (max-width: 1550px) {
+    .expandable {
+        display: grid;
+        gap: 0px;
+    }
+}
+
+@media screen and (max-width: 1190px) {
+    .filter-dropdown {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .filter-dropdown {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .home-button{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 567px) {
+    .search-bar {
+        width: 40vw;
+    }
+
+    .filter_category {
+        display: grid;
+        gap: 0px;
+    }
+
+    .expandable2 {
+        display: grid;
+    }
+
+    .filter-dropdown {
+        width: 150px;
+    }
+
+    .uploaded {
+        display: grid;
+        gap: 0px;
+    }
+
+    .filter-radio {
+        margin-top: 0px;
+    }
+
+    .sorting {
+        display: grid;
+        gap: 0px;
+    }
+
+    .sort-radio {
+        margin-top: 0px;
+    }
+
+    .input-box {
+        width: 40vw;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .search-box {
+        padding-left: 4px;
+    }
+
+    .filter-dropdown {
+        width: 120px;
+        font-size: 9px;
     }
 }
