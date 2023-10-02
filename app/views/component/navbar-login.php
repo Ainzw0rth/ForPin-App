@@ -1,6 +1,8 @@
 <div class="topnav">
-    <div class="flex gap-10">
-        <div class="logo"></div>
+    <div class="flex align-center gap-15">
+        <button class="logo">
+            <img src="public/images/logo.png" class="app-logo">
+        </button>
         <p class="text-1">ForPin</p>
     </div>
     <div class="flex gap-10">

@@ -1,7 +1,7 @@
 <div class="flex justify-center align-center">
     <div>
         <div class="flex justify-center">
-            <div class="logo-2"></div>
+            <img src="public/images/logo.png" class="logo-2">
         </div>
         <div class="flex justify-center">
             <p class=title>Welcome to ForPin</p>
