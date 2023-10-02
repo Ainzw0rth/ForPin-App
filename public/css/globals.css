@@ -51,3 +51,80 @@ body {
 .justify-center {
     justify-content: center;
 }
+
+.blue-button {
+    width: 86px;
+    height: 46px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 170px;
+    background: #77D4F8;
+    color: #fff;
+    font-family: Arial;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+}
+
+.blue-button:hover {
+    background: #548B9F;
+}
+
+.normal-button {
+    display: flex;
+    width: 86px;
+    height: 46px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 170px;
+    background: #FFF;
+    color: #000;
+    font-family: Arial;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.normal-button:hover {
+    background: #C7C7C7;
+}
+
+.normal-button.active {
+    background-color: #77D4F8;
+    color: white;
+}
+
+.normal-button.active:hover {
+    background-color: #548B9F;
+    color: white;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.text-1-normal {
+    color: #FFF;
+    font-family: Arial;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.none {
+    display: none;
+}
