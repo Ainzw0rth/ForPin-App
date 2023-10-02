@@ -45,6 +45,10 @@ body {
     display: flex;
 }
 
+.gap-15 {
+    gap: 15px;
+}
+
 .align-center {
     align-items: center;
 }
