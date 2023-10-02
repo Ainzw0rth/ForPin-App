@@ -33,6 +33,10 @@ body {
     border-radius: 15px;
 }
 
+.media_canvas button:hover {
+    opacity: 0.8;
+}
+
 .media_canvas video {
     vertical-align: bottom;
     width: 100%;

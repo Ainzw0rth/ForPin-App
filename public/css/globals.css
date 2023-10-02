@@ -29,11 +29,16 @@ body {
 }
 
 .logo {
-    width: 49px;
-    height: 49px;
+    width: 52px;
+    height: 52px;
     flex-shrink: 0;
-    background-color: #77D4F8;
+    background-color: transparent;
     border-radius: 50%;
+    border: none;
+}
+
+.logo:hover {
+    opacity:0.5;
 }
 
 .flex {

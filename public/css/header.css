@@ -9,12 +9,39 @@
     justify-content: space-between;
 }
 
+.app-logo {
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
 .home-button {
-    margin: 1vw;
+    margin: 10px;
+    margin-left: 20px;
     background: transparent;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 15px;
+}
+
+.home-button:hover {
+    background-color: gray;
+}
+
+.post-button {
+    margin: 10px;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.post-button:hover {
+    background-color: gray;
 }
 
 .profile-button {
@@ -23,16 +50,13 @@
     cursor: pointer;
 }
 
-.topnav-padding {
-    padding: 10 10px 0 10px;
+.profile-button:hover {
+    opacity:0.8;
 }
 
-.home-button {
-    margin: 1vw;
-    background: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
+
+.topnav-padding {
+    padding: 10 10px 0 10px;
 }
 
 .profile-button {
@@ -183,7 +207,7 @@ h3 {
     }
 }
 
-@media screen and (max-width: 567px) {
+@media screen and (max-width: 650px) {
     .search-bar {
         width: 40vw;
     }
@@ -224,7 +248,7 @@ h3 {
     }
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 420px) {
     .search-box {
         padding-left: 4px;
     }
@@ -232,5 +256,9 @@ h3 {
     .filter-dropdown {
         width: 120px;
         font-size: 9px;
+    }
+
+    .post-button {
+        margin: 2px;
     }
 }

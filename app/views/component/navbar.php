@@ -1,7 +1,10 @@
 <div class="topnav">
     <div class="flex">
-        <div class="logo"></div>
+        <button class="logo">
+            <img src="public/images/logo.png" class="app-logo">
+        </button>
         <button class="home-button">Home</button>
+        <button class="post-button">Post</button>
     </div>
     <div class="temp" id="temp">
         <form action="" class="search-bar" id="search-input">
