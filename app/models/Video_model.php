@@ -1,20 +1,21 @@
 <?php
 
-class User_model {
-    private $table = 'users';
+class Video_model {
+    private $table = 'videos';
     private $db;
 
     public function __construct() {
         $this->db = new Database;
     }
 
+
     public function getAll() {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
 
-    public function getUserDesc($userId) {
-        $this->db->query('SELECT username, fullname, profile_path FROM users WHERE user_id = ' . $userId);
-        return $this->db->single();
+    public function getUserVideoPath($postId) {
+        $this->db->query('SELECT vid_path FROM videos WHERE post_id = ' . $postId);
+        return $this->db->resultSet();
     }
 }
