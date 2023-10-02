@@ -1,12 +1,14 @@
 <div class="topnav">
-    <div class="flex">
+    <div class="logo_section">
         <button class="logo">
             <img src="public/images/logo.png" class="app-logo">
         </button>
-        <button class="home-button">Home</button>
-        <button class="post-button">Post</button>
+        <div class="nav_buttons_container">
+            <button class="home-button">Home</button>
+            <button class="post-button">Post</button>
+        </div>
     </div>
-    <div class="temp" id="temp">
+    <div class="search_section" id="searchsection">
         <form action="" class="search-bar" id="search-input">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="search_symbol">
                     <circle cx="11" cy="11" r="7" stroke="#33363F" stroke-width="2"/>
@@ -62,16 +64,18 @@
             </div>
         </div>
     </div>
-    <div class="flex">
+    <div class="profile_section">
         <button class="profile-button">
             <img src="https://i.ibb.co/5rjj8n2/Cat-Medley-Cuteness-Galore-Funnies-Rescues-And-Appreciation.png" class="logo"></img>
         </button>
-        <svg xmlns="http://www.w3.org/2000/svg" width="39" height="38" viewBox="0 0 39 38" fill="none" class="dropdown_symbol">
-        </button>
-        <svg xmlns="http://www.w3.org/2000/svg" width="39" height="38" viewBox="0 0 39 38" fill="none" class="dropdown_symbol">
-            <path d="M29.25 14.1818L19.5 23.6364L9.75 14.1818" stroke="#5D6386" stroke-width="2.36364"/>
-        </svg>
+        <div class="settings-menu">
+            <button class="settings-dropdown">
+                <img src="public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol">
+            </button>
+            <div id="menus-from-dropdown" class="menusdropdown">
+                <a href="#settings">Settings</a>
+                <a href="#logout">Log out</a>
+            </div>
+        </div>
     </div>
-    
-    
 </div>

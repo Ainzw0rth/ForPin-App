@@ -18,6 +18,7 @@ body {
     grid-template-columns: repeat(auto-fill, var(--media_width));
     grid-auto-rows: var(--row_increment);
     justify-content: center;
+    z-index: 0;
 }
 
 .media_canvas button {
