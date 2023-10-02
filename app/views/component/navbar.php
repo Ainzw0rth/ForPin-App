@@ -67,11 +67,8 @@
             <img src="https://i.ibb.co/5rjj8n2/Cat-Medley-Cuteness-Galore-Funnies-Rescues-And-Appreciation.png" class="logo"></img>
         </button>
         <svg xmlns="http://www.w3.org/2000/svg" width="39" height="38" viewBox="0 0 39 38" fill="none" class="dropdown_symbol">
-        </button>
         <svg xmlns="http://www.w3.org/2000/svg" width="39" height="38" viewBox="0 0 39 38" fill="none" class="dropdown_symbol">
             <path d="M29.25 14.1818L19.5 23.6364L9.75 14.1818" stroke="#5D6386" stroke-width="2.36364"/>
         </svg>
-    </div>
-    
-    
+    </div> 
 </div>
