@@ -48,6 +48,39 @@ class Database {
 
     public function createTables() {
         $this->query(
+            "CREATE table IF NOT EXISTS post (
+                post_id SERIAL PRIMARY KEY NOT NULL,
+                caption VARCHAR(100),
+                description VARCHAR(500),
+                post_time DATE NOT NULL,
+                likes INT NOT NULL DEFAULT 0,
+                genre VARCHAR(50) 
+            );"
+        );
+        $this->execute();
+        $this->query(
+            "CREATE table IF NOT EXISTS video (
+                vid_id SERIAL PRIMARY KEY NOT NULL,
+                post_id INT NOT NULL REFERENCES post(post_id),
+                vid_path VARCHAR(100) NOT NULL
+            );"
+        );
+        $this->execute();
+        $this->query(
+            "CREATE table IF NOT EXISTS image (
+                img_id SERIAL PRIMARY KEY NOT NULL,
+                post_id INT NOT NULL REFERENCES post(post_id),
+                img_path VARCHAR(100) NOT NULL
+            );"
+        );
+        $this->execute();
+        $this->query(
+            "CREATE table IF NOT EXISTS user_post (
+                user_id INT REFERENCES user(user_id),
+                post_id INT REFERENCES post(post_id)
+            );"
+        );
+        $this->query(
             "CREATE table IF NOT EXISTS asal (
                 id SERIAL PRIMARY KEY NOT NULL,
                 nama varchar(50)
