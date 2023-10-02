@@ -1,11 +1,17 @@
 <div class="topnav">
-    <div class="flex">
-        <button class="logo">
-            <img src="public/images/logo.png" class="app-logo">
-        </button>
-        <button class="home-button">Home</button>
-        <button class="post-button">Post</button>
-    </div>
+    <div class="flex align-center">
+        <a>
+            <button class="logo">
+                <img src="public/images/logo.png" class="app-logo">
+            </button>
+        </a>
+        <a href="/home">
+            <button class="home-button">Home</button>
+        </a>
+        <a>
+            <button class="post-button">Post</button>
+        </a>
+        </div>
     <div class="temp" id="temp">
         <form action="" class="search-bar" id="search-input">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="search_symbol">
