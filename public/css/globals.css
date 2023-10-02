@@ -137,3 +137,7 @@ body {
 .none {
     display: none;
 }
+
+.pointer {
+    cursor: pointer;
+}

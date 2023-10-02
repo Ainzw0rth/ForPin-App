@@ -70,7 +70,7 @@ class Database {
                 username VARCHAR(50) NOT NULL,
                 password VARCHAR(50) NOT NULL, 
                 is_admin BOOLEAN NOT NULL,
-                profile_path VARCHAR(50) NOT NULL DEFAULT 'localhost8080:public/images/testing_images/1.jpeg'
+                profile_path VARCHAR(50) NOT NULL DEFAULT 'public/images/testing_images/1.jpeg'
             );"
         );
         $this->execute();
@@ -188,35 +188,35 @@ class Database {
         
         // Image 
         $this->query("INSERT INTO images (post_id, img_path) VALUES
-            (1, 'localhost8080:public/images/testing_images/1.jpeg'),
-            (2, 'localhost8080:public/images/testing_images/2.jpeg'),
-            (3, 'localhost8080:public/images/testing_images/3.jpeg'),
-            (4, 'localhost8080:public/images/testing_images/4.jpeg'),
-            (5, 'localhost8080:public/images/testing_images/5.jpeg'),
-            (6, 'localhost8080:public/images/testing_images/6.jpeg'),
-            (7, 'localhost8080:public/images/testing_images/7.jpeg'),
-            (8, 'localhost8080:public/images/testing_images/8.jpeg'),
-            (9, 'localhost8080:public/images/testing_images/9.jpeg'),
-            (10, 'localhost8080:public/images/testing_images/10.jpeg'),
-            (11, 'localhost8080:public/images/testing_images/11.jpeg'),
-            (12, 'localhost8080:public/images/testing_images/12.jpeg'),
-            (13, 'localhost8080:public/images/testing_images/13.jpeg'),
-            (14, 'localhost8080:public/images/testing_images/14.jpeg'),
-            (15, 'localhost8080:public/images/testing_images/15.jpeg'),
-            (16, 'localhost8080:public/images/testing_images/16.jpeg'),
-            (17, 'localhost8080:public/images/testing_images/17.jpeg'),
-            (18, 'localhost8080:public/images/testing_images/18.jpeg'),
-            (19, 'localhost8080:public/images/testing_images/19.jpeg'),
-            (20, 'localhost8080:public/images/testing_images/20.jpeg'),
-            (21, 'localhost8080:public/images/testing_images/21.jpeg'),
-            (22, 'localhost8080:public/images/testing_images/22.gif');"
+            (1, 'public/images/testing_images/1.jpeg'),
+            (2, 'public/images/testing_images/2.jpeg'),
+            (3, 'public/images/testing_images/3.jpeg'),
+            (4, 'public/images/testing_images/4.jpeg'),
+            (5, 'public/images/testing_images/5.jpeg'),
+            (6, 'public/images/testing_images/6.jpeg'),
+            (7, 'public/images/testing_images/7.jpeg'),
+            (8, 'public/images/testing_images/8.jpeg'),
+            (9, 'public/images/testing_images/9.jpeg'),
+            (10, 'public/images/testing_images/10.jpeg'),
+            (11, 'public/images/testing_images/11.jpeg'),
+            (12, 'public/images/testing_images/12.jpeg'),
+            (13, 'public/images/testing_images/13.jpeg'),
+            (14, 'public/images/testing_images/14.jpeg'),
+            (15, 'public/images/testing_images/15.jpeg'),
+            (16, 'public/images/testing_images/16.jpeg'),
+            (17, 'public/images/testing_images/17.jpeg'),
+            (18, 'public/images/testing_images/18.jpeg'),
+            (19, 'public/images/testing_images/19.jpeg'),
+            (20, 'public/images/testing_images/20.jpeg'),
+            (21, 'public/images/testing_images/21.jpeg'),
+            (22, 'public/images/testing_images/22.gif');"
         );
         $this->execute();
         
         // Video 
         $this->query("INSERT INTO videos (post_id, vid_path) VALUES
-            (23, 'localhost8080:public/images/testing_images/xavier.mp4'),
-            (24, 'localhost8080:public/images/testing_images/xavier.mp4');"
+            (23, 'public/images/testing_images/xavier.mp4'),
+            (24, 'public/images/testing_images/xavier.mp4');"
         );
         $this->execute();
     }
