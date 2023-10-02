@@ -2,6 +2,11 @@
 
 class Post extends Controller {
     public function index() {
-        $this->view('post/index');
+        // test
+        $currentPost = 1;
+        $userId = $this->model('User_post_model')->getUserId($currentPost);
+        $data['user'] = $this->model('User_model')->getUserDesc($userId['user_id']);
+        $data['post'] = $this->model('Post_model')->getPostElements($currentPost);
+        $this->view('post/index', $data);
     }
 }
