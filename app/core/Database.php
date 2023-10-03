@@ -164,31 +164,35 @@ class Database {
             (1, 3),
             (1, 4),
             (1, 5),
-            (2, 1),
-            (2, 2),
-            (2, 3),
-            (2, 4),
-            (2, 5),
-            (3, 1),
-            (3, 2),
-            (3, 3),
-            (3, 4),
-            (3, 5),
-            (4, 1),
-            (4, 2),
-            (4, 3),
-            (4, 4),
-            (4, 5),
-            (5, 1),
-            (5, 2),
-            (5, 3),
-            (5, 4);"
+            (2, 6),
+            (2, 7),
+            (2, 8),
+            (2, 9),
+            (2, 10),
+            (3, 11),
+            (3, 12),
+            (3, 13),
+            (3, 14),
+            (3, 15),
+            (4, 16),
+            (4, 17),
+            (4, 18),
+            (4, 19),
+            (4, 20),
+            (5, 21),
+            (5, 22),
+            (5, 23),
+            (5, 24);"
         );
         $this->execute();
         
         // Image 
         $this->query("INSERT INTO images (post_id, img_path) VALUES
             (1, 'http://localhost:8080/public/images/testing_images/1.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/2.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/3.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/4.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/5.jpeg'),
             (2, 'http://localhost:8080/public/images/testing_images/2.jpeg'),
             (3, 'http://localhost:8080/public/images/testing_images/3.jpeg'),
             (4, 'http://localhost:8080/public/images/testing_images/4.jpeg'),
@@ -215,6 +219,7 @@ class Database {
         
         // Video 
         $this->query("INSERT INTO videos (post_id, vid_path) VALUES
+            (1, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
             (23, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
             (24, 'http://localhost:8080/public/images/testing_images/xavier.mp4');"
         );

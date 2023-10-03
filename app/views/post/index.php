@@ -11,35 +11,42 @@
 </head>
 <body>
     <?php include('app/views/component/navbar.php'); ?>
-    <div class="center-container">
-        <div class=black-rectangle>
-            <div class="container">
-                <?php foreach ($data['img'] as $image) : ?>
+    <div class="card-container">
+
+        <div class="card-1">
+            <!-- <div class="card-post"> -->
+                <div class="card-cover">
+                    <?php $countPost = count($data['img']) + count($data['vid']) ?>
                     <?php $count = 1; ?>
-                    <div class="mySlides">
-                        <div class="numbertext"><?= $count; ?>/ <?= count($data['img']) ?></div>
-                        <img src="<?= $image['img_path']; ?>" style="width:50%">
+                    <?php foreach ($data['img'] as $image) : ?>
+                    <div class="card-image mySlides">
+                        <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                        <img src="<?= $image['img_path']; ?>" alt="carousel image <?php $count; ?>">
                     </div>
-                    <?php $count += 1; ?>
-                <?php endforeach; ?>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <div class="content-container">
-                <div class="flex padding-25 align-center gap-10">
+                    <?php $count = $count + 1; ?>
+                    <?php endforeach; ?>
+                    <?php foreach ($data['vid'] as $vid) : ?>
+                    <div class="card-image mySlides">
+                        <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                        <video src="<?= $vid['vid_path']; ?>" controls>
+                    </div>
+                    <?php $count = $count + 1; ?>
+                    <?php endforeach; ?>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            <!-- </div> -->
+
+            <div class = "card-text-1">
+                <div class="flex align-center gap-10">
                     <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
                     <div>
                         <p class=text-1><?= $data['user']['username'] ?></p>
                         <p class=text-2><?= $data['user']['fullname'] ?></p>
                     </div>
-                    <div class="save-button">
-                        <button class="blue-button none">Save</button>
-                    </div> 
                 </div>
-                <div class="padding-25">
-                    <p class=text-1><?= $data['post']['caption'] ?></p>
-                    <p class=text-2><?= $data['post']['description'] ?></p>
-                </div>
+                <p class=text-1><?= $data['post']['caption'] ?></p>
+                <p class=text-2><?= $data['post']['description'] ?></p>
                 <div class="svg-container">
                     <p class=text-1-normal id="likes_number"><?= $data['post']['likes'] ?></p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none" id="likes" class="pointer">
@@ -54,5 +61,6 @@
     </script>
     <script src="<?= BASE_URL; ?>/public/javascript/post/post.js"></script>
     <script src="<?= BASE_URL; ?>/public/javascript/post/carousel.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/navbar/navbar.js"></script>
 </body>
 </html>

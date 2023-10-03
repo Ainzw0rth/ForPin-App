@@ -4,7 +4,9 @@
             <img src="<?= BASE_URL; ?>/public/images/logo.png" class="app-logo">
         </button>
         <div class="nav_buttons_container">
-            <button class="home-button">Home</button>
+            <a href="<?= BASE_URL; ?>/home">
+                <button class="home-button">Home</button>
+            </a>
             <button class="post-button">Post</button>
         </div>
     </div>
