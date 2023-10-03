@@ -1,7 +1,7 @@
 <div class="topnav">
     <div class="logo_section">
         <button class="logo">
-            <img src="public/images/logo.png" class="app-logo">
+            <img src="<?= BASE_URL; ?>/public/images/logo.png" class="app-logo">
         </button>
         <div class="nav_buttons_container">
             <button class="home-button">Home</button>
@@ -70,7 +70,7 @@
         </button>
         <div class="settings-menu">
             <button class="settings-dropdown">
-                <img src="public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol">
+                <img src="<?= BASE_URL; ?>/public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol">
             </button>
             <div id="menus-from-dropdown" class="menusdropdown">
                 <a href="#settings">Settings</a>
