@@ -240,7 +240,7 @@ h3 {
     }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1008px) {
     .filter-dropdown {
         width: 200px;
     }

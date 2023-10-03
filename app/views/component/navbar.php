@@ -1,10 +1,10 @@
 <div class="topnav">
     <div class="logo_section">
-        <button class="logo">
+        <button class="logo" onClick="location.href='home'">
             <img src="public/images/logo.png" class="app-logo">
         </button>
         <div class="nav_buttons_container">
-            <button class="home-button">Home</button>
+            <button class="home-button" onClick="location.href='home'">Home</button>
             <button class="post-button">Post</button>
         </div>
     </div>

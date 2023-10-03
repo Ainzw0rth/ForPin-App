@@ -37,6 +37,7 @@ function addMedias() {
         if (mediaurl.endsWith('.jpeg') || mediaurl.endsWith('.jpg') || mediaurl.endsWith('.png') || mediaurl.endsWith('.gif')) {
             media = document.createElement('img');
             media.src = mediaurl;
+            media.alt = "image post";
             
             media.onload = () => {
                 const numRows = Math.ceil(media.height / parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--row_increment')));
@@ -46,6 +47,8 @@ function addMedias() {
             media = document.createElement('video');
             media.controls = true;
             media.src = mediaurl;
+            media.alt = "video post";
+
             media.onloadedmetadata = () => {
                 const numRows = Math.ceil(media.clientHeight / parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--row_increment')));
                 button.style.gridRowEnd = `span ${numRows+3}`;
