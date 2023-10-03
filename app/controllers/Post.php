@@ -26,7 +26,7 @@ class Post extends Controller {
             header('Content-Type: application/json'); 
             echo json_encode($this->model("Post_model")->getLikes($postId));
         } else {
-            echo "Invalid Request";
+            echo json_encode("Invalid Request");
         }
     }
 }
