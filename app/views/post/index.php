@@ -6,33 +6,47 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/globals.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/post.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/carousel.css">
     <title>ForPin | Post</title>
 </head>
 <body>
     <?php include('app/views/component/navbar.php'); ?>
-    <div class="center-container">
-        <div class=black-rectangle>
-            <!-- should use for each and carousel for multiple post -->
-                <!-- <?php foreach ($data['img'] as $image): ?>
-                    <img src="<?= $image['img_path'] ?>" alt="Image">
-                <?php endforeach; ?> -->
-                <img src="<?= $data['img'][0]['img_path'] ?>" class="image-container img-black-rectangle"></img>
-                <!-- load video too -->
-            <div class="content-container">
-                <div class="flex padding-25 align-center gap-10">
+    <div class="card-container">
+
+        <div class="card-1">
+            <!-- <div class="card-post"> -->
+                <div class="card-cover">
+                    <?php $countPost = count($data['img']) + count($data['vid']) ?>
+                    <?php $count = 1; ?>
+                    <?php foreach ($data['img'] as $image) : ?>
+                    <div class="card-image mySlides">
+                        <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                        <img src="<?= $image['img_path']; ?>" alt="carousel image <?php $count; ?>">
+                    </div>
+                    <?php $count = $count + 1; ?>
+                    <?php endforeach; ?>
+                    <?php foreach ($data['vid'] as $vid) : ?>
+                    <div class="card-image mySlides">
+                        <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                        <video src="<?= $vid['vid_path']; ?>" controls>
+                    </div>
+                    <?php $count = $count + 1; ?>
+                    <?php endforeach; ?>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            <!-- </div> -->
+
+            <div class = "card-text-1">
+                <div class="flex align-center gap-10">
                     <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
                     <div>
                         <p class=text-1><?= $data['user']['username'] ?></p>
                         <p class=text-2><?= $data['user']['fullname'] ?></p>
                     </div>
-                    <div class="save-button">
-                        <button class="blue-button none">Save</button>
-                    </div> 
                 </div>
-                <div class="padding-25">
-                    <p class=text-1><?= $data['post']['caption'] ?></p>
-                    <p class=text-2><?= $data['post']['description'] ?></p>
-                </div>
+                <p class=text-1><?= $data['post']['caption'] ?></p>
+                <p class=text-2><?= $data['post']['description'] ?></p>
                 <div class="svg-container">
                     <p class=text-1-normal id="likes_number"><?= $data['post']['likes'] ?></p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none" id="likes" class="pointer">
@@ -46,5 +60,7 @@
         var postId = <?= $data['current'] ?>;
     </script>
     <script src="<?= BASE_URL; ?>/public/javascript/post/post.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/post/carousel.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/navbar/navbar.js"></script>
 </body>
 </html>
