@@ -15,7 +15,7 @@ class Video_model {
     }
 
     public function getUserVideoPath($postId) {
-        $this->db->query('SELECT vid_path FROM videos WHERE post_id = ' . $postId);
+        $this->db->query('SELECT DISTINCT vid_path FROM videos WHERE post_id = ' . $postId);
         return $this->db->resultSet();
     }
 }

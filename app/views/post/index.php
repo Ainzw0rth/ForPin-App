@@ -6,18 +6,25 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/globals.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/post.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/carousel.css">
     <title>ForPin | Post</title>
 </head>
 <body>
     <?php include('app/views/component/navbar.php'); ?>
     <div class="center-container">
         <div class=black-rectangle>
-            <!-- should use for each and carousel for multiple post -->
-                <!-- <?php foreach ($data['img'] as $image): ?>
-                    <img src="<?= $image['img_path'] ?>" alt="Image">
-                <?php endforeach; ?> -->
-                <img src="<?= $data['img'][0]['img_path'] ?>" class="image-container img-black-rectangle"></img>
-                <!-- load video too -->
+            <div class="container">
+                <?php foreach ($data['img'] as $image) : ?>
+                    <?php $count = 1; ?>
+                    <div class="mySlides">
+                        <div class="numbertext"><?= $count; ?>/ <?= count($data['img']) ?></div>
+                        <img src="<?= $image['img_path']; ?>" style="width:50%">
+                    </div>
+                    <?php $count += 1; ?>
+                <?php endforeach; ?>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
             <div class="content-container">
                 <div class="flex padding-25 align-center gap-10">
                     <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
@@ -46,5 +53,6 @@
         var postId = <?= $data['current'] ?>;
     </script>
     <script src="<?= BASE_URL; ?>/public/javascript/post/post.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/post/carousel.js"></script>
 </body>
 </html>

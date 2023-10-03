@@ -11,6 +11,9 @@ class Post extends Controller {
         $data['vid'] = $this->model('Video_model')->getUserVideoPath($currentPost);
         $this->view('post/index', $data);
     }    
+    public function carousel() {
+        $this->view('post/carousel');
+    }    
 
     public function addLikes() {
         if (isset($_POST['action']) && isset($_POST['postId'])) {
