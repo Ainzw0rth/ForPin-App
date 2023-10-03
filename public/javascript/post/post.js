@@ -14,24 +14,18 @@ heartIcon.addEventListener("click", function () {
             if (action === "add") {
                 heart.classList.add("blue-heart");
                 heart.setAttribute("stroke", "transparent");
-                console.log(this.responseText);
                 const response = JSON.parse(this.responseText);
                 const likes = response.likes;
-                console.log(likes);
                 document.getElementById("likes_number").textContent = likes;
             } else {
                 heart.setAttribute("stroke", "white");
                 heart.classList.remove("blue-heart");
-                console.log(this.responseText);
                 const response = JSON.parse(this.responseText);
                 const likes = response.likes;
-                console.log(likes);
                 document.getElementById("likes_number").textContent = likes;
             }
         }
     }
-    console.log(action)
-    console.log(postId);
     const formData = new FormData();
     formData.append("action", action);
     formData.append("postId", postId);
