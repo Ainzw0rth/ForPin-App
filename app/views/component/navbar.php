@@ -7,8 +7,10 @@
             <a href="<?= BASE_URL; ?>/home">
                 <button class="home-button">Home</button>
             </a>
-            <button class="post-button">Post</button>
-        </div>
+            <a href="<?= BASE_URL; ?>/create">
+                <button class="post-button">Post</button>
+            </a>
+            </div>
     </div>
     <div class="search_section" id="searchsection">
         <form action="" class="search-bar" id="search-input">
