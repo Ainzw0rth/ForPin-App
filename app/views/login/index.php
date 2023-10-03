@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/css/globals.css">
-    <link rel="stylesheet" type="text/css" href="public/css/header.css">
-    <link rel="stylesheet" type="text/css" href="public/css/homepage.css">
-    <link rel="stylesheet" type="text/css" href="public/css/login.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/globals.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/homepage.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/login.css">
     <title>ForPin | Login</title>
 </head>
 <body>

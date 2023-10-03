@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/css/globals.css">
-    <link rel="stylesheet" type="text/css" href="public/css/post.css">
-    <link rel="stylesheet" type="text/css" href="public/css/header.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/globals.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/post.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
     <title>ForPin | Post</title>
 </head>
 <body>
@@ -13,6 +13,9 @@
     <div class="center-container">
         <div class=black-rectangle>
             <!-- should use for each and carousel for multiple post -->
+                <!-- <?php foreach ($data['img'] as $image): ?>
+                    <img src="<?= $image['img_path'] ?>" alt="Image">
+                <?php endforeach; ?> -->
                 <img src="<?= $data['img'][0]['img_path'] ?>" class="image-container img-black-rectangle"></img>
                 <!-- load video too -->
             <div class="content-container">
@@ -39,6 +42,9 @@
             </div>
         </div>
     </div>
-    <script src="public/javascript/post/post.js"></script>
+    <script>
+        var postId = <?= $data['current'] ?>;
+    </script>
+    <script src="<?= BASE_URL; ?>/public/javascript/post/post.js"></script>
 </body>
 </html>
