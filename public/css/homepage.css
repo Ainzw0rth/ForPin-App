@@ -44,3 +44,17 @@ body {
     border-radius: 15px;
 }
 
+.media_container {
+    position: relative;
+    display: inline-block;
+}
+
+.media_counter {
+    position: absolute;
+    color: white;
+    background-color: #1f1f1f;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+}

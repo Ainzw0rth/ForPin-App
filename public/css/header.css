@@ -8,6 +8,10 @@
     grid-area: search;
 }
 
+.submit_button {
+    display: none;
+}
+
 .profile_section {
     grid-area: profile;
     display: inline-grid;

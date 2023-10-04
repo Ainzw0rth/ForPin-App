@@ -1,10 +1,10 @@
-<div class="topnav">
+<div class="topnav" id="top-nav">
     <div class="logo_section">
-        <button class="logo" onClick="location.href='home'">
-            <img src="public/images/logo.png" class="app-logo">
+        <button class="logo" onClick="location.href='<?= BASE_URL; ?>/home/?q=search&rs=typed'">
+            <img src="<?= BASE_URL; ?>/public/images/logo.png" class="app-logo">
         </button>
         <div class="nav_buttons_container">
-            <button class="home-button" onClick="location.href='home'">Home</button>
+            <button class="home-button" onClick="location.href='<?= BASE_URL; ?>/home/?q=search&rs=typed'">Home</button>
             <button class="post-button">Post</button>
         </div>
     </div>
@@ -14,7 +14,7 @@
                     <circle cx="11" cy="11" r="7" stroke="#33363F" stroke-width="2"/>
                     <path d="M20 20L17 17" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-                <input type="text" placeholder="Search.." id="searchbox" class="search-box">
+                <input type="text" placeholder="Search.." id="searchbox" class="search-box" onClick="location.href='<?= BASE_URL; ?>/home/?search=pela%filter=pela%sort=pela/'">
         </form>
         <div class="input-box" id="inputbox">
             <div class="filter-sort">
@@ -70,7 +70,7 @@
         </button>
         <div class="settings-menu">
             <button class="settings-dropdown">
-                <img src="public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol">
+                <img src="<?= BASE_URL; ?>/public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol">
             </button>
             <div id="menus-from-dropdown" class="menusdropdown">
                 <a href="#settings">Settings</a>

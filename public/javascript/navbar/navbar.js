@@ -1,22 +1,18 @@
 function expandOptions() {
     document.getElementById("inputbox").style.display = "block";
-    document.getElementById("media_canvas").style.opacity = "0.2";
 }
 
 function closeOptions() {
     document.getElementById("inputbox").style.display = "none";
-    document.getElementById("media_canvas").style.opacity = "1";
 }
 
 // for settings in the navbar
 function showDropdown() {
     document.getElementById("menus-from-dropdown").style.display = "block";
-    document.getElementById("media_canvas").style.opacity = "0.2";
 }
 
 function closeDropdown() {
     document.getElementById("menus-from-dropdown").style.display = "none";
-    document.getElementById("media_canvas").style.opacity = "1";
 }
 
 
@@ -41,3 +37,10 @@ document.addEventListener("click", function(event) {
         }
     }
 })
+
+
+function direct_after_enter(event) {
+    if (event.key === "Enter") {
+        document.getElementById("submit_button").click();
+    }
+  }
