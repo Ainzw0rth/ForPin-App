@@ -47,7 +47,7 @@ class Post_model {
                 if (substr($list[2], 2) == "1") {
                     $where_query .= " post_time = CURRENT_DATE";
                 } else {
-                    $where_query .= " post_time >= CURRENT_DATE - INTERVAL " . substr($list[2], 2) . " days AND post_time <= CURRENT_DATE";
+                    $where_query .= " post_time >= CURRENT_DATE - INTERVAL '" . substr($list[2], 2) . "' day AND post_time <= CURRENT_DATE";
                 }
             }
 

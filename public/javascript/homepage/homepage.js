@@ -8,7 +8,7 @@ function addMedias() {
     medias.forEach((post) => {
         const button = document.createElement('button');
         button.onclick = function() {
-            window.location.href = 'post/' + post['post_id'] + '/';
+            window.location.href = 'http://localhost:8080/post/' + post['post_id'] + '/';
         }
 
         const urls = post['media_paths'].split("@");
