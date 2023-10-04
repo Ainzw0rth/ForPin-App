@@ -1,12 +1,10 @@
-<div class="topnav">
+<div class="topnav" id="top-nav">
     <div class="logo_section">
-        <button class="logo">
+        <button class="logo" onClick="location.href='<?= BASE_URL; ?>/home'">
             <img src="<?= BASE_URL; ?>/public/images/logo.png" class="app-logo">
         </button>
         <div class="nav_buttons_container">
-            <a href="<?= BASE_URL; ?>/home">
-                <button class="home-button">Home</button>
-            </a>
+            <button class="home-button" onClick="location.href='<?= BASE_URL; ?>/home'">Home</button>
             <button class="post-button">Post</button>
         </div>
     </div>
@@ -16,7 +14,7 @@
                     <circle cx="11" cy="11" r="7" stroke="#33363F" stroke-width="2"/>
                     <path d="M20 20L17 17" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-                <input type="text" placeholder="Search.." id="searchbox" class="search-box">
+                <input type="text" placeholder="Search.." id="searchbox" class="search-box">        
         </form>
         <div class="input-box" id="inputbox">
             <div class="filter-sort">
@@ -27,8 +25,6 @@
                         <div>
                             <select name="category" id="category" class="filter-dropdown">
                                 <option value="0">- choose category -</option>
-                                <option value="cats">Cats</option>
-                                <option value="dogs">Dogs</option>
                             </select>
                         </div>
                     </div>
@@ -55,13 +51,17 @@
                         <div class="sort-radio"> 
                             <input type="radio" name="sort-value" value="0" checked>Don't sort
                             <br>
-                            <input type="radio" name="sort-value" value="1">Upload Date
+                            <input type="radio" name="sort-value" value="1">Upload Date (Ascending)
                             <br>
-                            <input type="radio" name="sort-value" value="3">Likes
+                            <input type="radio" name="sort-value" value="2">Upload Date (Descending)
+                            <br>
+                            <input type="radio" name="sort-value" value="3">Likes (Ascending)
+                            <br>
+                            <input type="radio" name="sort-value" value="4">Likes (Descending)
                         </div>
                     </div>
 
-                    <button class="search_button">Search</button>
+                    <button class="search_button" id="search_button">Search</button>
                 </div>
             </div>
         </div>
