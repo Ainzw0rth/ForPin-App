@@ -13,11 +13,7 @@
     <div id="post-data" data-postdata="<?php echo htmlspecialchars(json_encode($data)); ?>"></div>
     <div class="media_canvas" id="media_canvas"></div>
     
-    <script>
-        var temp = <?= $data['search'] ?>;
-        console.log(temp);
-    </script>
-    <script src="public/javascript/homepage/homepage.js"></script>
-    <script src="public/javascript/navbar/navbar.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/homepage/homepage.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/navbar/navbar.js"></script>
 </body>
 </html>

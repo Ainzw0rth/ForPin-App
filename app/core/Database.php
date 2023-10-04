@@ -189,6 +189,10 @@ class Database {
         // Image 
         $this->query("INSERT INTO images (post_id, img_path) VALUES
             (1, 'http://localhost:8080/public/images/testing_images/1.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/2.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/3.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/4.jpeg'),
+            (1, 'http://localhost:8080/public/images/testing_images/5.jpeg'),
             (2, 'http://localhost:8080/public/images/testing_images/2.jpeg'),
             (3, 'http://localhost:8080/public/images/testing_images/3.jpeg'),
             (4, 'http://localhost:8080/public/images/testing_images/4.jpeg'),
@@ -215,6 +219,7 @@ class Database {
         
         // Video 
         $this->query("INSERT INTO videos (post_id, vid_path) VALUES
+            (1, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
             (23, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
             (24, 'http://localhost:8080/public/images/testing_images/xavier.mp4');"
         );

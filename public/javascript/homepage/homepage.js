@@ -1,6 +1,5 @@
 var tempMedias = document.getElementById("post-data");
 var medias = JSON.parse(tempMedias.getAttribute("data-postdata"))['posts'];
-console.log(medias);
 
 // for adding each medias to the homepage
 function addMedias() {
@@ -55,5 +54,6 @@ function addMedias() {
         canvas.appendChild(button);
     })
 }
+
 
 addMedias();

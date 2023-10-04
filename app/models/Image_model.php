@@ -15,7 +15,7 @@ class Image_model {
     }
 
     public function getUserImagePath($postId) {
-        $this->db->query('SELECT img_path FROM images WHERE post_id = ' . $postId);
+        $this->db->query('SELECT DISTINCT img_path FROM images WHERE post_id = ' . $postId);
         return $this->db->resultSet();
     }
 }
