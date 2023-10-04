@@ -18,4 +18,11 @@ class Video_model {
         $this->db->query('SELECT DISTINCT vid_path FROM videos WHERE post_id = ' . $postId);
         return $this->db->resultSet();
     }
+
+    public function addVideo() {
+        $postId = $_POST['post_id'];
+        $vidPath = $_POST['vid_path'];
+        $this->db->query('INSERT INTO videos (post_id, img_path) VALUES (' . $postId . ',' . $vidPath . ')');
+        $this->db->execute();
+    }
 }

@@ -6,4 +6,5 @@ class Home extends Controller {
         $data['user'] = $this->model('User_model')->getAll();
         $this->view('home/index', $data);
     }
+    
 }

@@ -23,4 +23,10 @@ class User_post_model {
         $this->db->query('SELECT user_id FROM user_post WHERE post_id = ' . $currentPost);
         return $this->db->single();
     }
+
+    public function addUserPost() {
+        $userId = $_POST['user_id'];
+        $postId = $_POST['post_id'];
+        $this->db->query('INSERT INTO user_post (user_id, post_id) VALUES (' . $userId . ', ' . $postId . ')');
+    }
 }

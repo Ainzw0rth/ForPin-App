@@ -34,4 +34,13 @@ class Post_model {
         $this->db->query('SELECT likes FROM post WHERE post_id = ' . $postId);
         return $this->db->single();
     }
+
+    public function addPost() {
+        $caption = $_POST['caption'];
+        $description = $_POST['description'];
+        $postTime = $_POST['post_time'];
+        $genre = $_POST['genre'];
+        $this->db->query('INSERT INTO post (caption, description, post_time, genre) VALUES (' . $caption . ',' . $description . ',' . $postTime . ',' . $genre . ')');
+        $this->db->execute();        
+    }
 }

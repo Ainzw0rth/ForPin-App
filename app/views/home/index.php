@@ -10,8 +10,8 @@
 </head>
 <body>
     <?php include('app/views/component/navbar.php'); ?>
-    <div class="media_canvas" id="media_canvas"></div>
-        
+    <div class="media_canvas" id="media_canvas"></div>  
+    
     <script src="public/javascript/homepage/homepage.js"></script>
     <script src="public/javascript/navbar/navbar.js"></script>
 </body>

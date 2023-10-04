@@ -130,7 +130,7 @@ class Database {
         
         // Post
         $this->query("INSERT INTO post (caption, description, post_time, likes, genre) VALUES
-            ('Post 1 Caption', 'Description for Post 1', '2023-10-01', 10, 'happy'),
+            ('Post 1 Caption', 'Description for Post 1', '2023-10-01', 10, 'happy, horror, meme'),
             ('Post 2 Caption', 'Description for Post 2', '2023-10-02', 15, 'horror'),
             ('Post 3 Caption', 'Description for Post 3', '2023-10-03', 5, 'happy'),
             ('Post 4 Caption', 'Description for Post 4', '2023-10-04', 20, 'meme'),
