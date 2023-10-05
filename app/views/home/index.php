@@ -10,9 +10,10 @@
 </head>
 <body>
     <?php include('app/views/component/navbar.php'); ?>
-    <div class="media_canvas" id="media_canvas"></div>  
+    <div id="post-data" data-postdata="<?php echo htmlspecialchars(json_encode($data)); ?>"></div>
+    <div class="media_canvas" id="media_canvas"></div>
     
-    <script src="public/javascript/homepage/homepage.js"></script>
-    <script src="public/javascript/navbar/navbar.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/homepage/homepage.js"></script>
+    <script src="<?= BASE_URL; ?>/public/javascript/navbar/navbar.js"></script>
 </body>
 </html>

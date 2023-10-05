@@ -2,6 +2,10 @@ body {
     background-color: black;
 }
 
+img {
+    color:#fff
+}
+
 .text-1 {
     color: #FFF;
     font-family: Arial;
