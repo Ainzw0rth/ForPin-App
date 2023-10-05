@@ -5,6 +5,7 @@ class Home extends Controller {
     public function index($search = "' '") {
         try {
             $data['search'] = $search;
+            $data['amount'] = $this->model('Post_model')->getAmount($search);
             $data['category'] = $this->model('Post_model')->getAllCategories();
             $data['posts'] = $this->model('Post_model')->getAll($search);
 
