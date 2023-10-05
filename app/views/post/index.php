@@ -25,28 +25,26 @@
         <div class="card-container">
 
             <div class="card-1">
-                <!-- <div class="card-post"> -->
-                    <div class="card-cover">
-                        <?php $countPost = count($data['img']) + count($data['vid']) ?>
-                        <?php $count = 1; ?>
-                        <?php foreach ($data['img'] as $image) : ?>
-                        <div class="card-image mySlides">
-                            <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
-                            <img src="<?= $image['img_path']; ?>" alt="carousel image <?php $count; ?>">
-                        </div>
-                        <?php $count = $count + 1; ?>
-                        <?php endforeach; ?>
-                        <?php foreach ($data['vid'] as $vid) : ?>
-                        <div class="card-image mySlides">
-                            <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
-                            <video src="<?= $vid['vid_path']; ?>" controls>
-                        </div>
-                        <?php $count = $count + 1; ?>
-                        <?php endforeach; ?>
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div class="card-cover">
+                    <?php $countPost = count($data['img']) + count($data['vid']) ?>
+                    <?php $count = 1; ?>
+                    <?php foreach ($data['img'] as $image) : ?>
+                    <div class="card-image mySlides">
+                        <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                        <img src="<?= $image['img_path']; ?>" alt="carousel image <?php $count; ?>">
                     </div>
-                <!-- </div> -->
+                    <?php $count = $count + 1; ?>
+                    <?php endforeach; ?>
+                    <?php foreach ($data['vid'] as $vid) : ?>
+                    <div class="card-image mySlides">
+                        <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                        <video src="<?= $vid['vid_path']; ?>" controls>
+                    </div>
+                    <?php $count = $count + 1; ?>
+                    <?php endforeach; ?>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
 
                 <div class = "card-text-1">
                     <div class="flex align-center gap-10">
@@ -57,7 +55,7 @@
                         </div>
                     </div>
                     <p class=text-1><?= $data['post']['caption'] ?></p>
-                    <p class=text-2><?= $data['post']['description'] ?></p>
+                    <p class=text-2><?= $data['post']['descriptions'] ?></p>
                     <div class="genres">
                     <?php $genreArray = explode(', ', $data['post']['genre']);
                         foreach ($genreArray as $genre) :?>

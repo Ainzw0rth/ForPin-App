@@ -53,7 +53,7 @@ class Database {
             "CREATE table IF NOT EXISTS post (
                 post_id SERIAL PRIMARY KEY NOT NULL,
                 caption VARCHAR(100),
-                description VARCHAR(500),
+                descriptions VARCHAR(500),
                 post_time DATE NOT NULL,
                 likes INT NOT NULL DEFAULT 0,
                 genre VARCHAR(50) 
@@ -103,20 +103,6 @@ class Database {
             );"
         );
         $this->execute();
-
-        $this->query(
-            "CREATE table IF NOT EXISTS asal (
-                id SERIAL PRIMARY KEY NOT NULL,
-                nama varchar(50)
-            );"
-        );
-        $this->execute();
-
-        // Inserting values to tables
-        $this->query(
-            "INSERT INTO asal (nama) VALUES ('brigita');"
-        );
-        $this->execute();
         
         // User
         $this->query("INSERT INTO users (email, fullname, username, password, is_admin) VALUES
@@ -129,7 +115,7 @@ class Database {
         $this->execute();
         
         // Post
-        $this->query("INSERT INTO post (caption, description, post_time, likes, genre) VALUES
+        $this->query("INSERT INTO post (caption, descriptions, post_time, likes, genre) VALUES
             ('Post 1 Caption', 'Description for Post 1', '2023-10-01', 10, 'happy, horror, meme'),
             ('Post 2 Caption', 'Description for Post 2', '2023-10-02', 15, 'horror'),
             ('Post 3 Caption', 'Description for Post 3', '2023-10-03', 5, 'happy'),

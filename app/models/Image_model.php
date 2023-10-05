@@ -19,10 +19,10 @@ class Image_model {
         return $this->db->resultSet();
     }
 
-    public function addImage() {
-        $postId = $_POST['post_id'];
-        $imgPath = $_POST['img_path'];
-        $this->db->query('INSERT INTO images (post_id, img_path) VALUES (' . $postId . ',' . $imgPath . ')');
+    public function addImage($postId, $imgPath) {
+        $this->db->query('INSERT INTO images (post_id, img_path) VALUES (:post_id, :img_path)');
+        $this->db->bind('post_id', $postId);
+        $this->db->bind('img_path', $imgPath);
         $this->db->execute();
     }
 }

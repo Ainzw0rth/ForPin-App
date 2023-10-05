@@ -24,9 +24,10 @@ class User_post_model {
         return $this->db->single();
     }
 
-    public function addUserPost() {
-        $userId = $_POST['user_id'];
-        $postId = $_POST['post_id'];
-        $this->db->query('INSERT INTO user_post (user_id, post_id) VALUES (' . $userId . ', ' . $postId . ')');
+    public function addUserPost($userId, $postId) {
+        $this->db->query('INSERT INTO user_post (user_id, post_id) VALUES (:user_id, :post_id)');
+        $this->db->bind('user_id', $userId);
+        $this->db->bind('post_id', $postId);
+        $this->db->execute();
     }
 }

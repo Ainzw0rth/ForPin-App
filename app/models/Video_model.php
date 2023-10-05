@@ -19,10 +19,10 @@ class Video_model {
         return $this->db->resultSet();
     }
 
-    public function addVideo() {
-        $postId = $_POST['post_id'];
-        $vidPath = $_POST['vid_path'];
-        $this->db->query('INSERT INTO videos (post_id, img_path) VALUES (' . $postId . ',' . $vidPath . ')');
+    public function addVideo($postId, $vidPath) {
+        $this->db->query('INSERT INTO videos (post_id, img_path) VALUES (:post_id, :vid_path)');
+        $this->db->bind('post_id', $postId);
+        $this->db->bind('vid_path', $vidPath);
         $this->db->execute();
     }
 }
