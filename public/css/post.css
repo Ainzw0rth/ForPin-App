@@ -69,4 +69,62 @@
 .card-text-1 {
     width: 50%;
     padding: 25px;
+    position: relative;
+}
+
+.go-back {
+    background: transparent;
+    fill: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+}
+
+.button-arrow {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-circle {
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    fill: black;
+    background: black;
+    position: relative;
+    border-radius: 50%;
+}
+
+.button-circle:hover {
+    background: #525252;
+}
+
+.post-time {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 25px;
+}
+
+.tags {
+    color: #B7D7DF;
+    cursor: pointer;
+}
+
+.tags:hover {
+    text-decoration: underline;
+}
+
+.content-section {
+    margin-top: 3%;
+}
+
+.genres {
+    display: flex;
+    gap: 10px;
 }

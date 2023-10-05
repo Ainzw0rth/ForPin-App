@@ -66,14 +66,15 @@ img {
 }
 
 .blue-button {
-    width: 86px;
-    height: 46px;
-    padding: 10px;
+    display: flex;
+    width: 75px;
+    height: 40.116px;
+    padding: 8.721px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap:  8.721px;;
     flex-shrink: 0;
-    border-radius: 170px;
+    border-radius: 75px;
     background: #77D4F8;
     color: #fff;
     font-family: Arial;

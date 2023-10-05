@@ -5,7 +5,7 @@
         </button>
         <div class="nav_buttons_container">
             <button class="home-button" onClick="location.href='<?= BASE_URL; ?>/home'">Home</button>
-            <button class="post-button">Post</button>
+            <button class="post-button" onClick="location.href='<?= BASE_URL; ?>/create'">Post</button>
         </div>
     </div>
     <div class="search_section" id="searchsection">
