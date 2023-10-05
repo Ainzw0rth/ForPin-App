@@ -14,6 +14,13 @@
 
     <?php include('app/views/component/login.php'); ?>
 
+    <script>
+        const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
+        const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
+    </script>
+    <p class="text-1">Session Token</p>
+    <p class="text-1"><?= $_SESSION['csrf_token']; ?></p>
+    <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>
     <script src="<?= BASE_URL ?>/public/javascript/login/login.js"></script>
 </div>
 </body>

@@ -8,9 +8,7 @@ class User extends Controller {
                 case 'GET':
                     $this->middleware('Token')->generateToken();
                     $this->view('user/index');
-                    error_log($_SESSION['csrf_token']);
                     exit;
-                    break;
                 default:
                     throw new LoggedExceptions('Method Not Allowed', 405);     
             }
@@ -20,7 +18,26 @@ class User extends Controller {
     }
 
     public function login() {
-        $this->view('user/login');
+        try {
+            switch($_SERVER['REQUEST_METHOD']) {
+                case 'GET':
+                    $this->view('user/login');
+                    exit;
+                case 'POST':
+                    // $this->middleware('Token')->checkToken($_POST['csrf_token']);
+                    // $userId = $this->model('User_model')->login($_POST['username'], $_POST['password']);
+                    $_SESSION['user_id'] = 1;
+                    
+                    header('Content-Type: application/json');
+                    http_response_code(201);
+                    echo json_encode(["redirect_url" => BASE_URL . '/home']);
+                    exit;
+                default:
+                    throw new LoggedExceptions('Method Not Allowed', 405);
+            }
+        } catch (Exception $e) {
+            http_response_code($e->getCode());
+        }
     }
 
     public function signup() {
@@ -40,6 +57,7 @@ class User extends Controller {
             }
         } catch (Exception $e) {
             http_response_code($e->getCode());
+            exit;
         }
     }
 
@@ -55,8 +73,6 @@ class User extends Controller {
                     } 
                     http_response_code(200);
                     exit;
-
-                    break;
             }
         } catch (Exception $e) {
             http_response_code($e->getCode());

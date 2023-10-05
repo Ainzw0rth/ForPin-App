@@ -3,7 +3,7 @@
         <button class="logo">
             <img src="<?= BASE_URL ?>/public/images/logo.png" class="app-logo">
         </button>
-        <p class="text-1">ForPin</p>
+        <p class="text-1 forpin">ForPin</p>
     </div>
     <div class="flex gap-10">
         <button class="normal-button" id="login-button" onClick="location.href='<?= BASE_URL; ?>/user/login'">

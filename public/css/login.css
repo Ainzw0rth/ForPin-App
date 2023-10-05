@@ -77,3 +77,24 @@
     flex-direction: column;
     gap: 25px;
 }
+
+.login-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5%;
+}
+
+.forpin {
+    color: #77D4F8;
+}
+
+.warn-show {
+    display: block;
+    color: red;
+    font-size: 10px;
+}
+
+.warn-hide {
+    display: none;
+}

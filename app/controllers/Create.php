@@ -3,63 +3,68 @@
 
 class Create extends Controller {
     public function index() {
-        $data['status'] = "Choose files here";
-        $data['success'] = "";
-        if ( isset($_POST['submit']) ) {
-            $data['status'] = "Already uploaded files";
-            $uploadDir =  '/var/www/html/public/images/testing_images/';
-            $allowedTypes = array('jpg', 'png', 'jpeg', 'gif', 'mp4');
-    
-            $maxSize = 10 * 1024 * 1024;
-            
-            if ( !empty(array_filter($_FILES['files']['name'])) ) {
-                $data['status'] = "";
-                $data['filename'] = "";
-                foreach ($_FILES['files']['tmp_name'] as $key => $value) {
-                    $fileTmpname = $_FILES['files']['tmp_name'][$key];
-                    $fileName = $_FILES['files']['name'][$key];
-                    $fileSize = $_FILES['files']['size'][$key];
-                    $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
-    
-                    $filePath = $uploadDir.$fileName;
-    
-                    if ( in_array(strtolower($fileExt), $allowedTypes) ) {
-                        if ($fileSize > $maxSize) {
-                            $data['status'] = "Error: File size is larger than the allowed limit.";
-                            $data["success"] = "";
-                        }
-                        if ( file_exists($filePath) ) {
-                            $fileName = time().$fileName;
-                            $filePath = $uploadDir.$fileName;
-                            if ( move_uploaded_file($fileTmpname, $filePath) ) {
-                                $data['status'] .= "{$fileName} sucessfully uploaded"; 
-                                $data['success'] = "success";
-                                $data['filename'] .= "{$fileName},"; 
-                            } else {
-                                $data['status'] = "Error uploading {$fileName}";
+        if ( isset($_SESSION['user_id']) ) {
+            $data['status'] = "Choose files here";
+            $data['success'] = "";
+            if ( isset($_POST['submit']) ) {
+                $data['status'] = "Already uploaded files";
+                $uploadDir =  '/var/www/html/public/images/testing_images/';
+                $allowedTypes = array('jpg', 'png', 'jpeg', 'gif', 'mp4');
+        
+                $maxSize = 10 * 1024 * 1024;
+                
+                if ( !empty(array_filter($_FILES['files']['name'])) ) {
+                    $data['status'] = "";
+                    $data['filename'] = "";
+                    foreach ($_FILES['files']['tmp_name'] as $key => $value) {
+                        $fileTmpname = $_FILES['files']['tmp_name'][$key];
+                        $fileName = $_FILES['files']['name'][$key];
+                        $fileSize = $_FILES['files']['size'][$key];
+                        $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
+        
+                        $filePath = $uploadDir.$fileName;
+        
+                        if ( in_array(strtolower($fileExt), $allowedTypes) ) {
+                            if ($fileSize > $maxSize) {
+                                $data['status'] = "Error: File size is larger than the allowed limit.";
                                 $data["success"] = "";
+                            }
+                            if ( file_exists($filePath) ) {
+                                $fileName = time().$fileName;
+                                $filePath = $uploadDir.$fileName;
+                                if ( move_uploaded_file($fileTmpname, $filePath) ) {
+                                    $data['status'] .= "{$fileName} sucessfully uploaded"; 
+                                    $data['success'] = "success";
+                                    $data['filename'] .= "{$fileName},"; 
+                                } else {
+                                    $data['status'] = "Error uploading {$fileName}";
+                                    $data["success"] = "";
+                                }
+                            } else {
+                                if ( move_uploaded_file($fileTmpname, $filePath) ) {
+                                    $data['status'] .= "{$fileName} sucessfully uploaded"; 
+                                    $data['success'] = "success";
+                                    $data['filename'] .= "{$fileName},"; 
+                                } else {
+                                    $data['status'] = "Error uploading {$fileName}";
+                                    $data["success"] = "";
+                                }
                             }
                         } else {
-                            if ( move_uploaded_file($fileTmpname, $filePath) ) {
-                                $data['status'] .= "{$fileName} sucessfully uploaded"; 
-                                $data['success'] = "success";
-                                $data['filename'] .= "{$fileName},"; 
-                            } else {
-                                $data['status'] = "Error uploading {$fileName}";
-                                $data["success"] = "";
-                            }
-                        }
-                    } else {
-                        $data['status'] .= "Error uploading {$fileName}";
-                        $data['status'] .= " {$fileExt} file type is not allowed";
-                        $data["success"] = "";
-
-                    }
+                            $data['status'] .= "Error uploading {$fileName}";
+                            $data['status'] .= " {$fileExt} file type is not allowed";
+                            $data["success"] = "";
     
+                        }
+        
+                    }
                 }
             }
+            $this->view('create/index', $data);
+        } else {
+            header("Location: " . BASE_URL . "/user/login");
+            exit;
         }
-        $this->view('create/index', $data);
     }
 
     public function insertData() {
