@@ -1,0 +1,8 @@
+.warn-show {
+    display: block;
+    color: red;
+}
+
+.warn-hide {
+    display: none;
+}

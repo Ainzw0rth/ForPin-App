@@ -7,17 +7,20 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/homepage.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/login.css">
-    <title>ForPin | Login</title>
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/signup.css">
+    <title>ForPin | Sign Up</title>
 </head>
 <body>
     <?php include('app/views/component/navbar-login.php'); ?>
-    <div id="login-component">
-        <?php include('app/views/component/login.php'); ?>
-    </div>
-    <div class="none" id="signup-component">
-        <?php include('app/views/component/signup.php'); ?>
-    </div>
-    <script src="public/javascript/login/login.js"></script>
+
+    <?php include('app/views/component/signup.php'); ?>
+    
+    <script>
+        const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
+        const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
+    </script>
+    <script src="public/javascript/debounce/debounce.js"></script>
+    <script src="public/javascript/signup/signup.js"></script>
 </div>
 </body>
 </html>

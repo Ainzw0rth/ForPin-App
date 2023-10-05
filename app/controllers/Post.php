@@ -32,4 +32,8 @@ class Post extends Controller {
             echo json_encode("Invalid Request");
         }
     }
+
+    public function test($tes) {
+        echo $tes;
+    }
 }
