@@ -79,9 +79,6 @@ class Create extends Controller {
         if ( isset($_POST['tags']) ) {
             $genres = $_POST['tags'];
         }
-        echo $title;
-        echo $desc;
-        echo $genres;
         $post_time = date("Y-m-d");
         $this->model("Post_model")->addPost($title, $desc, $post_time, $genres);
         $postId = $this->model("Post_model")->getLastPostId();
@@ -100,7 +97,6 @@ class Create extends Controller {
 
         // Load Home 
         header("Location: " . BASE_URL . "/home");
-        // $this->view('home/index');
         exit;
     }
 }
