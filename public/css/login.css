@@ -41,6 +41,7 @@
     font-weight: 700;
     line-height: normal;
     cursor: pointer;
+    border: none;
 }
 
 .login-button:hover {
@@ -97,4 +98,30 @@
 
 .warn-hide {
     display: none;
+}
+
+.logo-name-section {
+    display: flex;
+    justify-content: start;
+    /* border: 1px solid red; */
+    width: 50%;
+    align-items: center;
+    gap: 15px;
+    margin-left: 10%;
+}
+
+.button-section {
+    display: flex;
+    justify-content: end;
+    /* border: 1px solid green; */
+    width: 50%;
+    gap: 10px;
+    margin-right: 10%;
+}
+
+.topnav-login {
+    display: flex;
+    /* border: 1px solid blue; */
+    justify-content: center;
+    padding: 25px;
 }

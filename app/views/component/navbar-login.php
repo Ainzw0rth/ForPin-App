@@ -1,11 +1,13 @@
-<div class="topnav">
-    <div class="flex align-center gap-15">
+<div class="topnav-login">
+
+    <div class="logo-name-section">
         <button class="logo">
             <img src="<?= BASE_URL ?>/public/images/logo.png" class="app-logo">
         </button>
         <p class="text-1 forpin">ForPin</p>
     </div>
-    <div class="flex gap-10">
+
+    <div class="button-section">
         <button class="normal-button" id="login-button" onClick="location.href='<?= BASE_URL; ?>/user/login'">
             Login
         </button>
@@ -13,4 +15,5 @@
             Sign up
         </button>
     </div> 
+
 </div>
