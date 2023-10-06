@@ -15,16 +15,10 @@
     position: relative;
 }
 
-.upload-text-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.upload-button-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
 }
 
 .upload-button {
@@ -104,8 +98,8 @@ select option:hover {
 }
 
 .upload-circle {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     flex-shrink: 0;
     fill: #FFF;
     background: white;
@@ -164,4 +158,34 @@ select option:hover {
     color: #999;
     cursor: not-allowed;
     pointer-events: none; 
+}
+
+.button-text-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.image-placeholder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tags-warn {
+    font-size: 10px;
+    color: #77D4F8;
+}
+
+.warn-show {
+    display: block;
+    color: red;
+    font-size: 10px;
+    margin-top: 5%;
+}
+
+.warn-hide {
+    display: none;
 }

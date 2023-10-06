@@ -33,7 +33,8 @@ class Create extends Controller {
                                 $fileName = time().$fileName;
                                 $filePath = $uploadDir.$fileName;
                                 if ( move_uploaded_file($fileTmpname, $filePath) ) {
-                                    $data['status'] .= "{$fileName} sucessfully uploaded"; 
+                                    // $data['status'] .= "{$fileName} sucessfully uploaded"; 
+                                    $data['status'] = "Sucessfully uploaded files"; 
                                     $data['success'] = "success";
                                     $data['filename'] .= "{$fileName},"; 
                                 } else {
@@ -42,7 +43,8 @@ class Create extends Controller {
                                 }
                             } else {
                                 if ( move_uploaded_file($fileTmpname, $filePath) ) {
-                                    $data['status'] .= "{$fileName} sucessfully uploaded"; 
+                                    // $data['status'] .= "{$fileName} sucessfully uploaded"; 
+                                    $data['status'] = "Sucessfully uploaded files"; 
                                     $data['success'] = "success";
                                     $data['filename'] .= "{$fileName},"; 
                                 } else {
@@ -51,7 +53,7 @@ class Create extends Controller {
                                 }
                             }
                         } else {
-                            $data['status'] .= "Error uploading {$fileName}";
+                            $data['status'] .= "Error uploading {$fileName},";
                             $data['status'] .= " {$fileExt} file type is not allowed";
                             $data["success"] = "";
     
@@ -87,7 +89,7 @@ class Create extends Controller {
         $post_time = date("Y-m-d");
         $this->model("Post_model")->addPost($title, $desc, $post_time, $genres);
         $postId = $this->model("Post_model")->getLastPostId();
-        $this->model("User_post_model")->addUserPost(1, $postId['post_id']);
+        $this->model("User_post_model")->addUserPost($_SESSION['user_id'], $postId['post_id']);
         foreach ($fileNamesArray as $finalFile) {
             $fileInfo = pathinfo($finalFile);
             $fileExtension = $fileInfo['extension'];
@@ -101,7 +103,10 @@ class Create extends Controller {
         }
 
         // Load Home 
-        header("Location: " . BASE_URL . "/home");
+        header('Content-Type: application/json');
+        http_response_code(201);
+        echo json_encode(["redirect_url" => BASE_URL . '/home']);
+        // header("Location: " . BASE_URL . "/home");
         exit;
     }
 }
