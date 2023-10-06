@@ -94,6 +94,10 @@ loginForm.addEventListener("submit", async (e) => {
     formData.append("password", password);
     formData.append("csrf_token", CSRF_TOKEN);
 
+    formData.forEach((value, key) => {
+        console.log(key, value);
+    });
+    
     xhr.send(formData);
     xhr.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE) {

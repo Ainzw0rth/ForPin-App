@@ -37,8 +37,8 @@ class User_model {
         $this->db->bind('email', $email);   
         $this->db->bind('username', $username);   
         $this->db->bind('fullname', $fullname);   
-        // $this->db->bind('password', password_hash($password, PASSWORD_DEFAULT));
-        $this->db->bind('password', $password);
+        $this->db->bind('password', password_hash($password, PASSWORD_DEFAULT));
+        // $this->db->bind('password', $password);
         $this->db->bind('is_admin', false);
         
         $this->db->execute();
@@ -46,21 +46,20 @@ class User_model {
 
     public function login($username, $password) {
         // $this->db->query('SELECT user_id FROM users WHERE username = :username LIMIT 1');
-        $this->db->query('SELECT user_id FROM users WHERE username = :username AND password = :password LIMIT 1');
+        $this->db->query('SELECT user_id, password FROM users WHERE username = :username LIMIT 1');
         $this->db->bind('username', $username);
-        $this->db->bind('password', $password);
         
         $user = $this->db->single();
 
-        // if ($user && password_verify($password, $user['password'])) {
-        //     return $user['user_id'];
-        // } else {
-        //     throw new LoggedExceptions('Unauthorized', 401);
-        // }
-        if (!$user) {
+        if ($user && password_verify($password, $user['password'])) {
             return $user['user_id'];
         } else {
             throw new LoggedExceptions('Unauthorized', 401);
         }
+        // if ($user) {
+        //     return $user['user_id'];
+        // } else {
+        //     throw new LoggedExceptions('Unauthorized', 401);
+        // }
     }
 }
