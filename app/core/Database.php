@@ -106,13 +106,20 @@ class Database {
         
         // User
         $this->query("INSERT INTO users (email, fullname, username, password, is_admin) VALUES
-            ('user1@example.com', 'User One', 'userone', 'password1', false),
-            ('user2@example.com', 'User Two', 'usertwo', 'password2', false),
-            ('user3@example.com', 'User Three', 'userthree', 'password3', false),
-            ('admin@example.com', 'Admin User', 'adminuser', 'adminpassword', true),
-            ('test@example.com', 'Test User', 'testuser', 'testpassword', false);"
+            ('user1@example.com', 'User One', 'userone', ?, false),
+            ('user2@example.com', 'User Two', 'usertwo', ?, false),
+            ('user3@example.com', 'User Three', 'userthree', ?, false),
+            ('admin@example.com', 'Admin User', 'adminuser', ?, true),
+            ('test@example.com', 'Test User', 'testuser', ?, false);"
         );
+
+        $this->bind(1, password_hash('password1', PASSWORD_DEFAULT));
+        $this->bind(2, password_hash('password2', PASSWORD_DEFAULT));
+        $this->bind(3, password_hash('password3', PASSWORD_DEFAULT));
+        $this->bind(4, password_hash('adminpassword', PASSWORD_DEFAULT));
+        $this->bind(5, password_hash('testpassword', PASSWORD_DEFAULT));
         $this->execute();
+
         
         // Post
         $this->query("INSERT INTO post (caption, descriptions, post_time, likes, genre) VALUES
