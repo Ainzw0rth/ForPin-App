@@ -14,8 +14,9 @@
                     <circle cx="11" cy="11" r="7" stroke="#33363F" stroke-width="2"/>
                     <path d="M20 20L17 17" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-                <input type="text" placeholder="Search.." id="searchbox" class="search-box">        
+                <input type="text" placeholder="Search.." id="searchbox" class="search-box">  
         </form>
+        <p id="search-warn" class="warn-hide"></p>      
         <div class="input-box" id="inputbox">
             <div class="filter-sort">
                 <h2>Filter</h2>
@@ -31,17 +32,17 @@
                     <div class="uploaded">
                         <h3>Uploaded</h3>
                         <div class="filter-radio"> 
-                            <input type="radio" name="filter-value" value="0" checked>Don't filter
+                            <input type="radio" name="filter-value" value="0" checked> Don't filter
                             <br>
-                            <input type="radio" name="filter-value" value="1">Today
+                            <input type="radio" name="filter-value" value="1"> Today
                             <br>
-                            <input type="radio" name="filter-value" value="3">Last 3 days
+                            <input type="radio" name="filter-value" value="3"> Last 3 days
                             <br>
-                            <input type="radio" name="filter-value" value="7">This Week
+                            <input type="radio" name="filter-value" value="7"> This Week
                             <br>
-                            <input type="radio" name="filter-value" value="30">This Month
+                            <input type="radio" name="filter-value" value="30"> This Month
                             <br>
-                            <input type="radio" name="filter-value" value="365">This Year
+                            <input type="radio" name="filter-value" value="365"> This Year
                         </div>
                     </div>
                 </div>
@@ -49,15 +50,15 @@
                     <div class="sorting">
                         <h2>Sort</h2>
                         <div class="sort-radio"> 
-                            <input type="radio" name="sort-value" value="0" checked>Don't sort
+                            <input type="radio" name="sort-value" value="0" checked> Don't sort
                             <br>
-                            <input type="radio" name="sort-value" value="1">Upload Date (Ascending)
+                            <input type="radio" name="sort-value" value="1"> Upload Date (Ascending)
                             <br>
-                            <input type="radio" name="sort-value" value="2">Upload Date (Descending)
+                            <input type="radio" name="sort-value" value="2"> Upload Date (Descending)
                             <br>
-                            <input type="radio" name="sort-value" value="3">Likes (Ascending)
+                            <input type="radio" name="sort-value" value="3"> Likes (Ascending)
                             <br>
-                            <input type="radio" name="sort-value" value="4">Likes (Descending)
+                            <input type="radio" name="sort-value" value="4"> Likes (Descending)
                         </div>
                     </div>
 
@@ -67,8 +68,7 @@
         </div>
     </div>
     <div class="profile_section">
-        <button class="profile-button">
-            <img src="https://i.ibb.co/5rjj8n2/Cat-Medley-Cuteness-Galore-Funnies-Rescues-And-Appreciation.png" class="logo"></img>
+        <button class="profile-button" id="profile-button">
         </button>
         <div class="settings-menu">
             <button class="settings-dropdown">
