@@ -11,6 +11,7 @@ class Post extends Controller {
                         $data['current'] = $currentPost; 
                         $data['user'] = $this->model('User_model')->getUserDesc($userId['user_id']);
                         $data['post'] = $this->model('Post_model')->getPostElements($currentPost);
+                        $data['category'] = $this->model('Post_model')->getAllCategories();
                         $data['img'] = $this->model('Image_model')->getUserImagePath($currentPost);
                         $data['vid'] = $this->model('Video_model')->getUserVideoPath($currentPost);
                         $this->view('post/index', $data);

@@ -1,5 +1,5 @@
 .input-login {
-    width: 30vw;
+    width: 95%;
     height: 37px;
     border-radius: 30px;
     background: #1F1F1F;
@@ -9,6 +9,7 @@
     border: none;
     display: flex;
     z-index: 1;
+    padding-left: 1rem;
 }
 
 .input-login input {
@@ -51,11 +52,12 @@
 
 .title {
     color: #FFF;
-    font-size: 50px;
+    font-size: 2.5rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;    
     padding: 0;
+    text-align: center;
 }
 
 .logo-2 {
@@ -66,24 +68,30 @@
     border-radius: 50%;
 }
 
-.signup-form-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .top-section {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 25px;
+    text-align: center;
+}
+
+.top-section-elements {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
 
 .login-form-section {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 5%;
+    margin-top: 15%;
+    text-align: left;
+    justify-content: center;
 }
 
 .forpin {
@@ -123,5 +131,11 @@
     display: flex;
     /* border: 1px solid blue; */
     justify-content: center;
-    padding: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+   
 }

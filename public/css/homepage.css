@@ -24,6 +24,7 @@ body {
     border: none;
     cursor: pointer;
     grid-row-end: auto;
+    padding-left: 10px !important;
 }
 
 .media_canvas img {
