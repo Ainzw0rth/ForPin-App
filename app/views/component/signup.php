@@ -2,14 +2,14 @@
     <div>
         <div class="top-section">
             <div class="flex justify-center">
-                <img src="<?= BASE_URL ?>/public/images/logo.png" class="logo-2">
+                <img src="<?= BASE_URL ?>/public/images/logo.png" class="logo-2 top-section-elements">
             </div>
 
             <div class="flex justify-center">
-                <p class=title>Welcome to ForPin</p>
+                <p class="title top-section-elements">Welcome to ForPin</p>
             </div>
             <div class="flex justify-center">
-                <p class=text-1-normal>Sign up to <span class="forpin">Forpin.</span></p>
+                <p class="text-1-normal top-section-elements">Sign up to <span class="forpin">Forpin.</span></p>
             </div>
         </div>
         

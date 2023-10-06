@@ -1,7 +1,25 @@
+.topnav {
+    background-color: black;
+    width: 90vw;
+    height: 75px;
+    display: grid;
+    grid-template-areas:
+        'logo search profile'
+        'filter filter filter';
+    z-index: 1;
+    place-items: center;
+    margin-left: 4vw;
+    padding-top: 25px;
+}
+
 .logo_section {
     grid-area: logo;
     display: inline-grid;
     grid-template-columns: auto auto;
+}
+
+.navtitle {
+    display: block;
 }
 
 .search_section {
@@ -21,19 +39,6 @@
 .input-box {
     grid-area: filter;
     position: absolute;
-}
-
-.topnav {
-    background-color: black;
-    width: 90vw;
-    height: 75px;
-    display: grid;
-    grid-template-areas:
-        'logo search profile'
-        'filter filter filter';
-    z-index: 1;
-    place-items: center;
-    margin-left: 4vw;
 }
 
 .app-logo {
@@ -106,10 +111,12 @@
 
 .search-box {
     width: 75%;
+    padding: 1rem;
+    padding-right: 2rem;
 }
 
 .search_symbol {
-    padding-left: 10px;
+    padding-left: 1rem;
 }
 
 .search-bar input {
@@ -308,13 +315,14 @@ h3 {
 
 @media screen and (max-width: 530px) {
     .topnav {
-        width: 75vw;
         height: 150px;
         display: grid;
         grid-template-areas:
         'logo profile'
         'search search';
-        padding: 0 20px;
+        padding-top: 25px;
+        padding-left: 20px;
+        margin: 0vw;
     }
 
     .search-bar {
@@ -328,12 +336,18 @@ h3 {
     .input-box {
         width: 75vw;
     }
-
+    
     .search-box {
         padding-left: 4px;
     }
 
     .filter-dropdown {
         width: 200px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .navtitle {
+        display: none;
     }
 }

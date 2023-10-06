@@ -4,7 +4,7 @@
         <button class="logo">
             <img src="<?= BASE_URL ?>/public/images/logo.png" class="app-logo">
         </button>
-        <p class="text-1 forpin">ForPin</p>
+        <p class="text-1 forpin navtitle">ForPin</p>
     </div>
 
     <div class="button-section">
