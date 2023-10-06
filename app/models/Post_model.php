@@ -162,7 +162,6 @@ class Post_model {
     }
 
     public function addPost($caption, $description, $postTime, $genre) {
-        // $this->db->query('INSERT INTO post (caption, descriptions, post_time, genre) VALUES (' . $caption . ',' . $description . ',' . $postTime . ',' . $genre . ')');
         $this->db->query('INSERT INTO post (caption, descriptions, post_time, genre) VALUES (:caption, :descriptions, :post_time, :genre)');
         $this->db->bind('caption', $caption);
         $this->db->bind('descriptions', $description);

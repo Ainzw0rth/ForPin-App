@@ -50,16 +50,17 @@ class User_model {
         $this->db->bind('username', $username);
         
         $user = $this->db->single();
-
+        
         if ($user && password_verify($password, $user['password'])) {
             return $user['user_id'];
         } else {
             throw new LoggedExceptions('Unauthorized', 401);
         }
-        // if ($user) {
-        //     return $user['user_id'];
-        // } else {
-        //     throw new LoggedExceptions('Unauthorized', 401);
-        // }
+    }
+    
+    public function getIsAdmin($userId) {
+        $this->db->query('SELECT is_admin FROM users WHERE user_id = :user_id LIMIT 1');
+        $this->db->bind('user_id', $userId);
+        return $this->db->single();
     }
 }

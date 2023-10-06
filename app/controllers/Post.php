@@ -8,13 +8,15 @@ class Post extends Controller {
                 switch ($_SERVER['REQUEST_METHOD']) {
                     case 'GET':
                         $userId = $this->model('User_post_model')->getUserId($currentPost);
+                        $data['user_id_post'] = $userId;
                         $data['current'] = $currentPost; 
                         $data['user'] = $this->model('User_model')->getUserDesc($userId['user_id']);
                         $data['post'] = $this->model('Post_model')->getPostElements($currentPost);
                         $data['img'] = $this->model('Image_model')->getUserImagePath($currentPost);
                         $data['vid'] = $this->model('Video_model')->getUserVideoPath($currentPost);
+                        $data['user_id'] = $_SESSION['user_id'];
+                        $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id']);
                         $this->view('post/index', $data);
-
                         exit;
                     default:
                         throw new LoggedExceptions('Method Not Allowed', 405);
