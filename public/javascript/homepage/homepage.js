@@ -1,6 +1,90 @@
 var tempMedias = document.getElementById("post-data");
 var medias = JSON.parse(tempMedias.getAttribute("data-postdata"))['posts'];
 
+// for pagination
+function addPage(min, max, page, link, current) {
+    for (var i = min; i <= max; i++) {
+        var temp = document.createElement("a");
+        temp.textContent = i.toString();
+        temp.href = link + "@page=" + i.toString();
+        if (i == current) {
+            temp.className = "active";
+        } else {
+            temp.className = "inactive";
+        }
+        page.appendChild(temp);
+    }
+}
+
+function addMorePage(page) {
+    var morePage = document.createElement("a");
+    morePage.textContent = "...";
+    morePage.className = "more";
+    page.appendChild(morePage);
+}
+
+function addPagination() {
+    // for the pagination
+    var current_page = JSON.parse(tempMedias.getAttribute("data-postdata"))['search'];
+    var totalMedias = JSON.parse(tempMedias.getAttribute("data-postdata"))['amount'][0]['count'];
+    var page = document.getElementById("page_selector");
+    var maxElementInPage = 10;
+    var maxpage = Math.ceil(totalMedias/maxElementInPage);
+    var curr_active_page = 1;
+    
+    var url_lists = current_page.split("@");
+    if (current_page == "' '") {
+        var original_page = "http://localhost:8080/home/q=@c=0@f=0@s=0";
+    } else {
+        var original_page = "http://localhost:8080/home/" + url_lists[0] +  "@" + url_lists[1] +  "@" + url_lists[2] +  "@" + url_lists[3];
+    }
+
+    if (url_lists.length == 5) {
+        curr_active_page = parseInt(url_lists[4].substring(5));
+    }
+
+    if (curr_active_page > 1) {
+        var prev = document.createElement("a");
+        prev.textContent = "<";
+        prev.href = original_page + "@page=" + (curr_active_page-1).toString();
+        prev.className = "arrow";
+        page.appendChild(prev);
+    }
+    
+    // create all pages
+    if (maxpage < 5) {
+        addPage(1, maxpage, page, original_page, curr_active_page);
+    } else {
+        if (curr_active_page - 2 >= 1 && curr_active_page + 2 <= maxpage) {
+            if (curr_active_page - 2 > 1) {
+                addMorePage(page);
+            }
+    
+            addPage(curr_active_page - 2, curr_active_page + 2, page, original_page, curr_active_page);
+    
+            if (curr_active_page + 2 < maxpage) {
+                addMorePage(page);
+            }
+        } else {
+            if (curr_active_page + 2 > maxpage) {
+                addMorePage(page);
+                addPage(maxpage-5, maxpage, page, original_page, curr_active_page);
+            } else {
+                addPage(1, 5, page, original_page, curr_active_page);
+                addMorePage(page);
+            }
+        }
+    }
+
+    if (curr_active_page < maxpage) {
+        var next = document.createElement("a");
+        next.text = ">";
+        next.href = original_page + "@page=" + (curr_active_page+1).toString();
+        next.className = "arrow";
+        page.appendChild(next);
+    }
+}
+
 // for adding each medias to the homepage
 function addMedias() {
     const canvas = document.getElementById('media_canvas');
@@ -55,5 +139,5 @@ function addMedias() {
     })
 }
 
-
+addPagination();
 addMedias();

@@ -23,7 +23,7 @@ class Post_model {
         $original_query = "WITH selected_posts AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre FROM " . $this->post_table . " as p), selected_images AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, i.img_path as media_path FROM selected_posts as p, " . $this->images_table . " as i WHERE p.post_id = i.post_id), selected_videos AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, v.vid_path as media_path FROM selected_posts as p, " . $this->videos_table . " as v WHERE p.post_id = v.post_id ), post_links AS (SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_images UNION SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_videos) SELECT post_id, caption, post_time, likes, genre, STRING_AGG(media_path, '@') media_paths FROM post_links";
 
         if (sizeof($list) == 1) {
-            $this->db->query($original_query . $groupby_query);
+            $this->db->query($original_query . $groupby_query . " LIMIT 10");
         } else {
             // where
             $where_query = " WHERE";
@@ -67,12 +67,71 @@ class Post_model {
                     $order_query = " ORDER BY likes DESC";
                 }
             } else {
-                $order_query = "";
+                $order_query = " ";
             }
 
-            $this->db->query($original_query . $where_query . $groupby_query . $order_query);
+            // limit
+            $limit_query = "";
+            
+            if (sizeof($list) == 5) {
+                $limit_query .= " LIMIT 10 OFFSET " . ((((int)substr($list[4], 5)) - 1) * 10);
+            } else {
+                $limit_query .= " LIMIT 10";
+            }
+
+            $this->db->query($original_query . $where_query . $groupby_query . $order_query . $limit_query);
         }
 
+        return $this->db->resultSet();
+    }
+
+    public function getAmount($search) {
+        $list = explode("@", $search);
+        /*
+        0 -> search
+        1 -> category
+        2 -> filter
+        3 -> sort 
+        */
+
+        $groupby_query = " GROUP BY post_id, caption, post_time, likes, genre";
+        $original_query = "WITH selected_posts AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre FROM " . $this->post_table . " as p), selected_images AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, i.img_path as media_path FROM selected_posts as p, " . $this->images_table . " as i WHERE p.post_id = i.post_id), selected_videos AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, v.vid_path as media_path FROM selected_posts as p, " . $this->videos_table . " as v WHERE p.post_id = v.post_id ), post_links AS (SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_images UNION SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_videos), suitable AS (SELECT post_id, caption, post_time, likes, genre, STRING_AGG(media_path, '@') media_paths FROM post_links";
+
+        if (sizeof($list) == 1) {
+            $this->db->query($original_query . $groupby_query. ") SELECT COUNT(*) FROM suitable");
+        } else {
+            // where
+            $where_query = " WHERE";
+            if (substr($list[0], 2) != "") { // search
+                $where_query .= " caption LIKE '%" . substr($list[0], 2) . "%'";
+            }
+            
+            if (substr($list[1], 2) != "0") { // category
+                if ($where_query != " WHERE") {
+                    $where_query .= " AND";
+                }
+
+                $where_query .= " genre = '" . substr($list[1], 2) . "'";
+            }
+
+            if (substr($list[2], 2) != "0") { // filter
+                if ($where_query != " WHERE") {
+                    $where_query .= " AND";
+                }
+
+                if (substr($list[2], 2) == "1") {
+                    $where_query .= " post_time = CURRENT_DATE";
+                } else {
+                    $where_query .= " post_time >= CURRENT_DATE - INTERVAL '" . substr($list[2], 2) . "' day AND post_time <= CURRENT_DATE";
+                }
+            }
+
+            if ($where_query == " WHERE") {
+                $where_query = "";
+            }
+
+            $this->db->query($original_query . $where_query . $groupby_query . ") SELECT COUNT(*) FROM suitable");
+        }
         return $this->db->resultSet();
     }
 

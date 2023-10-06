@@ -10,9 +10,7 @@ body {
 
 .media_canvas {
     width: 95vw;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    transform: translate(1.5%, 0);
 
     display: grid;
     grid-template-columns: repeat(auto-fill, var(--media_width));
@@ -57,4 +55,36 @@ body {
     margin-top: 10px;
     margin-left: 10px;
     padding: 5px;
+}
+
+.page_selector {
+    display: inline-block;
+    background-color: #1f1f1f;
+    place-items: center;
+    border-radius: 10px;
+}
+  
+.page_selector a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+  
+.page_selector a.active {
+    background-color: #77D4F8;
+    color: white;
+}
+  
+.page_selector a:hover:not(.active):not(.more) {background-color: #444444;}
+
+.container_media {
+    text-align: center;
+}
+
+@media screen and (max-width: 508px) {
+    .inactive {
+        display: none;
+    }
 }
