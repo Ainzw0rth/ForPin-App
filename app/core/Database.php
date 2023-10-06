@@ -65,10 +65,10 @@ class Database {
         $this->query(
             "CREATE table IF NOT EXISTS users (
                 user_id SERIAL PRIMARY KEY NOT NULL,
-                email VARCHAR(50) NOT NULL,
-                fullname VARCHAR(50) NOT NULL,
-                username VARCHAR(50) NOT NULL,
-                password VARCHAR(50) NOT NULL, 
+                email VARCHAR(100) NOT NULL,
+                fullname VARCHAR(100) NOT NULL,
+                username VARCHAR(100) NOT NULL,
+                password VARCHAR(100) NOT NULL, 
                 is_admin BOOLEAN NOT NULL,
                 profile_path VARCHAR(100) NOT NULL DEFAULT 'http://localhost:8080/public/images/testing_images/1.jpeg'
             );"

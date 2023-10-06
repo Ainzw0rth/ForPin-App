@@ -11,13 +11,17 @@
 </head>
 <body>
     <?php include('app/views/component/navbar-login.php'); ?>
-    <div id="login-component">
-        <?php include('app/views/component/login.php'); ?>
-    </div>
-    <div class="none" id="signup-component">
-        <?php include('app/views/component/signup.php'); ?>
-    </div>
-    <script src="public/javascript/login/login.js"></script>
+
+    <?php include('app/views/component/login.php'); ?>
+
+    <script>
+        const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
+        const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
+    </script>
+    <p class="text-1">Session Token</p>
+    <p class="text-1"><?= $_SESSION['csrf_token']; ?></p>
+    <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>
+    <script src="<?= BASE_URL ?>/public/javascript/login/login.js"></script>
 </div>
 </body>
 </html>

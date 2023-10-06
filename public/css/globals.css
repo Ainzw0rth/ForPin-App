@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    /* Colors */
+    /* --black: hsl(0, 0%, 8%);
+    --nav-black: hsl(0, 0%, 4%);
+    --white: #ffffff;
+    --darkgreen: #1db954;
+    --lightgreen: #1ed760;
+    --black-lighter: hsl(0, 0%, 20%);
+    --pure-black: #000000;
+    --disabled: #c2c2c2;
+    --red: #ff7575; */
+
+    /* Font */
+    --roboto: 'Roboto', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--roboto);
+    color: white;
+}
 body {
     background-color: black;
 }
@@ -8,7 +33,6 @@ img {
 
 .text-1 {
     color: #FFF;
-    font-family: Arial;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -17,7 +41,6 @@ img {
 
 .text-2 {
     color: #FFF;
-    font-family: Arial;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -77,7 +100,6 @@ img {
     border-radius: 75px;
     background: #77D4F8;
     color: #fff;
-    font-family: Arial;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
@@ -100,12 +122,12 @@ img {
     border-radius: 170px;
     background: #FFF;
     color: #000;
-    font-family: Arial;
     font-size: 15px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     cursor: pointer;
+    border: none;
 }
 
 .normal-button:hover {
@@ -128,7 +150,7 @@ img {
 
 .text-1-normal {
     color: #FFF;
-    font-family: Arial;
+    /* font-family: Arial; */
     font-size: 15px;
     font-style: normal;
     font-weight: 400;
