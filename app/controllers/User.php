@@ -8,6 +8,7 @@ class User extends Controller {
                 case 'GET':
                     $this->middleware('Token')->generateToken();
                     $this->view('user/index');
+                    $this->model('User_model');
                     exit;
                 default:
                     throw new LoggedExceptions('Method Not Allowed', 405);     
@@ -24,9 +25,11 @@ class User extends Controller {
                     $this->view('user/login');
                     exit;
                 case 'POST':
-                    // $this->middleware('Token')->checkToken($_POST['csrf_token']);
-                    // $userId = $this->model('User_model')->login($_POST['username'], $_POST['password']);
-                    $_SESSION['user_id'] = 1;
+                    $this->middleware('Token')->checkToken($_POST['csrf_token']);
+                    $username = $_POST['username'];
+                    $password = $_POST['password'];
+                    $userId = $this->model('User_model')->login($username, $password);
+                    $_SESSION['user_id'] = $userId;
                     
                     header('Content-Type: application/json');
                     http_response_code(201);
