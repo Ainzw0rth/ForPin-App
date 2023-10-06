@@ -12,82 +12,61 @@
 </head>
 <body>
     <?php include('app/views/component/navbar.php'); ?>
-    <div class="flex content-section">
-        <a href="<?= BASE_URL; ?>/home">
-            <button class="go-back">
-                <div class="button-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none" class="button-arrow">
-                        <path d="M0.635987 6.29302C0.448516 6.48055 0.343201 6.73486 0.343201 7.00002C0.343201 7.26519 0.448516 7.5195 0.635987 7.70702L6.29299 13.364C6.38523 13.4595 6.49558 13.5357 6.61758 13.5881C6.73959 13.6405 6.87081 13.6681 7.00359 13.6693C7.13637 13.6704 7.26804 13.6451 7.39094 13.5948C7.51384 13.5446 7.62549 13.4703 7.71938 13.3764C7.81327 13.2825 7.88753 13.1709 7.93781 13.048C7.98809 12.9251 8.01339 12.7934 8.01224 12.6606C8.01108 12.5278 7.9835 12.3966 7.93109 12.2746C7.87868 12.1526 7.8025 12.0423 7.70699 11.95L3.75699 8.00002H17C17.2652 8.00002 17.5196 7.89467 17.7071 7.70713C17.8946 7.51959 18 7.26524 18 7.00002C18 6.73481 17.8946 6.48045 17.7071 6.29292C17.5196 6.10538 17.2652 6.00002 17 6.00002L3.75699 6.00002L7.70699 2.05002C7.88914 1.86142 7.98994 1.60882 7.98766 1.34662C7.98538 1.08443 7.88021 0.833613 7.69481 0.648205C7.5094 0.462797 7.25858 0.357627 6.99639 0.355349C6.73419 0.35307 6.48159 0.453864 6.29299 0.636023L0.635987 6.29302Z" fill="white"/>
-                    </svg>
+    <div id="post-data" data-postdata="<?php echo htmlspecialchars(json_encode($data)); ?>"></div>
+    <a href="<?= BASE_URL; ?>/home">
+        <button class="go-back">
+            <div class="button-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none" class="button-arrow">
+                    <path d="M0.635987 6.29302C0.448516 6.48055 0.343201 6.73486 0.343201 7.00002C0.343201 7.26519 0.448516 7.5195 0.635987 7.70702L6.29299 13.364C6.38523 13.4595 6.49558 13.5357 6.61758 13.5881C6.73959 13.6405 6.87081 13.6681 7.00359 13.6693C7.13637 13.6704 7.26804 13.6451 7.39094 13.5948C7.51384 13.5446 7.62549 13.4703 7.71938 13.3764C7.81327 13.2825 7.88753 13.1709 7.93781 13.048C7.98809 12.9251 8.01339 12.7934 8.01224 12.6606C8.01108 12.5278 7.9835 12.3966 7.93109 12.2746C7.87868 12.1526 7.8025 12.0423 7.70699 11.95L3.75699 8.00002H17C17.2652 8.00002 17.5196 7.89467 17.7071 7.70713C17.8946 7.51959 18 7.26524 18 7.00002C18 6.73481 17.8946 6.48045 17.7071 6.29292C17.5196 6.10538 17.2652 6.00002 17 6.00002L3.75699 6.00002L7.70699 2.05002C7.88914 1.86142 7.98994 1.60882 7.98766 1.34662C7.98538 1.08443 7.88021 0.833613 7.69481 0.648205C7.5094 0.462797 7.25858 0.357627 6.99639 0.355349C6.73419 0.35307 6.48159 0.453864 6.29299 0.636023L0.635987 6.29302Z" fill="white"/>
+                </svg>
+            </div>
+        </button>
+    </a>    
+    <div class="card-container">
+        <div class="card-cover">
+            <?php $countPost = count($data['img']) + count($data['vid']) ?>
+            <?php $count = 1; ?>
+            <?php foreach ($data['img'] as $image) : ?>
+            <div class="card-image mySlides">
+                <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                <img src="<?= $image['img_path']; ?>" alt="carousel image <?php $count; ?>">
+            </div>
+            <?php $count = $count + 1; ?>
+            <?php endforeach; ?>
+            <?php foreach ($data['vid'] as $vid) : ?>
+            <div class="card-image mySlides">
+                <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
+                <video src="<?= $vid['vid_path']; ?>" controls>
+            </div>
+            <?php $count = $count + 1; ?>
+            <?php endforeach; ?>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="card-description">
+            <div class = "card-text-1">
+                <div class="card_profile_section">
+                    <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
+                    <div class="card_profile_name_section">
+                        <p class=text_capt><?= $data['user']['username'] ?></p>
+                        <p class=text_desc><?= $data['user']['fullname'] ?></p>
+                    </div>
                 </div>
-            </button>
-        </a>    
-
-        <div class="card-container">
-
-            <div class="card-1">
-                <div class="card-cover">
-                    <?php $countPost = count($data['img']) + count($data['vid']) ?>
-                    <?php $count = 1; ?>
-                    <?php foreach ($data['img'] as $image) : ?>
-                    <div class="card-image mySlides">
-                        <?php if ( $countPost > 1) { ?>
-                            <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
-                        <?php } ?>
-                            <img src="<?= $image['img_path']; ?>" alt="carousel image <?php $count; ?>">
-                    </div>
-                    <?php $count = $count + 1; ?>
-                    <?php endforeach; ?>
-                    <?php foreach ($data['vid'] as $vid) : ?>
-                    <div class="card-image mySlides">
-                        <div class="numbertext"><?= $count; ?>/<?= $countPost ?></div>
-                        <video src="<?= $vid['vid_path']; ?>" controls>
-                    </div>
-                    <?php $count = $count + 1; ?>
-                    <?php endforeach; ?>
-                    <?php if ( $countPost > 1) { ?>
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    <?php } ?>
-                </div>
-
-                <div class = "card-text-1">
-
-                    <div class="top-post-section">
-                        <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
-                        <div>
-                            <p class=text-1><?= $data['user']['username'] ?></p>
-                            <p class=text-2><?= $data['user']['fullname'] ?></p>
-                        </div>
-                        <?php if ( $data['is_admin'] || $data['user_id'] === $data['user_id_post'] ) { ?>
-                            <a class="edit-button" href="#open-modal">
-                                <div class="button-circle" onclick=>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none" class="button-arrow">
-                                        <path d="M18.3416 9.62002L8.29929 19.6624C8.28506 19.6766 8.27092 19.6907 8.25689 19.7047C8.04703 19.9141 7.86125 20.0995 7.73032 20.3308C7.59939 20.562 7.536 20.8167 7.4644 21.1044C7.45961 21.1236 7.45479 21.143 7.44991 21.1625L6.50951 24.9241C6.50665 24.9356 6.50377 24.9471 6.50088 24.9586C6.45019 25.161 6.39606 25.3771 6.3783 25.5587C6.35875 25.7585 6.36331 26.0957 6.6338 26.3662C6.90429 26.6367 7.24148 26.6413 7.44135 26.6217C7.62287 26.6039 7.83901 26.5498 8.0414 26.4991C8.05294 26.4962 8.06444 26.4933 8.07589 26.4905L11.8375 25.5501C11.857 25.5452 11.8764 25.5404 11.8956 25.5356C12.1833 25.464 12.438 25.4006 12.6692 25.2697C12.9005 25.1388 13.0859 24.953 13.2953 24.7431C13.3093 24.7291 13.3234 24.7149 13.3376 24.7007L23.38 14.6584L23.41 14.6283C23.8149 14.2235 24.1637 13.8747 24.4055 13.5578C24.6646 13.2182 24.8608 12.8405 24.8608 12.375C24.8608 11.9095 24.6646 11.5318 24.4055 11.1922C24.1637 10.8753 23.8149 10.5265 23.41 10.1217L23.38 10.0916L22.9084 9.62002L22.8783 9.58996C22.4735 9.1851 22.1247 8.83626 21.8078 8.59449C21.4682 8.33538 21.0905 8.13919 20.625 8.13919C20.1595 8.13919 19.7818 8.33538 19.4422 8.59449C19.1253 8.83626 18.7765 9.18509 18.3717 9.58994L18.3416 9.62002Z" stroke="white" stroke-width="1.29167"/>
-                                        <path d="M17.1875 10.3125L21.3125 7.5625L25.4375 11.6875L22.6875 15.8125L17.1875 10.3125Z" fill="white"/>
-                                    </svg>
-                                </div>
-                            </a>
-                        <?php } ?>
-                    </div>
-                    
-                    <div class="desc-section">
-                        <p class=text-1><?= $data['post']['caption'] ?></p>
-                        <p class=text-2><?= $data['post']['descriptions'] ?></p>
-
-                        <div class="genres">
+                <div class="card_media_description">
+                    <p class=text_capt><?= $data['post']['caption'] ?></p>
+                    <p class=text_desc><?= $data['post']['descriptions'] ?></p>
+                    <div class="genres">
                         <?php $genreArray = explode(', ', $data['post']['genre']);
                             foreach ($genreArray as $genre) :?>
                             <a href="<?= BASE_URL; ?>/home/<?= $genre ?>">
-                                <p class="text-2 tags">#<?=$genre?></p>
+                                <p class="text_desc tags">#<?=$genre?></p>
                             </a>
                         <?php endforeach ?>
                     </div>
-
-                    </div>
-
+                </div>
+                <div class="card_media_additional_desc">
                     <div class="post-time">
-                        <p class="text-2"><?= $data['post']['post_time'] ?></p>
+                        <p class="text_desc"><?= $data['post']['post_time'] ?></p>
                     </div>
 
                     <div class="svg-container">
