@@ -13,8 +13,6 @@
     <?php include('app/views/component/navbar-login.php'); ?>
 
     <?php include('app/views/component/login.php'); ?>
-    <p class="text-1">post-value</p>
-    <p class="text-1"><?= $data['username'] ?></p>
 
     <script>
         const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
