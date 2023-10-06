@@ -17,6 +17,11 @@
         </div>
     </div>
 
+    <script>
+        const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
+        const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
+    </script>
+    <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>
     <script src="<?= BASE_URL; ?>/public/javascript/homepage/homepage.js"></script>
     <script src="<?= BASE_URL; ?>/public/javascript/navbar/navbar.js"></script>
 </body>
