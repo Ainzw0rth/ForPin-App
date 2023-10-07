@@ -19,7 +19,7 @@ class Database {
         } catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());
         }
-        $this->createTables();
+        // $this->createTables();
     }
 
     public function query($query) {
@@ -112,6 +112,11 @@ class Database {
             ('admin@example.com', 'Admin User', 'adminuser', ?, true),
             ('test@example.com', 'Test User', 'testuser', ?, false);"
         );
+        // $2y$10$eFPcsPjJ80McAa3AdJMW9uTYtt364DvZfaUbG3hWZuu7ddKvx0Aey
+        // $2y$10$yTYdd.CyHSyObYrDCDYKD.jHpXlyGX.qIYD7TqIEOi94f2cO6XWyy
+        // $2y$10$H./copxlAFyHDQ27HmF/DuSKyVqU6kMumQlTIlaLNQXxbhc1asJIy
+        // $2y$10$GXEDVwao5y.YlTXfx3FHMe0txYVAjh20z2tNIi.eMWKhB2OcWzuxq
+        // $2y$10$jKC6RX7.Vt2.EM20X7NNa.Q1vXVAb7DnZHKhbiro.54YdXdX2T3e.
 
         $this->bind(1, password_hash('password1', PASSWORD_DEFAULT));
         $this->bind(2, password_hash('password2', PASSWORD_DEFAULT));
