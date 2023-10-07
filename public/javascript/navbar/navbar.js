@@ -39,7 +39,11 @@ function addProfilePic() {
     var profilepic = document.createElement("img");
     profilepic.src = curr_user['profile_path'];
     profilepic.className = "logo";
-    // later add href
+    profilepic.onclick = function() {
+        window.location = 'http://localhost:8080/profile/'
+    }
+    profilepic.alt = "navbar profile picture";
+
     profile.appendChild(profilepic);
 }
 

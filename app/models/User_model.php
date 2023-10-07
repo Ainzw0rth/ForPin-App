@@ -14,7 +14,7 @@ class User_model {
     }
 
     public function getUserDesc($userId) {
-        $this->db->query('SELECT username, fullname, profile_path FROM users WHERE user_id = ' . $userId);
+        $this->db->query('SELECT username, fullname, profile_path, email FROM users WHERE user_id = ' . $userId);
         return $this->db->single();
     }
 
