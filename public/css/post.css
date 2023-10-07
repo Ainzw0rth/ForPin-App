@@ -66,8 +66,9 @@
 
 .card-description {
     position: relative;
-    width: 500px;
-    padding: 15px;
+    width: 470px;
+    padding-left: 15px;
+    padding-top: 15px;
 }
 
 .card-text-1 {
@@ -174,25 +175,41 @@
 }
 
 .create-input-box {
-    width: 20vw;
+    width: 316px;
     height: 37px;
     border-radius: 10px;
     color: white;
     background: #1F1F1F;
-    font-size: 10px;
+    font-size: 0.8rem;
     border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.post_genre_dropdown {
+    width: 348px;
+    height: 37px;
+    border-radius: 10px;
+    color: white;
+    background: #1F1F1F;
+    font-size: 0.8rem;
+    border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .desc-box {
-    width: 20vw;
+    width: 316px;
     height: 149px;
     border-radius: 10px;
     background: #1F1F1F;
     display: flex;
     align-items: start;
     color: white;
-    font-size: 10px;
+    font-size: 0.8rem;
     border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .tags-warn {
@@ -238,7 +255,9 @@
 
 .card_media_description {
     height: 400px;
+    width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .card_media_additional_desc {
@@ -253,21 +272,29 @@
             'cardMedia'
             'cardDetails';
         height: auto;
-        width: 500px;
+        width: 470px;
         gap: 20px;
+    }
+    
+    .card-cover {
+        width: 100%;
+    }
+
+    .card-description {
+        width: 100%;
     }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 530px) {
+    /* .card-text-1 {
+        width: 380px;
+    } */
+
     .card-container {
         width: 380px;
     }
 
-    .card-cover {
-        width: 380px;
-    }
-
-    .card-text-1 {
-        width: 380px;
+    .card-description {
+        width: 365px;
     }
 }

@@ -158,21 +158,16 @@
                 <br>
                 <label for="genre" class="text-2">Choose a genre</label>
                 <br>
-                <select name="genre" id="genre" name="genre" class="create-input-box">
-                    <option value="happy">Happy</option>
-                    <option value="sad">Sad</option>
-                    <option value="horror">Horror</option>
-                    <option value="humour">Humour</option>
-                    <option value="fun">Fun</option>
+                <select name="genre" id="genre" name="genre" class="post_genre_dropdown">
                 </select>
+                <br>
                 <br>
                 <label for="tags" class="text-2">Tags</label>
                 <P class="tags-warn">Ex: tags1, tags2, tags3</P>
                 <input type="text" placeholder="Add more tags" id="tags" name="tags" class="create-input-box">
                 <p id="tags-warn-2" class="warn-hide"></p>
-                
                 <br>
-
+                <br>
                 <p id="upload-warn" class="warn-hide">Edit failed</p>
                 <div class="edit-submit-button">
                     <input type="submit" name="edit-submit" value="Save" class="blue-button" id="edit-submit">

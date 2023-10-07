@@ -132,3 +132,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
 })
+
+// for changing the background after inserting image
+var stat = document.getElementById("post-data");
+var parsedstat = JSON.parse(stat.getAttribute("data-postdata"))['status'];
+if (parsedstat != "Choose files here") {
+    console.log("here");
+    document.getElementById("upload-template").style.background = "black";
+}
+
+var genre = document.getElementById("post-data");
+var parsedGenre = JSON.parse(genre.getAttribute("data-postdata"))['category'];
+function addgenre() {
+    var dropdown = document.getElementById("genre");
+    
+    parsedGenre.forEach(category => {
+        var newOption = document.createElement("option");
+        console.log(category['genre']);
+        newOption.value = category['genre'];
+        newOption.text = category['genre'];
+        dropdown.add(newOption);
+    }); 
+}
+
+addgenre();
