@@ -232,6 +232,12 @@
     grid-template-columns: auto auto;
     gap: 20px;
     align-items: center;
+    > a:hover {
+        cursor: pointer;
+    }
+    > a  {
+        text-decoration: none;
+    }
 }
 
 .card-additional {
