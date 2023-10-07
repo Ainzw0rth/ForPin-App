@@ -1,10 +1,10 @@
-.warn-show {
+.signup_warn-show {
     display: block;
     color: red;
     font-size: 10px;
 }
 
-.warn-hide {
+.signup_warn-hide {
     display: none;
 }
 

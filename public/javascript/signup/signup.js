@@ -41,15 +41,15 @@ emailInput.addEventListener("keyup", debounce(() => {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (this.status === 200) {
                     emailWarn.innerText = "Email already taken!";
-                    emailWarn.className = "warn-show";
+                    emailWarn.className = "signup_warn-show";
                     emailPass = false;
                 } else if (!emailRegex.test(email)) {
                         emailWarn.innerText = "Invalid email!";
-                        emailWarn.className = "warn-show";
+                        emailWarn.className = "signup_warn-show";
                         emailPass = false;
                 } else {
                     emailWarn.innerText = "";
-                    emailWarn.className = "warn-hide";
+                    emailWarn.className = "signup_warn-hide";
                     emailPass = true;
                 }
             }
@@ -71,16 +71,16 @@ usernameInput.addEventListener("keyup", debounce(() => {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (this.status === 200) {
                     usernameWarn.innerText = "Username already taken!";
-                    usernameWarn.className = "warn-show";
+                    usernameWarn.className = "signup_warn-show";
                     usernamePass = false;
                 } else if (!usernameRegex.test(username)) {
                     usernameWarn.innerText = "Invalid username!";
-                    usernameWarn.className = "warn-show";
+                    usernameWarn.className = "signup_warn-show";
                     usernamePass = false;
                 } else {
                     console.log("here")
                     usernameWarn.innerText = "";
-                    usernameWarn.className = "warn-hide";
+                    usernameWarn.className = "signup_warn-hide";
                     usernamePass = true;
                 }
             }
@@ -95,11 +95,11 @@ fullnameInput.addEventListener("keyup", debounce(() => {
 
         if (!fullnameRegex.test(fullname)) {
             fullnameWarn.innerText = "Invalid fullname!";
-            fullnameWarn.className = "warn-show";
+            fullnameWarn.className = "signup_warn-show";
             fullnamePass = false;
         } else {
             fullnameWarn.innerText = "";
-            fullnameWarn.className = "warn-hide";
+            fullnameWarn.className = "signup_warn-hide";
             fullnamePass = true;
         }        
     }, DEBOUNCE_TIMEOUT)
@@ -111,21 +111,21 @@ passwordInput.addEventListener("keyup", debounce(() => {
 
         if (!passwordRegex.test(password)) {
             passwordWarn.innerText = "Invalid password!"
-            passwordWarn.className = "warn-show";
+            passwordWarn.className = "signup_warn-show";
             passwordPass = false;
         } else {
             passwordWarn.innerText = "";
-            passwordWarn.className = "warn-hide";
+            passwordWarn.className = "signup_warn-hide";
             passwordPass = true;
         }
 
         if (password !== passwordConfirmed) {
             secondPasswordWarn.innerText = "Confirmed password doesn't match!";
-            secondPasswordWarn.className = "warn-show";
+            secondPasswordWarn.className = "signup_warn-show";
             passwordConfirmedPass = false;
         } else {
             secondPasswordWarn.innerText = "";
-            secondPasswordWarn.className = "warn-hide";
+            secondPasswordWarn.className = "signup_warn-hide";
             passwordConfirmedPass = true;
         }
 
@@ -140,11 +140,11 @@ secondPassword.addEventListener("keyup", debounce(() => {
 
         if (password !== passwordConfirmed) {
             secondPasswordWarn.innerText = "Confirmed password doesn't match!";
-            secondPasswordWarn.className = "warn-show";
+            secondPasswordWarn.className = "signup_warn-show";
             passwordConfirmedPass = false;
         } else {
             secondPasswordWarn.innerText = "";
-            secondPasswordWarn.className = "warn-hide";
+            secondPasswordWarn.className = "signup_warn-hide";
             passwordConfirmedPass = true;
         }
 
@@ -163,33 +163,33 @@ signupForm && signupForm.addEventListener("submit", async (e) => {
     if (!emailPass) {
         e.preventDefault();
         emailWarn.innerText = "Before proceeding, please provide a valid email first";
-        emailWarn.className = "warn-show";
+        emailWarn.className = "signup_warn-show";
     } else {
-        emailWarn.className = "warn-hide";
+        emailWarn.className = "signup_warn-hide";
     }
 
     if (!usernamePass) {
         e.preventDefault();
         usernameWarn.innerText = "Before proceeding, please provide a valid username first";
-        usernameWarn.className = "warn-show";
+        usernameWarn.className = "signup_warn-show";
     } else {
-        usernameWarn.className = "warn-hide";
+        usernameWarn.className = "signup_warn-hide";
     }
 
     if (!passwordPass) {
         e.preventDefault();
         passwordWarn.innerText = "Before proceeding, please provide a valid password first";
-        passwordWarn.className = "warn-show";
+        passwordWarn.className = "signup_warn-show";
     } else {
-        passwordWarn.className = "warn-hide";
+        passwordWarn.className = "signup_warn-hide";
     }
 
     if (!passwordConfirmedPass) {
         e.preventDefault();
         secondPasswordWarn.innerText = "Confirmed password doesn't match!";
-        secondPasswordWarn.className = "warn-show";
+        secondPasswordWarn.className = "signup_warn-show";
     } else {
-        secondPasswordWarn.className = "warn-hide";
+        secondPasswordWarn.className = "signup_warn-hide";
     }
 
     if (!emailPass || !usernamePass || !fullnamePass || !passwordPass || !passwordConfirmedPass) {

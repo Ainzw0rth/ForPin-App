@@ -10,11 +10,12 @@
     <title>ForPin | Create Post</title>
 </head>
 <body>
+    <div id="post-data" data-postdata="<?php echo htmlspecialchars(json_encode($data)); ?>"></div>
     <?php include('app/views/component/navbar.php'); ?>
     <div class="upload-container align-center">
         <div>
 
-            <div class="upload-template">
+            <div class="upload-template" id="upload-template">
                 <?php 
                 if ($data["success"] === "success") {
                     $fileNames = rtrim($data['filename'], ','); 
@@ -87,12 +88,7 @@
                         <input type="text" placeholder="Write your detailed description bellow" id="description" name="description" class="desc-box">
                         
                         <label for="genre" class="text-2">Choose a genre</label>
-                        <select name="genre" id="genre" name="genre" class="create-input-box">
-                            <option value="happy">Happy</option>
-                            <option value="sad">Sad</option>
-                            <option value="horror">Horror</option>
-                            <option value="humour">Humour</option>
-                            <option value="fun">Fun</option>
+                        <select name="genre" id="genre" name="genre" class="create-category-dropdown">
                         </select>
                         
                         <label for="tags" class="text-2">Tags</label>
