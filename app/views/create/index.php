@@ -89,11 +89,6 @@
                         
                         <label for="genre" class="text-2">Choose a genre</label>
                         <select name="genre" id="genre" name="genre" class="create-category-dropdown">
-                            <option value="happy">Happy</option>
-                            <option value="sad">Sad</option>
-                            <option value="horror">Horror</option>
-                            <option value="humour">Humour</option>
-                            <option value="fun">Fun</option>
                         </select>
                         
                         <label for="tags" class="text-2">Tags</label>
