@@ -41,12 +41,15 @@ function addPagination() {
         } else {
             var original_page = base_page + url_lists[0] +  "@" + url_lists[1] +  "@" + url_lists[2] +  "@" + url_lists[3];
         }
+
+        if (url_lists.length == 5) {
+            curr_active_page = parseInt(url_lists[4].substring(5));
+        }
     } else {
         var original_page = base_page;
-    }
-
-    if (url_lists.length == 5) {
-        curr_active_page = parseInt(url_lists[4].substring(5));
+        if (url_lists.length == 2) {
+            curr_active_page = parseInt(url_lists[1].substring(5));
+        }
     }
 
     if (curr_active_page > 1) {
