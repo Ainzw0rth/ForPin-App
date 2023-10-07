@@ -2,6 +2,7 @@
 
 class Post_model {
     private $post_table = 'post';
+    private $user_post_table = 'user_post';
     private $videos_table = 'videos';
     private $images_table = 'images';
     private $db;
@@ -135,6 +136,42 @@ class Post_model {
         return $this->db->resultSet();
     }
 
+    public function getAmountFromUserId($userId) {
+        $groupby_query = " GROUP BY post_id, caption, post_time, likes, genre";
+        $original_query = "WITH selected_posts AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre FROM " . $this->post_table . " as p, " . $this->user_post_table . " as up WHERE up.user_id = " . $userId . " AND up.post_id = p.post_id), selected_images AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, i.img_path as media_path FROM selected_posts as p, " . $this->images_table . " as i WHERE p.post_id = i.post_id), selected_videos AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, v.vid_path as media_path FROM selected_posts as p, " . $this->videos_table . " as v WHERE p.post_id = v.post_id ), post_links AS (SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_images UNION SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_videos), suitable AS (SELECT post_id, caption, post_time, likes, genre, STRING_AGG(media_path, '@') media_paths FROM post_links";
+        $this->db->query($original_query . $groupby_query. ") SELECT COUNT(*) FROM suitable");
+
+        return $this->db->resultSet();
+    }
+
+    public function getAllPostFromUserId($search, $userId) {
+        $list = explode("@", $search);
+        /*
+        0 -> residue from splitting
+        1 -> page
+        */
+
+        $groupby_query = " GROUP BY post_id, caption, post_time, likes, genre";
+        $original_query = "WITH selected_posts AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre FROM " . $this->post_table . " as p, " . $this->user_post_table . " as up WHERE up.user_id = " . $userId . " AND up.post_id = p.post_id), selected_images AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, i.img_path as media_path FROM selected_posts as p, " . $this->images_table . " as i WHERE p.post_id = i.post_id), selected_videos AS (SELECT p.post_id, p.caption, p.post_time, p.likes, p.genre, v.vid_path as media_path FROM selected_posts as p, " . $this->videos_table . " as v WHERE p.post_id = v.post_id ), post_links AS (SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_images UNION SELECT post_id, caption, post_time, likes, genre, media_path FROM selected_videos) SELECT post_id, caption, post_time, likes, genre, STRING_AGG(media_path, '@') media_paths FROM post_links";
+
+        $this->db->query($original_query . $groupby_query . " LIMIT 10");
+        // if (sizeof($list) == 1) {
+        // } else {
+        //     // limit
+        //     $limit_query = "";
+            
+        //     if (sizeof($list) == 5) {
+        //         $limit_query .= " LIMIT 10 OFFSET " . ((((int)substr($list[1], 5)) - 1) * 10);
+        //     } else {
+        //         $limit_query .= " LIMIT 10";
+        //     }
+
+        //     $this->db->query($original_query . $groupby_query . $limit_query);
+        // }
+
+        return $this->db->resultSet();
+    }
+
     public function getAllCategories() {
         $this->db->query("SELECT DISTINCT genre FROM " . $this->post_table);
         return $this->db->resultSet();
@@ -162,7 +199,6 @@ class Post_model {
     }
 
     public function addPost($caption, $description, $postTime, $genre) {
-        // $this->db->query('INSERT INTO post (caption, descriptions, post_time, genre) VALUES (' . $caption . ',' . $description . ',' . $postTime . ',' . $genre . ')');
         $this->db->query('INSERT INTO post (caption, descriptions, post_time, genre) VALUES (:caption, :descriptions, :post_time, :genre)');
         $this->db->bind('caption', $caption);
         $this->db->bind('descriptions', $description);

@@ -1,5 +1,6 @@
 var tempMedias = document.getElementById("post-data");
 var medias = JSON.parse(tempMedias.getAttribute("data-postdata"))['posts'];
+console.log(JSON.parse(tempMedias.getAttribute("data-postdata")));
 
 // for pagination
 function addPage(min, max, page, link, current) {
@@ -26,17 +27,22 @@ function addMorePage(page) {
 function addPagination() {
     // for the pagination
     var current_page = JSON.parse(tempMedias.getAttribute("data-postdata"))['search'];
+    var base_page = JSON.parse(tempMedias.getAttribute("data-postdata"))['base'];
     var totalMedias = JSON.parse(tempMedias.getAttribute("data-postdata"))['amount'][0]['count'];
     var page = document.getElementById("page_selector");
     var maxElementInPage = 10;
     var maxpage = Math.ceil(totalMedias/maxElementInPage);
     var curr_active_page = 1;
-    
     var url_lists = current_page.split("@");
-    if (current_page == "' '") {
-        var original_page = "http://localhost:8080/home/q=@c=0@f=0@s=0";
+
+    if (base_page == "http://localhost:8080/home/") {
+        if (current_page == "' '") {
+            var original_page = base_page + "q=@c=0@f=0@s=0";
+        } else {
+            var original_page = base_page + url_lists[0] +  "@" + url_lists[1] +  "@" + url_lists[2] +  "@" + url_lists[3];
+        }
     } else {
-        var original_page = "http://localhost:8080/home/" + url_lists[0] +  "@" + url_lists[1] +  "@" + url_lists[2] +  "@" + url_lists[3];
+        var original_page = base_page;
     }
 
     if (url_lists.length == 5) {

@@ -213,6 +213,8 @@ h3 {
     color: white;
     margin-top: 2vw;
     font-size: 15px;
+    border: none;
+    cursor: pointer;
 }
 
 .settings-dropdown {
@@ -321,7 +323,7 @@ h3 {
         'logo profile'
         'search search';
         padding-top: 25px;
-        padding-left: 20px;
+        padding-left: 15px;
         margin: 0vw;
     }
 

@@ -8,6 +8,7 @@ class Post extends Controller {
                 switch ($_SERVER['REQUEST_METHOD']) {
                     case 'GET':
                         $userId = $this->model('User_post_model')->getUserId($currentPost);
+                        $data['user_id_post'] = $userId;
                         $data['post_id'] = $currentPost;
                         $data['post_user_id'] = $userId['user_id'];
                         $data['user_id'] = $_SESSION['user_id'];
@@ -17,9 +18,10 @@ class Post extends Controller {
                         $data['category'] = $this->model('Post_model')->getAllCategories();
                         $data['img'] = $this->model('Image_model')->getUserImagePath($currentPost);
                         $data['vid'] = $this->model('Video_model')->getUserVideoPath($currentPost);
+                        $data['user_id'] = $_SESSION['user_id'];
+                        $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id']);
                         $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
                         $this->view('post/index', $data);
-
                         exit;
                     default:
                         throw new LoggedExceptions('Method Not Allowed', 405);
