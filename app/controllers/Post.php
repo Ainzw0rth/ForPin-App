@@ -73,4 +73,25 @@ class Post extends Controller {
             http_response_code($e->getCode());
         }
     }
+
+    public function edit() {
+        try {
+            switch ($_SERVER['REQUEST_METHOD']) {
+                case 'POST':
+                    $postId = $_POST['post_id']; 
+                    $title = $_POST['title']; 
+                    $desc = $_POST['description']; 
+                    $tags = $_POST['tags'];
+                    $this->model('Post_model')->editPost($postId, $title, $desc, $tags);
+                    header('Content-Type: application/json');
+                    http_response_code(201);
+                    echo json_encode(["redirect_url" => BASE_URL . "/post/" . $postId]);
+                    exit;
+                default:
+                    throw new LoggedExceptions('Method Not Allowed', 405);
+            }
+        } catch (Exception $e) {
+            http_response_code($e->getCode());
+        }
+    }
 }
