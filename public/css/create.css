@@ -16,6 +16,7 @@
 }
 
 .upload-button-section {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,14 +43,28 @@
     color: white;
     background: #1F1F1F;
     border: none;
-    font-size: 10px;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.create-category-dropdown {
+    width: 480px;
+    height: 37px;
+    border-radius: 10px;
+    color: white;
+    background: #1F1F1F;
+    border: none;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .upload-input {
     padding: 25px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .create-bar {
@@ -73,7 +88,9 @@
     display: flex;
     align-items: start;
     color: white;
-    font-size: 10px;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .publish {
@@ -141,12 +158,13 @@ select option:hover {
     max-width: 100%;
     max-height: 100%;
     width: 100%;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .upload-template {
-    width: 497px;
-    height: 412.387px;
+    width: 380px;
+    min-height: 400px;
+    height: auto;
     border-radius: 55.04px;
     background: #1F1F1F;
     position: relative;
@@ -175,17 +193,52 @@ select option:hover {
 }
 
 .tags-warn {
-    font-size: 10px;
+    margin: 0;
+    font-size: 0.7rem;
     color: #77D4F8;
 }
 
 .warn-show {
     display: block;
     color: red;
-    font-size: 10px;
+    font-size: 0.7rem;
     margin-top: 5%;
 }
 
 .warn-hide {
     display: none;
+}
+
+@media screen and (max-width: 1010px) {
+    .upload-container {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 1%;
+    }
+
+    .upload-template {
+        width: 380px;
+        border-radius: 55.04px;
+        /* background: #1F1F1F; */
+        display: grid;
+    }
+
+    .upload-input {
+        width: 348px;
+        padding: 0;
+    }
+
+    .create-input-box {
+        width: 348px;
+    }
+    
+    .create-category-dropdown {
+        width: 380px;
+    }
+
+    .desc-box {
+        width: 348px;
+    }
 }

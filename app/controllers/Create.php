@@ -4,6 +4,8 @@
 class Create extends Controller {
     public function index() {
         if ( isset($_SESSION['user_id']) ) {
+            $data['category'] = $this->model('Post_model')->getAllCategories();
+            $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);
             $data['status'] = "Choose files here";
             $data['success'] = "";
             if ( isset($_POST['submit']) ) {

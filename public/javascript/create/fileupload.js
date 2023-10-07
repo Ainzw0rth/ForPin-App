@@ -132,3 +132,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
 })
+
+// for changing the background after inserting image
+var stat = document.getElementById("post-data");
+var parsedstat = JSON.parse(stat.getAttribute("data-postdata"))['status'];
+if (parsedstat != "Choose files here") {
+    console.log("here");
+    document.getElementById("upload-template").style.background = "black";
+}

@@ -20,11 +20,11 @@ usernameInput.addEventListener("keyup", debounce(()=>{
         const username = usernameInput.value;
         if (!usernameRegex.test(username)) {
             usernameWarn.innerText = "Invalid username!";
-            usernameWarn.className = "warn-show";
+            usernameWarn.className = "login_warn-show";
             usernamePass = false;
         } else {
             usernameWarn.innerText = "";
-            usernameWarn.className = "warn-hide";
+            usernameWarn.className = "login_warn-hide";
             usernamePass = true;
         }
     }, DEBOUNCE_TIMEOUT)
@@ -35,11 +35,11 @@ passwordInput.addEventListener("keyup", debounce(()=> {
 
         if (!passwordRegex.test(password)) {
             passwordWarn.innerText = "Invalid password!"
-            passwordWarn.className = "warn-show";
+            passwordWarn.className = "login_warn-show";
             passwordPass = false;
         } else {
             passwordWarn.innerText = "";
-            passwordWarn.className = "warn-hide";
+            passwordWarn.className = "login_warn-hide";
             passwordPass = true;
         }
     }, DEBOUNCE_TIMEOUT)
@@ -53,29 +53,29 @@ loginForm.addEventListener("submit", async (e) => {
 
     if (!username) {
         usernameWarn.innerText = "Before proceeding, please fill out your username!";
-        usernameWarn.className = "warn-show";
+        usernameWarn.className = "login_warn-show";
         usernamePass = false;
     } else if (!usernameRegex.test(username)) {
         usernameWarn.innerText = "Invalid username!";
-        usernameWarn.className = "warn-show";
+        usernameWarn.className = "login_warn-show";
         usernamePass = false;
     } else {
         usernameWarn.innerText = "";
-        usernameWarn.className = "warn-hide";
+        usernameWarn.className = "login_warn-hide";
         usernamePass = true;
     }
 
     if (!password) {
         passwordWarn.innerText = "Before proceeding, please fill out your password!";
-        passwordWarn.className = "warn-show";
+        passwordWarn.className = "login_warn-show";
         passwordPass = false;
     } else if (!passwordRegex.test(password)) {
         passwordWarn.innerText = "Invalid password!";
-        passwordWarn.className = "warn-show";
+        passwordWarn.className = "login_warn-show";
         passwordPass = false;
     } else {
         passwordWarn.innerText = "";
-        passwordWarn.className = "warn-hide";
+        passwordWarn.className = "login_warn-hide";
         passwordPass = true;
     }
 
@@ -102,11 +102,11 @@ loginForm.addEventListener("submit", async (e) => {
     xhr.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 201) {
-                document.getElementById("login-warn").className = "warn-hide";
+                document.getElementById("login-warn").className = "login_warn-hide";
                 const data = JSON.parse(this.responseText);
                 location.replace(data.redirect_url);
             } else {
-                document.getElementById("login-warn").className = "warn-show";
+                document.getElementById("login-warn").className = "login_warn-show";
             }
         }
     }
