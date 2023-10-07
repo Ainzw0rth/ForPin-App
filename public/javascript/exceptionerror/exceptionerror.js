@@ -12,6 +12,8 @@ var error_desc = document.createElement("h2");
 error_desc.className = "error_desc";
 if (parsedData['error'] == 404) {
     error_desc.textContent = "it appears that the requested URL was not found";
+} else if (parsedData['error'] == 500) {
+    error_desc.textContent = "Internal Server Error";
 }
 
 error_container.appendChild(error_desc);

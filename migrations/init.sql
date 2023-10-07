@@ -14,7 +14,7 @@ CREATE table IF NOT EXISTS users (
     username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL, 
     is_admin BOOLEAN NOT NULL,
-    profile_path VARCHAR(100) NOT NULL DEFAULT 'http://localhost:8080/public/images/testing_images/1.jpeg'
+    profile_path VARCHAR(300) NOT NULL DEFAULT 'http://localhost:8080/public/images/testing_images/1.jpeg'
 );
 
 CREATE table IF NOT EXISTS videos (
