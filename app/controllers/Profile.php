@@ -9,7 +9,6 @@ class Profile extends Controller {
                 $data['base'] = "http://localhost:8080/profile/";
                 $data['amount'] = $this->model('Post_model')->getAmountFromUserId($_SESSION['user_id']);
                 $data['category'] = $this->model('Post_model')->getAllCategories();
-                $data['posts'] = $this->model('Post_model')->getAllPostFromUserId($search, $_SESSION['user_id']);
                 $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
                 if ($search === "' '") {
                     $data['user_id'] = $_SESSION['user_id'];
@@ -18,6 +17,7 @@ class Profile extends Controller {
                     $data['user'] = $this->model('User_model')->getUserDescByUsername($search);
                     $data['user_id'] = $data['user']['user_id'];
                 }
+                $data['posts'] = $this->model('Post_model')->getAllPostFromUserId($search, $data['user_id']);
                 $this->view('profile/index', $data);
             } catch (Exception $e) {
                 http_response_code($e->getCode());
