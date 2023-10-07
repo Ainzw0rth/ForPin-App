@@ -2,7 +2,7 @@
 
     <div class="logo-name-section">
         <button class="logo">
-            <img src="<?= BASE_URL ?>/public/images/logo.png" class="app-logo">
+            <img src="<?= BASE_URL ?>/public/images/logo.png" class="app-logo" alt="ForPin logo">
         </button>
         <p class="text-1 forpin navtitle">ForPin</p>
     </div>

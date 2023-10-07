@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/globals.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/exceptionerror.css">
-    <title>ForPin | Home</title>
+    <title>ForPin | Error</title>
 </head>
 <body>
     <div id="post-data" data-postdata="<?php echo htmlspecialchars(json_encode($data)); ?>"></div>
