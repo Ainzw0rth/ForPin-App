@@ -71,7 +71,7 @@ class User extends Controller {
                 case 'POST':
                     $token = $_POST['csrf_token'];
                     $this->middleware("Token")->checkToken($token);
-
+                    
                     unset($_SESSION['user_id']);
 
                     header('Content-Type: application/json');
