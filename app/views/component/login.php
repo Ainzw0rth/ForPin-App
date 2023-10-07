@@ -2,7 +2,7 @@
         <div>
             <div class="top-section">
                 <div>
-                    <img src="<?= BASE_URL ?>/public/images/logo.png" class="logo-2 top-section-elements">
+                    <img src="<?= BASE_URL ?>/public/images/logo.png" class="logo-2 top-section-elements" alt="ForPin logo">
                 </div>
                 <div>
                     <p class="title top-section-elements">Welcome to ForPin</p>

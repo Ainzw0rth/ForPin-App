@@ -1,7 +1,7 @@
 <div class="topnav" id="top-nav">
     <div class="logo_section">
         <button class="logo" onClick="location.href='<?= BASE_URL; ?>/home'">
-            <img src="<?= BASE_URL; ?>/public/images/logo.png" class="app-logo">
+            <img src="<?= BASE_URL; ?>/public/images/logo.png" class="app-logo" alt="ForPin Logo">
         </button>
         <div class="nav_buttons_container">
             <button class="home-button" onClick="location.href='<?= BASE_URL; ?>/home'">Home</button>
@@ -72,7 +72,7 @@
         </button>
         <div class="settings-menu">
             <button class="settings-dropdown">
-                <img src="<?= BASE_URL; ?>/public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol">
+                <img src="<?= BASE_URL; ?>/public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol" alt="dropdown symbol">
             </button>
             <div id="menus-from-dropdown" class="menusdropdown">
                 <?php if ( $data['is_admin'] ) { ?> 

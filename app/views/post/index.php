@@ -53,7 +53,7 @@
                 <div class="card-additional">
                     <div class="card_profile_section">
                         <a href="<?= BASE_URL ?>/profile/<?= $data['user']['username'] ?>">
-                            <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
+                            <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture alt="profile picture"></img>
                         </a>
                         <a href="<?= BASE_URL ?>/profile/<?= $data['user']['username'] ?>">
                         <div class="card_profile_name_section">
