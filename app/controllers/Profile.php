@@ -7,13 +7,18 @@ class Profile extends Controller {
             try {
                 $data['search'] = $search;
                 $data['base'] = "http://localhost:8080/profile/";
-                $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);
                 $data['amount'] = $this->model('Post_model')->getAmountFromUserId($_SESSION['user_id']);
                 $data['category'] = $this->model('Post_model')->getAllCategories();
                 $data['posts'] = $this->model('Post_model')->getAllPostFromUserId($search, $_SESSION['user_id']);
-
+                $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
+                if ($search === "' '") {
+                    $data['user_id'] = $_SESSION['user_id'];
+                    $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);
+                } else {
+                    $data['user'] = $this->model('User_model')->getUserDescByUsername($search);
+                    $data['user_id'] = $data['user']['user_id'];
+                }
                 $this->view('profile/index', $data);
-    
             } catch (Exception $e) {
                 http_response_code($e->getCode());
             }
@@ -30,6 +35,7 @@ class Profile extends Controller {
                 $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);
                 $data['category'] = $this->model('Post_model')->getAllCategories();
                 $data['filename'] = "";
+                $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
                 if ( isset($_POST['submit-profpic']) ) {
                     $uploadDir =  '/var/www/html/public/images/testing_images/';
                     if (!empty($_FILES['file']['name'])) {
@@ -74,11 +80,16 @@ class Profile extends Controller {
         }
     }
     
-    public function delete() {
+    public function delete($user_id = "") {
         if ( isset($_SESSION['user_id']) ) {
             try {
-                $this->model('User_model')->deleteAccount($_SESSION['user_id']);
-                header("Location: " . BASE_URL . "/user/login");
+                if ($user_id === "") {
+                    $this->model('User_model')->deleteAccount($_SESSION['user_id']);
+                    header("Location: " . BASE_URL . "/user/login");
+                } else {
+                    $this->model('User_model')->deleteAccount($user_id);
+                    header("Location: " . BASE_URL . "/settings");
+                }
             } catch (Exception $e) {
                 http_response_code($e->getCode());
             }

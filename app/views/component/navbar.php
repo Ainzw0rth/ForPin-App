@@ -75,7 +75,9 @@
                 <img src="<?= BASE_URL; ?>/public/images/dropdown_sign.png" class="dropdown_symbol" id="dropdownsymbol">
             </button>
             <div id="menus-from-dropdown" class="menusdropdown">
-                <a href="#settings">Settings</a>
+                <?php if ( $data['is_admin'] ) { ?> 
+                    <a href="<?= BASE_URL ?>/settings">Settings</a>
+                <?php } ?>     
                 <a href="#" id="log-out">Log out</a>
             </div>
         </div>
