@@ -89,6 +89,7 @@ color: lightgray;
     display: flex;
     justify-content: center;
     gap: 10px;
+    align-items: center;
     & > .blue-button {
         background-color: #77D4F8;;
         border: none;   

@@ -127,3 +127,54 @@
         background-color: #5ba5c2;
     }
 }
+
+.delete-account-button {
+    width: 120px;
+    height: 50px;
+    background-color: #E60023;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    &:hover {
+        background-color: #860014;
+    }
+}
+
+.delete-account-section {
+    display: flex;
+    justify-content: end;
+    margin-right: 5%;
+    > a {
+        text-decoration: none;
+    }
+}
+
+.delete-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+
+.username-text {
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
+
+.modal-user-desc {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}

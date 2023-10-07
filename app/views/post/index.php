@@ -155,7 +155,6 @@
                 <br>
                 <label for="description" class="text-2">Description</label>
                 <input type="text" placeholder="Write your detailed description bellow" id="description" name="description" class="desc-box"> 
-                <!-- <p class="text-desc">If you delete this post, it’ll be gone for good and you won’t be able to view it.</p> -->
                 <br>
                 <label for="genre" class="text-2">Choose a genre</label>
                 <br>

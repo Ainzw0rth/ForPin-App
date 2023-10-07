@@ -73,4 +73,18 @@ class Profile extends Controller {
             exit;
         }
     }
+    
+    public function delete() {
+        if ( isset($_SESSION['user_id']) ) {
+            try {
+                $this->model('User_model')->deleteAccount($_SESSION['user_id']);
+                header("Location: " . BASE_URL . "/user/login");
+            } catch (Exception $e) {
+                http_response_code($e->getCode());
+            }
+        } else {
+            header("Location: " . BASE_URL . "/user/login");
+            exit;
+        }
+    }
 }

@@ -72,4 +72,10 @@ class User_model {
         $this->db->bind('user_id', $userId);
         $this->db->execute();
     }
+
+    public function deleteAccount($userId) {
+        $this->db->query('DELETE FROM users WHERE user_id = :user_id');
+        $this->db->bind('user_id', $userId);
+        $this->db->execute();
+    }
 }
