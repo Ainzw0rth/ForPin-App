@@ -211,4 +211,19 @@ class Post_model {
         $this->db->query('SELECT post_id FROM post ORDER BY post_id DESC LIMIT 1;');
         return $this->db->single();      
     }
+
+    public function deletePost($currentPost) {
+        $this->db->query('DELETE FROM post WHERE post_id = :post_id');
+        $this->db->bind('post_id', $currentPost);
+        $this->db->execute();
+    }
+
+    public function editPost($currentPost, $title, $desc, $tags) {
+        $this->db->query('UPDATE post SET caption = :caption, descriptions = :descriptions, genre = :genre WHERE post_id = :post_id');
+        $this->db->bind('caption', $title);
+        $this->db->bind('descriptions', $desc);
+        $this->db->bind('genre', $tags);
+        $this->db->bind('post_id', $currentPost);
+        $this->db->execute();
+    }
 }
