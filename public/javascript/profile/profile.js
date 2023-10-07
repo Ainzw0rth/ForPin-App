@@ -14,13 +14,13 @@ function addUserDetails() {
     // user name
     var profile_username = document.createElement("h2");
     profile_username.className = "profile_username";
-    profile_username.textContent = user_data['username'];
+    profile_username.textContent = "@" + user_data['username'];
     profile_section.appendChild(profile_username);
 
     // full name
     var profile_fullname = document.createElement("h3");
     profile_fullname.className = "profile_fullname";
-    profile_fullname.textContent = "@" + user_data['fullname'];
+    profile_fullname.textContent = user_data['fullname'];
     profile_section.appendChild(profile_fullname);
 
     // edit button
