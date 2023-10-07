@@ -121,6 +121,7 @@
         $fileCount = count($fileNamesArray);
     } ?> 
     <script>
+        const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         var FILE_COUNT = <?= $fileCount ?>;
     </script>

@@ -79,7 +79,7 @@ class Database {
         $this->query(
             "CREATE table IF NOT EXISTS videos (
                 vid_id SERIAL PRIMARY KEY NOT NULL,
-                post_id INT NOT NULL REFERENCES post(post_id),
+                post_id INT NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
                 vid_path VARCHAR(100) NOT NULL
             );"
         );
@@ -89,7 +89,7 @@ class Database {
         $this->query(
             "CREATE table IF NOT EXISTS images (
                 img_id SERIAL PRIMARY KEY NOT NULL,
-                post_id INT NOT NULL REFERENCES post(post_id),
+                post_id INT NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
                 img_path VARCHAR(100) NOT NULL
             );"
         );
@@ -98,8 +98,8 @@ class Database {
         // User_post
         $this->query(
             "CREATE table IF NOT EXISTS user_post (
-                user_id INT REFERENCES users(user_id),
-                post_id INT REFERENCES post(post_id)
+                user_id INT REFERENCES users(user_id) ON DELETE CASCADE,
+                post_id INT REFERENCES post(post_id) ON DELETE CASCADE
             );"
         );
         $this->execute();

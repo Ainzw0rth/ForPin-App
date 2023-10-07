@@ -39,7 +39,11 @@ function addProfilePic() {
     var profilepic = document.createElement("img");
     profilepic.src = curr_user['profile_path'];
     profilepic.className = "logo";
-    // later add href
+    profilepic.onclick = function() {
+        window.location = 'http://localhost:8080/profile/'
+    }
+    profilepic.alt = "navbar profile picture";
+
     profile.appendChild(profilepic);
 }
 
@@ -124,4 +128,23 @@ searchButton.addEventListener("click", function () {
             window.location.href = destination + search_value + category_value + filter_value + sort_value;
         }
     }
+});
+
+const logoutButton = document.getElementById("log-out");
+logoutButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("POST", `user/logout`);
+
+    const formData = new FormData();
+    formData.append("csrf_token", CSRF_TOKEN);
+    xhr.send(formData);
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState === XMLHttpRequest.DONE) {
+            const data = JSON.parse(this.responseText);
+            location.replace(data.redirect_url);
+        }
+    };
 });
