@@ -283,6 +283,7 @@
         </div>
     </div>
     <script>
+        const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         var postId = <?= $data['current'] ?>;
     </script>

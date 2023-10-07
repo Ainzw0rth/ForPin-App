@@ -76,7 +76,7 @@
             </button>
             <div id="menus-from-dropdown" class="menusdropdown">
                 <a href="#settings">Settings</a>
-                <a href="#logout">Log out</a>
+                <a href="#" id="log-out">Log out</a>
             </div>
         </div>
     </div>
