@@ -5,6 +5,12 @@ var fullname_profile_section = document.getElementById("edit_profile_fullname_se
 var password_profile_section = document.getElementById("edit_profile_password_section");
 var user_data = neccessary_datas['user'];
 
+document.getElementById("profpic-input").onchange = function() {
+    document.querySelector('input[id="change-profpic-submit"]').click();
+}
+
+
+
 function addPfpOptions() {
     // the profile pic
     var profile_pic = document.createElement("img");
@@ -19,7 +25,7 @@ function addPfpOptions() {
     edit_button.textContent = "Change";
 
     edit_button.onclick = function() {
-        // TODO: ask for file input and then change the temporary image src
+        window.location.href = "#change-profpic";
     }
     photo_profile_section.appendChild(edit_button);
 }
@@ -137,7 +143,6 @@ emailInput.addEventListener("keyup", debounce(() => {
 
 passwordInput.addEventListener("keyup", debounce(() => {
     const password = passwordInput.value   
-    const passwordConfirmed = secondPassword.value   
 
     if (!passwordRegex.test(password)) {
         passwordWarn.innerText = "Invalid password!"
@@ -156,9 +161,11 @@ function executeCancel() {
 }
 
 function executeEdit() {
+    console.log("here")
     // edit user data
     if (usernamePass && fullnamePass && passwordPass && emailPass) {
-        // TODO: execute
+        console.log("executing")
+        document.querySelector('input[id="change-user-desc"]').click();
     } else {
 
     }

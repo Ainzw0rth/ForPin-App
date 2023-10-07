@@ -61,4 +61,15 @@ class User_model {
         $this->db->bind('user_id', $userId);
         return $this->db->single();
     }
+
+    public function editUserProf($userId, $username, $fullname, $password, $email, $profile_path) {
+        $this->db->query('UPDATE users SET username = :username, fullname = :fullname, password = :password, email = :email, profile_path = :profile_path WHERE user_id = :user_id');
+        $this->db->bind('username', $username);
+        $this->db->bind('fullname', $fullname);
+        $this->db->bind('password', password_hash($password, PASSWORD_DEFAULT));
+        $this->db->bind('email', $email);
+        $this->db->bind('profile_path', $profile_path);
+        $this->db->bind('user_id', $userId);
+        $this->db->execute();
+    }
 }
