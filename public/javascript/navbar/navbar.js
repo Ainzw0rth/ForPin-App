@@ -126,7 +126,7 @@ searchButton.addEventListener("click", function () {
         if (document.getElementById('searchbox').value == "" && document.getElementById('category').value == "0" && checked_filter_value == "0" && checked_sort_value == "0") {
             window.location.href = destination;
         } else {
-            window.location.href = destination + search_value + category_value + filter_value + sort_value;
+            window.location.href = destination + "/" + search_value + category_value + filter_value + sort_value;
         }
     }
 });
