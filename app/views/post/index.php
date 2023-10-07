@@ -147,6 +147,8 @@
                 <input type="text" placeholder="Add a title" id="title" class="create-input-box" name="title">
                 <p id="title-warn" class="warn-hide"></p>
                 <br>
+
+                <br>
                 <label for="description" class="text-2">Description</label>
                 <input type="text" placeholder="Write your detailed description bellow" id="description" name="description" class="desc-box"> 
                 <!-- <p class="text-desc">If you delete this post, it’ll be gone for good and you won’t be able to view it.</p> -->

@@ -107,6 +107,7 @@
 .tags {
     color: #B7D7DF;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .tags:hover {
@@ -120,6 +121,10 @@
 .genres {
     display: flex;
     gap: 10px;
+    text-decoration: none;
+    > a {
+        text-decoration: none;
+    }
 }
 
 .cancel-button-post {
@@ -192,6 +197,16 @@
 .tags-warn {
     font-size: 10px;
     color: #77D4F8;
+}
+
+.warn-show {
+    display: block;
+    color: red;
+    font-size: 10px;
+}
+
+.warn-hide {
+    display: none;
 }
 
 .card_profile_section {

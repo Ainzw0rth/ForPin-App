@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const titleWarn = document.getElementById("title-warn");
     const tagsWarn = document.getElementById("tags-warn-2");
     
-    const titleRegex = /^\w+$/;
-    const tagsRegex = /^\w+$/;
+    const titleRegex = /^[^@]*$/;
+    const tagsRegex = /^(?:\w+(?:,\s*)?)+$/;
     
     let titlePass = false;
     let tagsPass = false;
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let title = titleInput.value;
         let description = descInput.value;
         let filenames = fileInput.value;
-        let tags = genreInput.value + " " + tagsInput.value;
+        let tags = genreInput.value + ", " + tagsInput.value;
     
         if (!title) {
             title = "";
@@ -89,10 +89,10 @@ document.addEventListener("DOMContentLoaded", function () {
             tagsWarn.innerText = "";
             tagsWarn.className = "warn-hide";
             tagsPass = true;
-        // } else if (!tagsRegex.test(tags)) {
-        //     tagsWarn.innerText = "Invalid tags!";
-        //     tagsWarn.className = "warn-show";
-        //     tagsPass = false;
+        } else if (!tagsRegex.test(tags)) {
+            tagsWarn.innerText = "Invalid tags!";
+            tagsWarn.className = "warn-show";
+            tagsPass = false;
         } else {
             tagsWarn.innerText = "";
             tagsWarn.className = "warn-hide";
