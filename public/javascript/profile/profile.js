@@ -31,7 +31,11 @@ function addUserDetails() {
     edit_button.onclick = function() {
         window.location.href = "http://localhost:8080/profile/edit/";
     }
-    profile_section.appendChild(edit_button);
+    if (currentId == sessionId) {
+        console.log(currentId)
+        console.log(sessionId)
+        profile_section.appendChild(edit_button);
+    }
 }
 
 addUserDetails();

@@ -72,4 +72,21 @@ class User_model {
         $this->db->bind('user_id', $userId);
         $this->db->execute();
     }
+
+    public function deleteAccount($userId) {
+        $this->db->query('DELETE FROM users WHERE user_id = :user_id');
+        $this->db->bind('user_id', $userId);
+        $this->db->execute();
+    }
+
+    public function getUserListDesc() {
+        $this->db->query('SELECT DISTINCT user_id, username, fullname, profile_path FROM users WHERE is_admin = false');
+        return $this->db->resultSet();
+    }
+
+    public function getUserDescByUsername($username) {
+        $this->db->query('SELECT * FROM users WHERE username = :username LIMIT 1');
+        $this->db->bind('username', $username);
+        return $this->db->single();
+    }
 }

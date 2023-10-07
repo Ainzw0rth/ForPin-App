@@ -47,8 +47,13 @@
             <button class="cancel_edit_button" onclick="executeCancel()">Cancel</button>
             <button class="confirm_edit_button" onclick="executeEdit()">Save Changes</button>
         </div>
+        
+        <div class="delete-account-section">
+            <a href="#delete-account" class="delete-account-button">Delete account</a>
+        </div>
     </div>
 
+    <!-- modal section -->
     <div id="change-profpic" class="modal-window">
         <div class="change-section">
             <p class="text-question">Change your picture</p>
@@ -63,7 +68,27 @@
             </form>
         </div>
     </div>
-    
+
+    <!-- modal section -->
+    <div id="delete-account" class="modal-window">
+        <div class="delete-modal">
+            <div class="modal-user-desc">
+                <img src="<?= $data['user']['profile_path'] ?>" alt="user profile pict" class="current_profile_pfp">
+                <p class="username-text"><?= $data['user']['username'] ?></p>
+            </div>
+            <div>
+                <p class="text-question">Delete your account</p>
+                <p class="text-desc">Deleting your account means you won't be able to get your Posts back. All your ForPin account data will be deleted</p>
+            </div>
+            
+            <div class="modal-button-section">
+                <button onClick="location.href='#'" class="normal-button">Cancel</button>
+                <button onClick="location.href='<?= BASE_URL; ?>/profile/delete'" class="delete-account-button">Delete account</button>
+            </div>
+
+        </div>
+    </div>
+
     <script>
         const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
