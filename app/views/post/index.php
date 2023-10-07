@@ -105,7 +105,6 @@
                             <path d="M6.86141 21.4418L17.58 31.5108L17.58 31.5108C17.9493 31.8576 18.1339 32.031 18.3515 32.0738C18.4495 32.093 18.5504 32.093 18.6484 32.0738C18.8661 32.031 19.0507 31.8576 19.4199 31.5108L30.1385 21.4418C33.1543 18.6088 33.5205 13.9468 30.9841 10.6776L30.5072 10.0629C27.4729 6.1521 21.3823 6.80798 19.2502 11.2752C18.9491 11.9062 18.0508 11.9062 17.7497 11.2752C15.6176 6.80798 9.52703 6.1521 6.49276 10.0629L6.01583 10.6776C3.47942 13.9468 3.84564 18.6088 6.86141 21.4418Z" stroke="white" stroke-width="1.54167"  id="heart"/>
                         </svg>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -123,7 +122,7 @@
             
             <div class="modal-button-section">
                 <button onClick="location.href='#'" class="normal-button">Cancel</button>
-                <button onClick="location.href='<?= BASE_URL; ?>/post/delete/<?= $data['post_id'] ?>'" class="blue-button">Delete</button>
+                <button onClick="location.href='<?= BASE_URL; ?>/post/delete/<?= $data['current'] ?>'" class="blue-button">Delete</button>
             </div>
 
         </div>
@@ -182,7 +181,76 @@
             </form>
         </div>
     </div>
+
+    <!-- modal section -->
+    <div id="open-modal" class="modal-window">
+        <div>
+            <p class="text-question">Are you sure?</p>
+            <p class="text-desc">If you delete this post, it’ll be gone for good and you won’t be able to view it.</p>
+            <br>
+            
+            <div class="modal-button-section">
+                <button onClick="location.href='#'" class="normal-button">Cancel</button>
+                <button onClick="location.href='<?= BASE_URL; ?>/post/delete/<?= $data['current'] ?>'" class="blue-button">Delete</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="open-modal-2" class="modal-window">
+        <div>
+            <div class="top-edit-section">
+                <p class="text-question">Edit Post</p>
+                <div class="cancel-button-post">
+                    <button onClick="location.href='#'">
+                        <div class="button-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none" class="cancel-edit">
+                                <path d="M24.75 8.25L8.25 24.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8.25 8.25L24.75 24.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <form class="upload-form">
+
+                <label for="title" class="text-2">Title</label>
+                <br>
+                <input type="text" placeholder="Add a title" id="title" class="create-input-box" name="title">
+                <p id="title-warn" class="warn-hide"></p>
+                <br>
+
+                <br>
+                <label for="description" class="text-2">Description</label>
+                <input type="text" placeholder="Write your detailed description bellow" id="description" name="description" class="desc-box"> 
+                <br>
+                <label for="genre" class="text-2">Choose a genre</label>
+                <br>
+                <select name="genre" id="genre" name="genre" class="create-input-box">
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="horror">Horror</option>
+                    <option value="humour">Humour</option>
+                    <option value="fun">Fun</option>
+                </select>
+                <br>
+                <label for="tags" class="text-2">Tags</label>
+                <P class="tags-warn">Ex: tags1, tags2, tags3</P>
+                <input type="text" placeholder="Add more tags" id="tags" name="tags" class="create-input-box">
+                <p id="tags-warn-2" class="warn-hide"></p>
+                
+                <br>
+
+                <p id="upload-warn" class="warn-hide">Edit failed</p>
+                <div class="edit-submit-button">
+                    <input type="submit" name="edit-submit" value="Save" class="blue-button" id="edit-submit">
+                </div>
+            </form>
+        </div>
+    </div>
     <script>
+        const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         var postId = <?= $data['current'] ?>;
     </script>

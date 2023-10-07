@@ -22,6 +22,7 @@ class User extends Controller {
         try {
             switch($_SERVER['REQUEST_METHOD']) {
                 case 'GET':
+                    $this->middleware("Token")->generateToken();
                     $this->view('user/login');
                     exit;
                 case 'POST':
@@ -57,6 +58,26 @@ class User extends Controller {
                     exit;
                 default:
                     throw new LoggedExceptions('Method Not Allowed', 405);
+            }
+        } catch (Exception $e) {
+            http_response_code($e->getCode());
+            exit;
+        }
+    }
+
+    public function logout() {
+        try {
+            switch($_SERVER['REQUEST_METHOD']) {
+                case 'POST':
+                    $token = $_POST['csrf_token'];
+                    $this->middleware("Token")->checkToken($token);
+
+                    unset($_SESSION['user_id']);
+
+                    header('Content-Type: application/json');
+                    http_response_code(201);
+                    echo json_encode(["redirect_url" => BASE_URL . "/user/login"]);
+
             }
         } catch (Exception $e) {
             http_response_code($e->getCode());
