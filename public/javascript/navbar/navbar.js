@@ -24,6 +24,7 @@ function addCategories() {
     
     categories.forEach(category => {
         var newOption = document.createElement("option");
+        console.log(category['genre']);
         newOption.value = category['genre'];
         newOption.text = category['genre'];
         dropdown.add(newOption);
@@ -97,8 +98,8 @@ const searchButton = document.getElementById("search_button");
 searchButton.addEventListener("click", function () {
     if (validSearch) {
         var destination = "http://localhost:8080/home/";
-        var search_value = "q=" + document.getElementById('searchbox').value;
-        var category_value = "@c=" + document.getElementById('category').value;
+        var search_value = "q=" + (document.getElementById('searchbox').value).replace(/ /g, "-");
+        var category_value = "@c=" + (document.getElementById('category').value).replace(/ /g, "-");
     
         var filter_value = "@f=";
         var checked_filter_value;
@@ -148,3 +149,5 @@ logoutButton.addEventListener("click", async (e) => {
         }
     };
 });
+
+console.log(document.getElementById('category').value);
