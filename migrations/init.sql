@@ -20,13 +20,13 @@ CREATE table IF NOT EXISTS users (
 CREATE table IF NOT EXISTS videos (
     vid_id SERIAL PRIMARY KEY NOT NULL,
     post_id INT NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
-    vid_path VARCHAR(100) NOT NULL
+    vid_path VARCHAR(300) NOT NULL
 );
 
 CREATE table IF NOT EXISTS images (
     img_id SERIAL PRIMARY KEY NOT NULL,
     post_id INT NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
-    img_path VARCHAR(100) NOT NULL
+    img_path VARCHAR(300) NOT NULL
 );
 
 CREATE table IF NOT EXISTS user_post (
