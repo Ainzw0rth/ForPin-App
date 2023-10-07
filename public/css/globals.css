@@ -17,9 +17,6 @@
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
     font-family: var(--roboto);
     color: white;
 }
@@ -42,6 +39,22 @@ img {
 .text-2 {
     color: #FFF;
     font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text_capt{
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.text_desc {
+    color: #FFF;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -114,15 +127,15 @@ img {
 
 .normal-button {
     display: flex;
-    width: 86px;
-    height: 46px;
+    width: 82px;
+    height: 42px;
     padding: 10px;
     justify-content: center;
     align-items: center;
     border-radius: 170px;
     background: #FFF;
     color: #000;
-    font-size: 15px;
+    font-size: 0.94rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;

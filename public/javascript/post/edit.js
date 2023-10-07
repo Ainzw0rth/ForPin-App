@@ -1,13 +1,8 @@
-document.getElementById("file-input").onchange = function() {
-    document.querySelector('input[id="post-image-submit"]').click();
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     const titleInput = document.getElementById("title");
     const descInput = document.getElementById("description");
     const genreInput = document.getElementById("genre");
     const tagsInput = document.getElementById("tags");
-    const fileInput = document.getElementById("file-names");
     const uploadForm = document.querySelector(".upload-form");
     
     const titleWarn = document.getElementById("title-warn");
@@ -62,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
         let title = titleInput.value;
         let description = descInput.value;
-        let filenames = fileInput.value;
         let tags = genreInput.value + ", " + tagsInput.value;
     
         if (!title) {
@@ -104,13 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "/create/insertData");
+        xhr.open("POST", "/post/edit");
     
         const formData = new FormData();
+        formData.append("post_id", postId)
         formData.append("title", title);
         formData.append("description", description);
         formData.append("tags", tags);
-        formData.append("filenames", filenames);
     
         formData.forEach((value, key) => {
             console.log(key, value);

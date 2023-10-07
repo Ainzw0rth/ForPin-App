@@ -38,14 +38,12 @@ class User_model {
         $this->db->bind('username', $username);   
         $this->db->bind('fullname', $fullname);   
         $this->db->bind('password', password_hash($password, PASSWORD_DEFAULT));
-        // $this->db->bind('password', $password);
         $this->db->bind('is_admin', false);
         
         $this->db->execute();
     }
 
     public function login($username, $password) {
-        // $this->db->query('SELECT user_id FROM users WHERE username = :username LIMIT 1');
         $this->db->query('SELECT user_id, password FROM users WHERE username = :username LIMIT 1');
         $this->db->bind('username', $username);
         
@@ -57,7 +55,7 @@ class User_model {
             throw new LoggedExceptions('Unauthorized', 401);
         }
     }
-    
+
     public function getIsAdmin($userId) {
         $this->db->query('SELECT is_admin FROM users WHERE user_id = :user_id LIMIT 1');
         $this->db->bind('user_id', $userId);
