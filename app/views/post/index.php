@@ -122,7 +122,7 @@
             
             <div class="modal-button-section">
                 <button onClick="location.href='#'" class="normal-button">Cancel</button>
-                <button onClick="location.href='<?= BASE_URL; ?>/post/delete/<?= $data['post_id'] ?>'" class="blue-button">Delete</button>
+                <button onClick="location.href='<?= BASE_URL; ?>/post/delete/<?= $data['current'] ?>'" class="blue-button">Delete</button>
             </div>
 
         </div>
@@ -191,7 +191,7 @@
             
             <div class="modal-button-section">
                 <button onClick="location.href='#'" class="normal-button">Cancel</button>
-                <button onClick="location.href='<?= BASE_URL; ?>/post/delete/<?= $data['post_id'] ?>'" class="blue-button">Delete</button>
+                <button onClick="location.href='<?= BASE_URL; ?>/post/delete/<?= $data['current'] ?>'" class="blue-button">Delete</button>
             </div>
 
         </div>
@@ -224,7 +224,6 @@
                 <br>
                 <label for="description" class="text-2">Description</label>
                 <input type="text" placeholder="Write your detailed description bellow" id="description" name="description" class="desc-box"> 
-                <!-- <p class="text-desc">If you delete this post, it’ll be gone for good and you won’t be able to view it.</p> -->
                 <br>
                 <label for="genre" class="text-2">Choose a genre</label>
                 <br>

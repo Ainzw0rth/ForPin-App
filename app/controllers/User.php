@@ -22,6 +22,7 @@ class User extends Controller {
         try {
             switch($_SERVER['REQUEST_METHOD']) {
                 case 'GET':
+                    $this->middleware("Token")->generateToken();
                     $this->view('user/login');
                     exit;
                 case 'POST':
