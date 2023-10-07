@@ -95,8 +95,7 @@
     width: 49px;
     height: 49px;
     flex-shrink: 0;
-    fill: black;
-    background: black;
+    background-color: transparent;
     position: relative;
     border-radius: 50%;
 }
@@ -121,6 +120,24 @@
 .genres {
     display: flex;
     gap: 10px;
+}
+
+.delete-button {
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.edit-button {
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .card_profile_section {

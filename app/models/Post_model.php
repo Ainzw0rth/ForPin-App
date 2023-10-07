@@ -175,4 +175,10 @@ class Post_model {
         $this->db->query('SELECT post_id FROM post ORDER BY post_id DESC LIMIT 1;');
         return $this->db->single();      
     }
+
+    public function deletePost($currentPost) {
+        $this->db->query('DELETE FROM post WHERE post_id = :post_id');
+        $this->db->bind('post_id', $currentPost);
+        $this->db->execute();
+    }
 }
