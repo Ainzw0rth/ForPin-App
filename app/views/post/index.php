@@ -52,11 +52,15 @@
 
                 <div class="card-additional">
                     <div class="card_profile_section">
-                        <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
+                        <a href="<?= BASE_URL ?>/profile/<?= $data['user']['username'] ?>">
+                            <img src="<?= $data['user']['profile_path'] ?>" class=profile-picture></img>
+                        </a>
+                        <a href="<?= BASE_URL ?>/profile/<?= $data['user']['username'] ?>">
                         <div class="card_profile_name_section">
                             <p class=text_capt><?= $data['user']['username'] ?></p>
                             <p class=text_desc><?= $data['user']['fullname'] ?></p>
                         </div>
+                        </a>
                     </div>
 
                     <div class="additional-section">
