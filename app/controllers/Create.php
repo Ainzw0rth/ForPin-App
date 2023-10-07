@@ -4,6 +4,7 @@
 class Create extends Controller {
     public function index() {
         if ( isset($_SESSION['user_id']) ) {
+            $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
             $data['category'] = $this->model('Post_model')->getAllCategories();
             $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);
             $data['status'] = "Choose files here";
