@@ -12,12 +12,14 @@ heartIcon.addEventListener("click", function () {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             if (action === "add") {
+                document.cookie = 'post_liked_' + postId  + '=true';
                 heart.classList.add("blue-heart");
                 heart.setAttribute("stroke", "transparent");
                 const response = JSON.parse(this.responseText);
                 const likes = response.likes;
                 document.getElementById("likes_number").textContent = likes;
             } else {
+                document.cookie = 'post_liked_' + postId  + '=';
                 heart.setAttribute("stroke", "white");
                 heart.classList.remove("blue-heart");
                 const response = JSON.parse(this.responseText);

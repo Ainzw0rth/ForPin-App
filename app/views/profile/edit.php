@@ -56,7 +56,17 @@
     <!-- modal section -->
     <div id="change-profpic" class="modal-window">
         <div class="change-section">
-            <p class="text-question">Change your picture</p>
+            <div class="cancel-button-circle">
+                <button onClick="location.href='#'">
+                    <div class="button-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none" class="cancel-edit">
+                            <path d="M24.75 8.25L8.25 24.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.25 8.25L24.75 24.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+                    <p class="text-question">Change your picture</p>
             <form action="<?= BASE_URL ?>/profile/edit" method="POST" enctype="multipart/form-data" id="profpic-form">
 
                 <label for="profpic-input">

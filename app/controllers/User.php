@@ -31,7 +31,6 @@ class User extends Controller {
                     $password = $_POST['password'];
                     $userId = $this->model('User_model')->login($username, $password);
                     $_SESSION['user_id'] = $userId;
-                    
                     header('Content-Type: application/json');
                     http_response_code(201);
                     echo json_encode(["redirect_url" => BASE_URL . '/home']);
@@ -73,7 +72,7 @@ class User extends Controller {
                     $this->middleware("Token")->checkToken($token);
                     
                     unset($_SESSION['user_id']);
-
+                    session_destroy();
                     header('Content-Type: application/json');
                     http_response_code(201);
                     echo json_encode(["redirect_url" => BASE_URL . "/user/login"]);
