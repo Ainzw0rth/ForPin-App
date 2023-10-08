@@ -12,6 +12,8 @@ class Settings extends Controller {
                 if ($data['is_admin']) {
                     $this->view('settings/index', $data);
                 } else {
+                    $data['error'] = 404;
+                    $this->view('exceptionerror/index', $data);
                     throw new LoggedExceptions('Unauthorized', 401);
                 }
     
