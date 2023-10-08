@@ -113,7 +113,7 @@ class Create extends Controller {
             // Load Home 
             header('Content-Type: application/json');
             http_response_code(201);
-            echo json_encode(["redirect_url" => BASE_URL . '/home']);
+            echo json_encode(["redirect_url" => BASE_URL . '/profile']);
             // header("Location: " . BASE_URL . "/home");
             exit;
         } catch (Exception $e) {
