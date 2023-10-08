@@ -136,7 +136,7 @@ logoutButton.addEventListener("click", async (e) => {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
 
-    xhr.open("POST", `user/logout`);
+    xhr.open("POST", `/user/logout`);
 
     const formData = new FormData();
     formData.append("csrf_token", CSRF_TOKEN);
