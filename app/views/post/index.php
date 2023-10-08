@@ -104,7 +104,7 @@
                         <p class="text_desc"><?= $data['post']['post_time'] ?></p>
                     </div>
                     
-                    <?php if (isset($_COOKIE['post_liked_' . $data['current']])) {?>
+                    <?php if (isset($_COOKIE['post_liked_' . $data['current'] . '_' . $_SESSION['user_id']])) {?>
                         <div class="svg-container">
                             <p class=text-1-normal id="likes_number"><?= $data['post']['likes'] ?></p>
                             <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 37 37" fill="none" id="likes" class="pointer">
@@ -261,6 +261,7 @@
         const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         var postId = <?= $data['current'] ?>;
+        var userId = <?= $_SESSION['user_id'] ?>
     </script>
     <script src="<?= BASE_URL; ?>/public/javascript/debounce/debounce.js"></script>
     <script src="<?= BASE_URL; ?>/public/javascript/navbar/navbar.js"></script>
