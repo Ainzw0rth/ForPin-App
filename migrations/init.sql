@@ -1,10 +1,10 @@
 CREATE table IF NOT EXISTS post (
-post_id SERIAL PRIMARY KEY NOT NULL,
-caption VARCHAR(100),
-descriptions VARCHAR(500),
-post_time DATE NOT NULL,
-likes INT NOT NULL DEFAULT 0,
-genre VARCHAR(50) 
+    post_id SERIAL PRIMARY KEY NOT NULL,
+    caption VARCHAR(100),
+    descriptions VARCHAR(500),
+    post_time DATE NOT NULL,
+    likes INT NOT NULL DEFAULT 0,
+    genre VARCHAR(50) 
 );
 
 CREATE table IF NOT EXISTS users (
@@ -125,3 +125,16 @@ INSERT INTO videos (post_id, vid_path) VALUES
 (1, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
 (23, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
 (24, 'http://localhost:8080/public/images/testing_images/xavier.mp4');
+
+CREATE OR REPLACE FUNCTION delete_parent_when_child_deleted()
+RETURNS TRIGGER AS $$
+BEGIN 
+    DELETE FROM post WHERE post_id = OLD.post_id;
+    RETURN OLD; 
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_delete_parent
+AFTER DELETE ON user_post
+FOR EACH ROW
+EXECUTE FUNCTION delete_parent_when_child_deleted();
