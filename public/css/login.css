@@ -1,0 +1,141 @@
+.input-login {
+    width: 95%;
+    height: 37px;
+    border-radius: 30px;
+    background: #1F1F1F;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    display: flex;
+    z-index: 1;
+    padding-left: 1rem;
+}
+
+.input-login input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    color: white;
+}
+
+.input-box {
+    width: 75%;
+}
+
+.login-button {
+    display: flex;
+    width: 248px;
+    height: 46px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 170px;
+    background: #77D4F8;
+    color: #FFF;
+    font-family: Arial;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    border: none;
+}
+
+.login-button:hover {
+    background: #548B9F;
+
+}
+
+.title {
+    color: #FFF;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;    
+    padding: 0;
+    text-align: center;
+}
+
+.logo-2 {
+    width: 85px;
+    height: 85px;
+    flex-shrink: 0;
+    background-color: #77D4F8;
+    border-radius: 50%;
+}
+
+.top-section {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.top-section-elements {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.login-form-section {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15%;
+    text-align: left;
+    justify-content: center;
+}
+
+.forpin {
+    color: #77D4F8;
+}
+
+.login_warn-show {
+    display: block;
+    color: red;
+    font-size: 10px;
+}
+
+.login_warn-hide {
+    display: none;
+}
+
+.logo-name-section {
+    display: flex;
+    justify-content: start;
+    /* border: 1px solid red; */
+    width: 50%;
+    align-items: center;
+    gap: 15px;
+    margin-left: 10%;
+}
+
+.button-section {
+    display: flex;
+    justify-content: end;
+    /* border: 1px solid green; */
+    width: 50%;
+    gap: 10px;
+    margin-right: 10%;
+}
+
+.topnav-login {
+    display: flex;
+    /* border: 1px solid blue; */
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+   
+}

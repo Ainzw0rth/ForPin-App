@@ -1,0 +1,17 @@
+Options -Multiviews
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?url=$1
+
+ErrorDocument 401 /Exceptionerror/401
+ErrorDocument 402 /Exceptionerror/402
+ErrorDocument 403 /Exceptionerror/403
+ErrorDocument 404 /Exceptionerror/404
+ErrorDocument 405 /Exceptionerror/405
+ErrorDocument 500 /Exceptionerror/500
+ErrorDocument 501 /Exceptionerror/501
+ErrorDocument 502 /Exceptionerror/502
+ErrorDocument 503 /Exceptionerror/503
+ErrorDocument 504 /Exceptionerror/504

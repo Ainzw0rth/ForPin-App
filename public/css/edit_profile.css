@@ -1,0 +1,211 @@
+.edit_profile_section {
+    text-align: center;
+}
+
+.edit_profile_section div {
+    margin-bottom: 40px;
+}
+
+.edit_page_title {
+    margin-bottom: 40px;
+}
+
+.edit_profile_photobutton_section {
+    margin-top: 10px;
+    margin-bottom: 0px !important;
+    gap: 20px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.subtitle {
+    margin: 0;
+    padding: 0;
+    color: #494949;
+    font-size: 1rem;
+}
+
+.current_profile_pfp {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.change_pfp_button {
+    width: 120px;
+    height: 50px;
+    background-color: #77D4F8;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.change_pfp_button:hover {
+    background-color: #5ba5c2;
+}
+
+.edit_profile_input_text {
+    border-radius: 15px;
+    background-color: #1f1f1f;
+    border: none;
+    width: 300px;
+    height: 2rem;
+    font-size: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 20px;
+}
+
+.confirm_or_cancel_section {
+    margin-top: 80px;
+}
+
+.confirm_or_cancel_section button {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.cancel_edit_button {
+    border: none;
+    border-radius: 30px;
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+    background-color: #1f1f1f;
+    cursor: pointer;
+}
+
+.confirm_edit_button {
+    border: none;
+    border-radius: 30px;
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+    background-color: #77D4F8;
+    cursor: pointer;
+}
+
+.edit_warn-show {
+    display: block;
+    color: red;
+    font-size: 10px;
+}
+
+.edit_warn-hide {
+    display: none;
+}
+
+.change-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+}
+.change-section label {
+    display: flex;
+    justify-content: center;
+}
+
+.choose-photo-button {
+    width: 120px;
+    height: 50px;
+    background-color: #77D4F8;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    &:hover {
+        background-color: #5ba5c2;
+    }
+}
+
+.delete-account-button {
+    width: 120px;
+    height: 50px;
+    background-color: #E60023;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    &:hover {
+        background-color: #860014;
+    }
+}
+
+.delete-account-section {
+    display: flex;
+    justify-content: end;
+    margin-right: 5%;
+    > a {
+        text-decoration: none;
+    }
+}
+
+.delete-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+
+.username-text {
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
+
+.modal-user-desc {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.button-circle {
+    width: 49px;
+    height: 49px;
+    background-color: transparent;
+    position: relative;
+    border-radius: 50%;
+    > svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.button-circle:hover {
+    background: #525252;
+    cursor: pointer;
+}
+
+.cancel-button-circle {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    padding: 0.5rem;
+    > button {
+        background-color: transparent;
+        border: none;
+    }
+}

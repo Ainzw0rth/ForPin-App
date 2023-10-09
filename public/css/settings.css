@@ -1,0 +1,127 @@
+.settings-title {
+    color: #FFF;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-account-button {
+    width: 120px;
+    height: 50px;
+    background-color: #E60023;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    &:hover {
+        background-color: #860014;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.current_profile_pfp {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.user-card-section {
+    display: flex;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+.pic-text {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.delete-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+
+.modal-user-desc {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.username-text {
+    color: #FFF;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
+
+.delete-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    gap: 1rem;
+  }
+  
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+  
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.card {
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+padding: 16px;
+text-align: center;
+background-color: #1F1F1F;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-radius: 20px;
+
+}
+  
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+        gap: 1rem;
+    }
+}
+
