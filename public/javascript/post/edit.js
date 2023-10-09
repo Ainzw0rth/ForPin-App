@@ -106,10 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("description", description);
         formData.append("tags", tags);
     
-        formData.forEach((value, key) => {
-            console.log(key, value);
-        });
-    
         xhr.send(formData);
         xhr.onreadystatechange = function () {
             if (this.readyState === XMLHttpRequest.DONE) {

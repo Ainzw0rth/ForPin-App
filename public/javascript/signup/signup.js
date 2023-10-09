@@ -78,14 +78,12 @@ usernameInput.addEventListener("keyup", debounce(() => {
                     usernameWarn.className = "signup_warn-show";
                     usernamePass = false;
                 } else {
-                    console.log("here")
                     usernameWarn.innerText = "";
                     usernameWarn.className = "signup_warn-hide";
                     usernamePass = true;
                 }
             }
         }
-        console.log(usernamePass)
         
     }, DEBOUNCE_TIMEOUT)
 );

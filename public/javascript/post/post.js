@@ -40,7 +40,6 @@ const modalPathTwo = '#edit-post';
 const goBackButton = document.getElementById("go-back-button");
 
 goBackButton.addEventListener("click", function() {
-    console.log(window.location.href)
     if (window.location.href.includes('#')) {
         window.history.go(-3);
       } else {
@@ -55,7 +54,6 @@ function addgenre() {
     
     parsedGenre.forEach(category => {
         var newOption = document.createElement("option");
-        console.log(category['genre']);
         newOption.value = category['genre'];
         newOption.text = category['genre'];
         dropdown.add(newOption);

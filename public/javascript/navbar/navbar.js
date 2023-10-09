@@ -24,7 +24,6 @@ function addCategories() {
     
     categories.forEach(category => {
         var newOption = document.createElement("option");
-        console.log(category['genre']);
         newOption.value = category['genre'];
         newOption.text = category['genre'];
         dropdown.add(newOption);
@@ -79,7 +78,6 @@ let validSearch = true;
 document.getElementById("searchbox").addEventListener("keyup", debounce(() => {
     const searchWarning = document.getElementById("search-warn");
     const searchValue = (document.getElementById("searchbox")).value;
-    console.log(searchValue);
 
     if (invalidSearchRegex.test(searchValue)) {
         searchWarning.innerText = "Invalid character '@'!";
@@ -144,11 +142,8 @@ logoutButton.addEventListener("click", async (e) => {
 
     xhr.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE) {
-            console.log(this.responseText)
             const data = JSON.parse(this.responseText);
             location.replace(data.redirect_url);
         }
     };
 });
-
-console.log(document.getElementById('category').value);

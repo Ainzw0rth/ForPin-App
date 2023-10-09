@@ -112,9 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("tags", tags);
         formData.append("filenames", filenames);
     
-        formData.forEach((value, key) => {
-            console.log(key, value);
-        });
     
         xhr.send(formData);
         xhr.onreadystatechange = function () {
@@ -137,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
 var stat = document.getElementById("post-data");
 var parsedstat = JSON.parse(stat.getAttribute("data-postdata"))['status'];
 if (parsedstat != "Choose files here") {
-    console.log("here");
     document.getElementById("upload-template").style.background = "black";
 }
 
@@ -148,7 +144,6 @@ function addgenre() {
     
     parsedGenre.forEach(category => {
         var newOption = document.createElement("option");
-        console.log(category['genre']);
         newOption.value = category['genre'];
         newOption.text = category['genre'];
         dropdown.add(newOption);
