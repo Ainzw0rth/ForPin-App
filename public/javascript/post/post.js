@@ -34,6 +34,20 @@ heartIcon.addEventListener("click", function () {
     xhr.send(formData);
 })
 
+
+const modalPath = '#delete-post';
+const modalPathTwo = '#edit-post';
+const goBackButton = document.getElementById("go-back-button");
+
+goBackButton.addEventListener("click", function() {
+    console.log(window.location.href)
+    if (window.location.href.includes('#')) {
+        window.history.go(-3);
+      } else {
+        window.history.back();
+      }
+})
+
 var genre = document.getElementById("post-data");
 var parsedGenre = JSON.parse(genre.getAttribute("data-postdata"))['category'];
 function addgenre() {

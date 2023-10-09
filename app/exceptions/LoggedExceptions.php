@@ -12,6 +12,6 @@ class LoggedExceptions extends Exception {
         $controller = new Exceptionerror();
         $data['error'] = $code;
         $controller->view('exceptionerror/index', $data);
-        // error_log('ERROR' . $code . ': ' . $message);
+        error_log('ERROR' . $code . ': ' . $message);
     }
 }
