@@ -34,6 +34,19 @@ heartIcon.addEventListener("click", function () {
     xhr.send(formData);
 })
 
+
+const modalPath = '#delete-post';
+const modalPathTwo = '#edit-post';
+const goBackButton = document.getElementById("go-back-button");
+
+goBackButton.addEventListener("click", function() {
+    if (window.location.href.includes('#')) {
+        window.history.go(-3);
+      } else {
+        window.history.back();
+      }
+})
+
 var genre = document.getElementById("post-data");
 var parsedGenre = JSON.parse(genre.getAttribute("data-postdata"))['category'];
 function addgenre() {
@@ -41,7 +54,6 @@ function addgenre() {
     
     parsedGenre.forEach(category => {
         var newOption = document.createElement("option");
-        console.log(category['genre']);
         newOption.value = category['genre'];
         newOption.text = category['genre'];
         dropdown.add(newOption);

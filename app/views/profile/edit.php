@@ -21,23 +21,23 @@
         </div>
         <form action="<?= BASE_URL ?>/profile/editUserDesc" method="POST">
             <input type="hidden" name="profile_path" value="<?= $data['user']['profile_path']; ?>" id="file-names">
+            <label for="username_input" class="subtitle">Username</label>
             <div class="edit_profile_username_section" id="edit_profile_username_section">
-                <h2 class="subtitle">Username</h2>
                 <input type="text" class="edit_profile_input_text" id="username_input" name="username">
                 <h3 id="invalid_text_input_username" class="edit_warn-hide"></h3>
             </div>
+            <label for="fullname_input" class="subtitle">Fullname</label>
             <div class="edit_profile_fullname_section" id="edit_profile_fullname_section">
-                <h2 class="subtitle">Fullname</h2>
                 <input type="text" class="edit_profile_input_text" id="fullname_input" name="fullname">
                 <h3 id="invalid_text_input_fullname" class="edit_warn-hide"></h3>
             </div>
+            <label for="password_input" class="subtitle">Password</label>
             <div class="edit_profile_password_section" id="edit_profile_password_section">
-                <h2 class="subtitle">Password</h2>
                 <input type="password" class="edit_profile_input_text" id="password_input" name="password"> 
                 <h3 id="invalid_text_input_password" class="edit_warn-hide"></h3>
             </div>
+            <label for="email_input" class="subtitle">Email</label>
             <div class="edit_profile_email_section" id="edit_profile_email_section">
-                <h2 class="subtitle">Email</h2>
                 <input type="text" class="edit_profile_input_text" id="email_input" name="email">
                 <h3 id="invalid_text_input_email" class="edit_warn-hide"></h3>
             </div>

@@ -86,7 +86,6 @@ usernameInput.addEventListener("keyup", debounce(() => {
                 usernameWarn.className = "edit_warn-show";
                 usernamePass = false;
             } else {
-                console.log("here")
                 usernameWarn.innerText = "";
                 usernameWarn.className = "edit_warn-hide";
                 usernamePass = true;
@@ -161,10 +160,8 @@ function executeCancel() {
 }
 
 function executeEdit() {
-    console.log("here")
     // edit user data
     if (usernamePass && fullnamePass && passwordPass && emailPass) {
-        console.log("executing")
         document.querySelector('input[id="change-user-desc"]').click();
     } else {
 

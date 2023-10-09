@@ -42,7 +42,6 @@
                         <p class="text-question">Delete this account</p>
                         <p class="text-desc">Deleting this account means you won't be able to see the Posts back. All this account ForPin account data will be deleted</p>
                     </div>
-                    <p class="text-desc"><?= $user['user_id'] ?></p>
                     <div class="modal-button-section">
                         <button onClick="location.href='#'" class="normal-button">Cancel</button>
                         <button onClick="location.href='<?= BASE_URL; ?>/profile/delete/<?= $user['user_id'] ?>'" class="delete-account-button">Delete account</button>

@@ -1,6 +1,5 @@
 var tempMedias = document.getElementById("post-data");
 var medias = JSON.parse(tempMedias.getAttribute("data-postdata"))['posts'];
-console.log(JSON.parse(tempMedias.getAttribute("data-postdata")));
 
 // for pagination
 function addPage(min, max, page, link, current) {

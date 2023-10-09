@@ -8,10 +8,10 @@ class LoggedExceptions extends Exception {
     }
 
     public function logError($message, $code) {
-        require_once 'app/controllers/Exceptionerror.php';
-        $controller = new Exceptionerror();
-        $data['error'] = $code;
-        $controller->view('exceptionerror/index', $data);
-        // error_log('ERROR' . $code . ': ' . $message);
+        // require_once 'app/controllers/Exceptionerror.php';
+        // $controller = new Exceptionerror();
+        // $data['error'] = $code;
+        // $controller->view('exceptionerror/index', $data);
+        error_log('ERROR' . $code . ': ' . $message);
     }
 }
