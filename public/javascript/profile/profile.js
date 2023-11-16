@@ -67,7 +67,7 @@ function addUserDetails() {
     }
     if (premium != null) {
         if (premium) {
-            if (subscriptionStatus) {
+            if (!subscriptionStatus) {
                 profile_section.appendChild(subscribe_button);
             } 
         }
