@@ -31,6 +31,7 @@ class Premium_model {
         $this->db->bind('status', $status);
         $this->db->bind('id', $id);
         $this->db->execute();
+        return $this->db->rowCount();
     }
 
     public function checkPremium($id) {
