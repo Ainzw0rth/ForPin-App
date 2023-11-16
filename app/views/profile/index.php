@@ -14,7 +14,6 @@
     <div id="post-data" data-postdata="<?php echo htmlspecialchars(json_encode($data)); ?>"></div>
     <?php include('app/views/component/navbar.php'); ?>
     <div class="user_profile_section" id="profile_section"></div>
-    
     <div class="user_posts_section">
         <h1>User's posts</h1>
         <h1><?php $data['user_id'] ?></h1>
@@ -27,7 +26,8 @@
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         const currentId = <?= $data['user_id'] ?>;
         const sessionId = <?= $_SESSION['user_id'] ?>;
-        var userId = <?= $_SESSION['user_id'] ?>
+        var userId = <?= $_SESSION['user_id'] ?>;
+        var premium = <?= $data['premium'] ?>;
     </script>
 
     <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>

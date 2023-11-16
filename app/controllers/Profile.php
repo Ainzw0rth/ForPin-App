@@ -16,6 +16,7 @@ class Profile extends Controller {
                 } else {
                     $data['user'] = $this->model('User_model')->getUserDescByUsername($search);
                     $data['user_id'] = $data['user']['user_id'];
+                    $data['premium'] = $this->model('Premium_model')->checkPremium($data['user_id']);
                 }
                 $data['posts'] = $this->model('Post_model')->getAllPostFromUserId($search, $data['user_id']);
                 $this->view('profile/index', $data);

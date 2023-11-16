@@ -27,12 +27,22 @@ function addUserDetails() {
     var edit_button = document.createElement("button");
     edit_button.className = "edit_profile_button";
     edit_button.textContent = "Edit profile";
+
+    var subscribe_button = document.createElement("button");
+    subscribe_button.className = "delete-account-button";
+    subscribe_button.textContent = "Subscribe";
     // link to edit profile page
+    console.log(premium)
     edit_button.onclick = function() {
         window.location.href = "http://localhost:8080/profile/edit/";
     }
     if (currentId == sessionId) {
         profile_section.appendChild(edit_button);
+    }
+    if (premium != null) {
+        if (premium) {
+            profile_section.appendChild(subscribe_button);
+        }
     }
 }
 
