@@ -1,6 +1,6 @@
 <?php
 
-class Premium_model {
+class Subscription_model {
     private $table = 'subscription';
     private $db;
 
