@@ -28,6 +28,7 @@
         const sessionId = <?= $_SESSION['user_id'] ?>;
         var userId = <?= $_SESSION['user_id'] ?>;
         var premium = <?= $data['premium'] ?>;
+        var subscriptionStatus = <?= $data['subscription_status'] ?>;
     </script>
 
     <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>

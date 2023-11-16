@@ -18,6 +18,7 @@ class Profile extends Controller {
                     $data['user_id'] = $data['user']['user_id'];
                     $data['subscriber'] = $_SESSION['user_id'];
                     $data['premium'] = $this->model('Premium_model')->checkPremium($data['user_id']);
+                    $data['subscription_status'] = $this->model('Subscription_model')->checkSubscriptionStatus($data['user_id'], $data['subscriber']);
                 }
                 $data['posts'] = $this->model('Post_model')->getAllPostFromUserId($search, $data['user_id']);
                 $this->view('profile/index', $data);

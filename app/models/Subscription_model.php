@@ -34,4 +34,16 @@ class Subscription_model {
         $this->db->bind('subscriber_id', $subscriber_id);
         $this->db->execute();
     }
+
+    public function checkSubscriptionStatus($creator_id, $subscriber_id) {
+        $this->db->query('SELECT status FROM '. $this->table . ' WHERE creator_id=:creator_id AND subscriber_id=:subscriber_id');
+        $this->db->bind('creator_id', $creator_id);
+        $this->db->bind('subscriber_id', $subscriber_id);
+        $status = $this->db->single();
+
+        if ($status) {
+            return $status;
+        }
+        return 0;
+    }
 }

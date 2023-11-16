@@ -67,7 +67,9 @@ function addUserDetails() {
     }
     if (premium != null) {
         if (premium) {
-            profile_section.appendChild(subscribe_button);
+            if (subscriptionStatus) {
+                profile_section.appendChild(subscribe_button);
+            } 
         }
     }
 }
