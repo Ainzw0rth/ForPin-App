@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/profile.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/post_viewer.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/modal.css">
     <title>ForPin | Profile</title>
 </head>
 <body>
@@ -26,6 +27,7 @@
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         const currentId = <?= $data['user_id'] ?>;
         const sessionId = <?= $_SESSION['user_id'] ?>;
+        var userId = <?= $_SESSION['user_id'] ?>
     </script>
 
     <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>

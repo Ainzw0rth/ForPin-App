@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/homepage.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/post_viewer.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/modal.css">
     <title>ForPin | Home</title>
 </head>
 <body>
@@ -17,6 +18,7 @@
     <script>
         const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
+        var userId = <?= $_SESSION['user_id'] ?>;
     </script>
     <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>
     <script src="<?= BASE_URL; ?>/public/javascript/post_viewer/post_viewer.js"></script>

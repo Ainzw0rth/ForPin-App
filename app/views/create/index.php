@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/header.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/create.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/carousel.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL; ?>/public/css/modal.css">
     <title>ForPin | Create Post</title>
 </head>
 <body>
@@ -120,6 +121,7 @@
         const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         var FILE_COUNT = <?= $fileCount ?>;
+        var userId = <?= $_SESSION['user_id'] ?>;
     </script>
     <script src="public/javascript/debounce/debounce.js"></script>
     <script src="public/javascript/navbar/navbar.js"></script>

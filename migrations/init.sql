@@ -36,15 +36,15 @@ CREATE table IF NOT EXISTS user_post (
 
 CREATE table IF NOT EXISTS premium (
     creator_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
-    status ENUM('PENDING', 'ACCEPTED', 'REJECTED') DEFAULT 'PENDING' NOT NULL,
-    PRIMARY KEY ('creator_id')
+    status VARCHAR(10) DEFAULT 'PENDING' NOT NULL CHECK (status IN ('PENDING', 'ACCEPTED', 'REJECTED')),
+    PRIMARY KEY (creator_id)
 );
 
 CREATE table IF NOT EXISTS subscription (
     creator_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
     subscriber_id INT NOT NULL REFERENCES users(user_id) ON DELETE CASCADE, 
-    status ENUM('PENDING', 'ACCEPTED', 'REJECTED') DEFAULT 'PENDING' NOT NULL,
-    PRIMARY KEY ('creator_id', 'subscriber_id')
+    status VARCHAR(10) DEFAULT 'PENDING' NOT NULL CHECK (status IN ('PENDING', 'ACCEPTED', 'REJECTED')),
+    PRIMARY KEY (creator_id, subscriber_id)
 );
 
 INSERT INTO users (email, fullname, username, password, is_admin) VALUES

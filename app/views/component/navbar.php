@@ -79,8 +79,11 @@
                     <a href="<?= BASE_URL ?>/settings">Settings</a>
                 <?php } ?>     
                 <a href="#" id="log-out">Log out</a>
-                <a href="#" id="">Upgrade to Premium</a>
+                <a href="#" id="upgrade">Upgrade to Premium</a>
             </div>
         </div>
     </div>
+
+    <div id="open-modal" class="modal-window"></div>
+
 </div>

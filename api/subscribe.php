@@ -4,13 +4,14 @@ require '../app/models/Subscription_model.php';
 
 // request to SOAP
 $subscriptionModel = new Subscription_model();
-$APIKey = getenv('SOAP_API_KEY');
+$APIkey = getenv('SOAP_API_KEY');
 $soap_url = getenv("SOAP_URL");
 $app_address = getenv("APP_ADDRESS");
 
 if (isset($_POST)) {
     $creator_id = $_POST['creator_id'];
     $subscriber_id = $_POST['subscriber_id'];
+    $curr_date = $_POST['curr_date'];
     
     $soap_service_url = $soap_url . '/subscribe?wsdl';
 
@@ -25,8 +26,8 @@ if (isset($_POST)) {
     </soap:Envelope>';
 
     $headers = array(
-        'Authorization: ' . $API_key,
-        'Content-Type: "text.xml"',
+        'Authorization: ' . $APIkey,
+        'Content-Type: "text/xml"',
         'X-Forwarded-For: ' . $app_address,
         'Date: ' . $curr_date
     );
@@ -37,6 +38,8 @@ if (isset($_POST)) {
     curl_setopt($channel, CURLOPT_POSTFIELDS, $request_body);
     curl_setopt($channel, CURLOPT_URL, $soap_service_url);
     curl_setopt($channel, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($channel, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($channel, CURLOPT_SSL_VERIFYPEER, false);
 
     $response = curl_exec($channel);
 
