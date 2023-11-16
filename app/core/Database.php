@@ -69,4 +69,13 @@ class Database {
             throw new LoggedExceptions('Internal Server Error', 500);
         }
     }
+
+    public function rowCount() {
+        try {
+            $this->stmt->execute();
+            return $this->stmt->rowCount();
+        } catch (PDOException) {
+            throw new LoggedExceptions('Internal Server Error', 500);
+        }
+    }
 }

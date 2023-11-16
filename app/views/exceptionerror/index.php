@@ -14,7 +14,7 @@
         <div class="error_container", id="error_container">
             <h1>Error code</h1>
         </div>
-        <img src="http://localhost:8080/public/images/error.gif" alt="error gif" class="error_animation">
+        <img src="http://localhost:80/public/images/error.gif" alt="error gif" class="error_animation">
     </div>
     
     

@@ -33,6 +33,7 @@ class Subscription_model {
         $this->db->bind('creator_id', $creator_id);
         $this->db->bind('subscriber_id', $subscriber_id);
         $this->db->execute();
+        return $this->db->rowcount();
     }
 
     public function checkSubscriptionStatus($creator_id, $subscriber_id) {

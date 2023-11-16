@@ -5,7 +5,7 @@ class Exceptionerror extends Controller {
     public function index($error_code = "404") {
         try {
             $data['error'] = $error_code;
-            $data['base'] = "http://localhost:8080/exceptionerror/";
+            $data['base'] = "http://localhost:80/exceptionerror/";
 
             $this->view('exceptionerror/index', $data);
 

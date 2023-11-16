@@ -33,14 +33,14 @@ function addUserDetails() {
     subscribe_button.textContent = "Subscribe";
     // link to edit profile page
     edit_button.onclick = function() {
-        window.location.href = "http://localhost:8080/profile/edit/";
+        window.location.href = "http://localhost:80/profile/edit/";
     }
 
     subscribe_button.addEventListener("click", async (e) => {
         e.preventDefault();
         const xhr = new XMLHttpRequest();
         
-        xhr.open("POST", `http://localhost:8080/api/subscribe.php`);
+        xhr.open("POST", `http://localhost:80/api/subscribe.php`);
     
         const formData = new FormData();
         formData.append("creator_id", currentId);

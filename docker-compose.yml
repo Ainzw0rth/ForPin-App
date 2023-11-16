@@ -3,7 +3,7 @@ services:
   php:
     image: php:8.0-apache
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - .:/var/www/html
     build: 

@@ -156,7 +156,7 @@ passwordInput.addEventListener("keyup", debounce(() => {
 );
 
 function executeCancel() {
-    window.location.href = "http://localhost:8080/profile/"
+    window.location.href = "http://localhost:80/profile/"
 }
 
 function executeEdit() {

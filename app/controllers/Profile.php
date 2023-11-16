@@ -6,7 +6,7 @@ class Profile extends Controller {
         if ( isset($_SESSION['user_id']) ) {
             try {
                 $data['search'] = $search;
-                $data['base'] = "http://localhost:8080/profile/";
+                $data['base'] = "http://localhost:80/profile/";
                 $data['amount'] = $this->model('Post_model')->getAmountFromUserId($_SESSION['user_id']);
                 $data['category'] = $this->model('Post_model')->getAllCategories();
                 $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
@@ -34,7 +34,7 @@ class Profile extends Controller {
     public function edit() {
         if ( isset($_SESSION['user_id']) ) {
             try {
-                $data['base'] = "http://localhost:8080/profile/edit/";
+                $data['base'] = "http://localhost:80/profile/edit/";
                 $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);
                 $data['category'] = $this->model('Post_model')->getAllCategories();
                 $data['filename'] = "";

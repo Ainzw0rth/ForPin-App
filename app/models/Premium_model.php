@@ -27,9 +27,10 @@ class Premium_model {
     }
 
     public function updatePremiumStatus($id, $status) {
-        $this->db->query('UPDATE premium SET status = :status WHERE id=:id');
+        $this->db->query('UPDATE premium SET status = :status WHERE creator_id=:id');
         $this->db->bind('status', $status);
         $this->db->bind('id', $id);
+        $this->db->execute();
     }
 
     public function checkPremium($id) {

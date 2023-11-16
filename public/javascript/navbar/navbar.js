@@ -40,7 +40,7 @@ function addProfilePic() {
     profilepic.src = curr_user['profile_path'];
     profilepic.className = "logo";
     profilepic.onclick = function() {
-        window.location = 'http://localhost:8080/profile'
+        window.location = 'http://localhost:80/profile'
     }
     profilepic.alt = "navbar profile picture";
 
@@ -95,7 +95,7 @@ document.getElementById("searchbox").addEventListener("keyup", debounce(() => {
 const searchButton = document.getElementById("search_button");
 searchButton.addEventListener("click", function () {
     if (validSearch) {
-        var destination = "http://localhost:8080/home";
+        var destination = "http://localhost:80/home";
         var search_value = "q=" + (document.getElementById('searchbox').value).replace(/ /g, "-");
         var category_value = "@c=" + (document.getElementById('category').value).replace(/ /g, "-");
     
@@ -178,7 +178,7 @@ upgradeButton.addEventListener("click", async (e) => {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
     
-    xhr.open("POST", `http://localhost:8080/api/premium.php`);
+    xhr.open("POST", `http://localhost:80/api/premium.php`);
 
     const formData = new FormData();
     formData.append("creator_id", userId);

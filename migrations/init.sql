@@ -14,7 +14,7 @@ CREATE table IF NOT EXISTS users (
     username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL, 
     is_admin BOOLEAN NOT NULL,
-    profile_path VARCHAR(300) NOT NULL DEFAULT 'http://localhost:8080/public/images/testing_images/1.jpeg'
+    profile_path VARCHAR(300) NOT NULL DEFAULT 'http://localhost:80/public/images/testing_images/1.jpeg'
 );
 
 CREATE table IF NOT EXISTS videos (
@@ -107,37 +107,37 @@ INSERT INTO user_post (user_id, post_id) VALUES
 (5, 24);
 
 INSERT INTO images (post_id, img_path) VALUES
-(1, 'http://localhost:8080/public/images/testing_images/1.jpeg'),
-(1, 'http://localhost:8080/public/images/testing_images/2.jpeg'),
-(1, 'http://localhost:8080/public/images/testing_images/3.jpeg'),
-(1, 'http://localhost:8080/public/images/testing_images/4.jpeg'),
-(1, 'http://localhost:8080/public/images/testing_images/5.jpeg'),
-(2, 'http://localhost:8080/public/images/testing_images/2.jpeg'),
-(3, 'http://localhost:8080/public/images/testing_images/3.jpeg'),
-(4, 'http://localhost:8080/public/images/testing_images/4.jpeg'),
-(5, 'http://localhost:8080/public/images/testing_images/5.jpeg'),
-(6, 'http://localhost:8080/public/images/testing_images/6.jpeg'),
-(7, 'http://localhost:8080/public/images/testing_images/7.jpeg'),
-(8, 'http://localhost:8080/public/images/testing_images/8.jpeg'),
-(9, 'http://localhost:8080/public/images/testing_images/9.jpeg'),
-(10, 'http://localhost:8080/public/images/testing_images/10.jpeg'),
-(11, 'http://localhost:8080/public/images/testing_images/11.jpeg'),
-(12, 'http://localhost:8080/public/images/testing_images/12.jpg'),
-(13, 'http://localhost:8080/public/images/testing_images/13.png'),
-(14, 'http://localhost:8080/public/images/testing_images/14.jpg'),
-(15, 'http://localhost:8080/public/images/testing_images/15.jpg'),
-(16, 'http://localhost:8080/public/images/testing_images/16.jpg'),
-(17, 'http://localhost:8080/public/images/testing_images/17.jpg'),
-(18, 'http://localhost:8080/public/images/testing_images/18.jpg'),
-(19, 'http://localhost:8080/public/images/testing_images/19.jpg'),
-(20, 'http://localhost:8080/public/images/testing_images/20.jpg'),
-(21, 'http://localhost:8080/public/images/testing_images/21.jpg'),
-(22, 'http://localhost:8080/public/images/testing_images/22.gif');
+(1, 'http://localhost:80/public/images/testing_images/1.jpeg'),
+(1, 'http://localhost:80/public/images/testing_images/2.jpeg'),
+(1, 'http://localhost:80/public/images/testing_images/3.jpeg'),
+(1, 'http://localhost:80/public/images/testing_images/4.jpeg'),
+(1, 'http://localhost:80/public/images/testing_images/5.jpeg'),
+(2, 'http://localhost:80/public/images/testing_images/2.jpeg'),
+(3, 'http://localhost:80/public/images/testing_images/3.jpeg'),
+(4, 'http://localhost:80/public/images/testing_images/4.jpeg'),
+(5, 'http://localhost:80/public/images/testing_images/5.jpeg'),
+(6, 'http://localhost:80/public/images/testing_images/6.jpeg'),
+(7, 'http://localhost:80/public/images/testing_images/7.jpeg'),
+(8, 'http://localhost:80/public/images/testing_images/8.jpeg'),
+(9, 'http://localhost:80/public/images/testing_images/9.jpeg'),
+(10, 'http://localhost:80/public/images/testing_images/10.jpeg'),
+(11, 'http://localhost:80/public/images/testing_images/11.jpeg'),
+(12, 'http://localhost:80/public/images/testing_images/12.jpg'),
+(13, 'http://localhost:80/public/images/testing_images/13.png'),
+(14, 'http://localhost:80/public/images/testing_images/14.jpg'),
+(15, 'http://localhost:80/public/images/testing_images/15.jpg'),
+(16, 'http://localhost:80/public/images/testing_images/16.jpg'),
+(17, 'http://localhost:80/public/images/testing_images/17.jpg'),
+(18, 'http://localhost:80/public/images/testing_images/18.jpg'),
+(19, 'http://localhost:80/public/images/testing_images/19.jpg'),
+(20, 'http://localhost:80/public/images/testing_images/20.jpg'),
+(21, 'http://localhost:80/public/images/testing_images/21.jpg'),
+(22, 'http://localhost:80/public/images/testing_images/22.gif');
 
 INSERT INTO videos (post_id, vid_path) VALUES
-(1, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
-(23, 'http://localhost:8080/public/images/testing_images/xavier.mp4'),
-(24, 'http://localhost:8080/public/images/testing_images/xavier.mp4');
+(1, 'http://localhost:80/public/images/testing_images/xavier.mp4'),
+(23, 'http://localhost:80/public/images/testing_images/xavier.mp4'),
+(24, 'http://localhost:80/public/images/testing_images/xavier.mp4');
 
 CREATE OR REPLACE FUNCTION delete_parent_when_child_deleted()
 RETURNS TRIGGER AS $$

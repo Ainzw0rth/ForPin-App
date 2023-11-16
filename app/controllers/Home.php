@@ -6,7 +6,7 @@ class Home extends Controller {
         if ( isset($_SESSION['user_id']) ) {
             try {
                 $data['search'] = $search;
-                $data['base'] = "http://localhost:8080/home/";
+                $data['base'] = "http://localhost:80/home/";
                 $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);
                 $data['amount'] = $this->model('Post_model')->getAmount($search);
                 $data['category'] = $this->model('Post_model')->getAllCategories();

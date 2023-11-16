@@ -34,7 +34,7 @@ function addPagination() {
     var curr_active_page = 1;
     var url_lists = current_page.split("@");
 
-    if (base_page == "http://localhost:8080/home/") {
+    if (base_page == "http://localhost:80/home/") {
         if (current_page == "' '") {
             var original_page = base_page + "q=@c=0@f=0@s=0";
         } else {
@@ -100,7 +100,7 @@ function addMedias() {
     medias.forEach((post) => {
         const button = document.createElement('button');
         button.onclick = function() {
-            window.location.href = 'http://localhost:8080/post/' + post['post_id'] + '/';
+            window.location.href = 'http://localhost:80/post/' + post['post_id'] + '/';
         }
 
         const urls = post['media_paths'].split("@");

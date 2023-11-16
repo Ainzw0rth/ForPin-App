@@ -234,7 +234,7 @@ Setelah diminta untuk membangun 1000 startup oleh Teh Roro, Kang Bondowoso memut
 ## Cara Menjalankan Server
 
 1. Program ini dapat dijalankan dengan menjalankan perintah docker-compose up --build pada terminal di root directory aplikasi web.
-2. Aplikasi web dapat diakses dengan menggunakan browser pada URL https://localhost:8080 atau `https://localhost:8080/`.
+2. Aplikasi web dapat diakses dengan menggunakan browser pada URL https://localhost:80 atau `https://localhost:80/`.
 3. Aplikasi web dapat dihentikan dengan menjalankan perintah docker-compose down pada terminal di root directory aplikasi web.
 
 ## Screenshot Tampilan Aplikasi
