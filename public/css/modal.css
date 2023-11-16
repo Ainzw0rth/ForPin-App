@@ -120,3 +120,8 @@ color: lightgray;
     font-size: 0.8rem;
     text-align: center;
 }
+
+.request-sent-logo {
+    display: flex;
+    justify-content: center;
+}

@@ -148,31 +148,25 @@ logoutButton.addEventListener("click", async (e) => {
     };
 });
 
+// function showModal() {
+//     const modelContent = `
+//     <div>
+//         <svg xmlns="http://www.w3.org/2000/svg" width="72" height="76" viewBox="0 0 72 76" fill="none">
+//             <path d="M24.45 39.5128L31.05 46.4677L47.55 29.0806" stroke="#77D4F8" stroke-width="4.96774" stroke-linecap="round" stroke-linejoin="round"/>
+//             <path d="M19.5 7.65283C24.5144 4.59583 30.2069 2.99064 36 3.00004C54.2259 3.00004 69 18.5684 69 37.7742C69 56.98 54.2259 72.5484 36 72.5484C17.7741 72.5484 3 56.98 3 37.7742C3 31.4418 4.6071 25.4989 7.4154 20.3871" stroke="#77D4F8" stroke-width="4.96774" stroke-linecap="round"/>
+//         </svg>
+//         <p class="text-desc">Request successfully sent.</p>
+//         <br>
+//         <div class="modal-button-section">
+//             <button onClick="closeModal()" class="normal-button">Cancel</button>
+//         </div>
+//     </div>
+//     `;
 
-const modal = document.getElementById("open-modal");
+//     modal.innerHTML = modelContent
+//     modal.style.display = "block";
+// }
 
-function showModal() {
-    const modelContent = `
-    <div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="76" viewBox="0 0 72 76" fill="none">
-            <path d="M24.45 39.5128L31.05 46.4677L47.55 29.0806" stroke="#77D4F8" stroke-width="4.96774" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M19.5 7.65283C24.5144 4.59583 30.2069 2.99064 36 3.00004C54.2259 3.00004 69 18.5684 69 37.7742C69 56.98 54.2259 72.5484 36 72.5484C17.7741 72.5484 3 56.98 3 37.7742C3 31.4418 4.6071 25.4989 7.4154 20.3871" stroke="#77D4F8" stroke-width="4.96774" stroke-linecap="round"/>
-        </svg>
-        <p class="text-desc">Request successfully sent.</p>
-        <br>
-        <div class="modal-button-section">
-            <button onClick="closeModal()" class="normal-button">Cancel</button>
-        </div>
-    </div>
-    `;
-
-    modal.innerHTML = modelContent
-    modal.style.display = "block";
-}
-
-function closeModal() {
-    modal.style.display = "none";
-}
 const upgradeButton = document.getElementById("upgrade");
 upgradeButton.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -189,6 +183,8 @@ upgradeButton.addEventListener("click", async (e) => {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 201) {
                 console.log("success");
+                upgradeButton.style.display = "none";
+                window.location.hash = "request-sent-modal"
             } else {
                 console.error("Error:", this.status, this.statusText);
             }

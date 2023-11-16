@@ -54,6 +54,8 @@ function addUserDetails() {
             if (this.readyState === XMLHttpRequest.DONE) {
                 if (this.status === 201) {
                     console.log("success");
+                    profile_section.removeChild(subscribe_button);
+                    window.location.hash = "subscribe-modal"
                 } else {
                     console.error("Error:", this.status, this.statusText);
                 }

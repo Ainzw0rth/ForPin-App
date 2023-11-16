@@ -12,8 +12,8 @@ class Home extends Controller {
                 $data['category'] = $this->model('Post_model')->getAllCategories();
                 $data['posts'] = $this->model('Post_model')->getAll($search);
                 $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
-                $this->view('home/index', $data);
-    
+                $data['premium_desc'] = $this->model('Premium_model')->getPremiumDesc($_SESSION['user_id']);
+                $this->view('home/index', $data);    
             } catch (Exception $e) {
                 http_response_code($e->getCode());
             }

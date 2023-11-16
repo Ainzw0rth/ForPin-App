@@ -18,6 +18,7 @@ class Post extends Controller {
                         $data['img'] = $this->model('Image_model')->getUserImagePath($currentPost);
                         $data['vid'] = $this->model('Video_model')->getUserVideoPath($currentPost);
                         $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
+                        $data['premium_desc'] = $this->model('Premium_model')->getPremiumDesc($_SESSION['user_id']);
                         $this->view('post/index', $data);
                         exit;
                     default:

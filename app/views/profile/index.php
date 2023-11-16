@@ -36,5 +36,24 @@
     <script src="<?= BASE_URL; ?>/public/javascript/navbar/navbar.js"></script>
     <script src="<?= BASE_URL; ?>/public/javascript/profile/profile.js"></script>
 </div>
+
+    <div id="subscribe-modal" class="modal-window">
+        <div>
+            <div class="request-sent-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="72" height="76" viewBox="0 0 72 76" fill="none">
+                    <path d="M24.45 39.5128L31.05 46.4677L47.55 29.0806" stroke="#77D4F8" stroke-width="4.96774" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.5 7.65283C24.5144 4.59583 30.2069 2.99064 36 3.00004C54.2259 3.00004 69 18.5684 69 37.7742C69 56.98 54.2259 72.5484 36 72.5484C17.7741 72.5484 3 56.98 3 37.7742C3 31.4418 4.6071 25.4989 7.4154 20.3871" stroke="#77D4F8" stroke-width="4.96774" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <p class="text-question">Request sent.</p>
+            <br>
+            
+            <div class="modal-button-section">
+                <button onClick="location.href='#'" class="blue-button">Close</button>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 </html>

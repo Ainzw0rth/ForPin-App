@@ -10,6 +10,7 @@ class Profile extends Controller {
                 $data['amount'] = $this->model('Post_model')->getAmountFromUserId($_SESSION['user_id']);
                 $data['category'] = $this->model('Post_model')->getAllCategories();
                 $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
+                $data['premium_desc'] = $this->model('Premium_model')->getPremiumDesc($_SESSION['user_id']);
                 if ($search === "' '") {
                     $data['user_id'] = $_SESSION['user_id'];
                     $data['user'] = $this->model('User_model')->getUserDesc($_SESSION['user_id']);

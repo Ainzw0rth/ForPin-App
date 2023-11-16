@@ -66,6 +66,7 @@ class Create extends Controller {
                         }
                     }
                 }
+                $data['premium_desc'] = $this->model('Premium_model')->getPremiumDesc($_SESSION['user_id']);
                 $this->view('create/index', $data);
             } catch (Exception $e) {
                 http_response_code($e->getCode());

@@ -45,4 +45,10 @@ class Premium_model {
         }
         return 0;
     }
+
+    public function getPremiumDesc($id) {
+        $this->db->query('SELECT * FROM premium WHERE creator_id=:creator_id');
+        $this->db->bind('creator_id', $id);
+        return $this->db->single();
+    }
 }
