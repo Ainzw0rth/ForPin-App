@@ -32,10 +32,36 @@ function addUserDetails() {
     subscribe_button.className = "delete-account-button";
     subscribe_button.textContent = "Subscribe";
     // link to edit profile page
-    console.log(premium)
     edit_button.onclick = function() {
         window.location.href = "http://localhost:8080/profile/edit/";
     }
+
+    subscribe_button.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const xhr = new XMLHttpRequest();
+        
+        xhr.open("POST", `http://localhost:8080/api/subscribe.php`);
+    
+        const formData = new FormData();
+        formData.append("creator_id", currentId);
+        formData.append("subscriber_id", sessionId);
+        formData.append("curr_date", new Date());
+        xhr.send(formData)
+
+        console.log("here")
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState === XMLHttpRequest.DONE) {
+                if (this.status === 201) {
+                    console.log("success");
+                } else {
+                    console.error("Error:", this.status, this.statusText);
+                }
+            }
+        };
+    });
+    
+
     if (currentId == sessionId) {
         profile_section.appendChild(edit_button);
     }

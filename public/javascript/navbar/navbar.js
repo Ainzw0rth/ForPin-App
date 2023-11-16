@@ -175,28 +175,20 @@ function closeModal() {
 }
 const upgradeButton = document.getElementById("upgrade");
 upgradeButton.addEventListener("click", async (e) => {
-    console.log("here")
     e.preventDefault();
     const xhr = new XMLHttpRequest();
     
     xhr.open("POST", `http://localhost:8080/api/premium.php`);
-    
-    console.log("Sending request to:", xhr.responseURL);
 
     const formData = new FormData();
     formData.append("creator_id", userId);
     formData.append("curr_date", new Date());
     xhr.send(formData);
-    console.log("here2")
     
     xhr.onreadystatechange = function () {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 201) {
                 console.log("success");
-                const data = JSON.parse(this.responseText);
-                console.log(data.redirect_url);
-                // location.replace(data.redirect_url);
-                // showModal();   
             } else {
                 console.error("Error:", this.status, this.statusText);
             }
