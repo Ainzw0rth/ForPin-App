@@ -125,4 +125,15 @@ class User extends Controller {
             exit;
         }
     }
+
+    public function getUser($userid) {
+        try {
+            switch($_SERVER['REQUEST_METHOD']) {
+                   
+            }
+        } catch (Exception $e) {
+            http_response_code($e->getCode());
+            exit;
+        }
+    }
 }

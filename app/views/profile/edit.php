@@ -103,6 +103,7 @@
         const CSRF_TOKEN = "<?= $_SESSION['csrf_token'] ?? '' ?>";
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         var userId = <?= $_SESSION['user_id'] ?>
+        var creatorUsernameUpgrade = "<?php $data['creator_username_upgrade'] ?>";
     </script>
 
     <script src="<?= BASE_URL ?>/public/javascript/debounce/debounce.js"></script>

@@ -7,7 +7,7 @@ require_once '../app/config/config.php';
 $data = json_decode(file_get_contents('php://input'), true);
 $subscriptionModel = new Subscription_model();
 
-$result = $subscriptionModel->updateSubscriptionStatus($data['creator_id'], $data['subscriber_id'], $data['status']);
+$result = $subscriptionModel->updateSubscriptionStatus($data['creator_username'], $data['subscriber_username'], $data['status']);
 if ($result) {
     echo 'success';
 } else {

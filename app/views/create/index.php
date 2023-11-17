@@ -122,6 +122,7 @@
         const DEBOUNCE_TIMEOUT = "<?= DEBOUNCE_TIMEOUT ?>";
         var FILE_COUNT = <?= $fileCount ?>;
         var userId = <?= $_SESSION['user_id'] ?>;
+        var creatorUsernameUpgrade = "<?= $data['creator_username_upgrade'] ?>";
     </script>
     <script src="public/javascript/debounce/debounce.js"></script>
     <script src="public/javascript/navbar/navbar.js"></script>

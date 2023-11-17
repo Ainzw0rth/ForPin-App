@@ -21,13 +21,13 @@ class Premium_model {
     }
 
     public function addPremiumUser($id) {
-        $this->db->query('INSERT INTO premium (creator_id) VALUES (:id)');
+        $this->db->query('INSERT INTO premium (creator_username) VALUES (:id)');
         $this->db->bind('id', $id);
         $this->db->execute();
     }
 
     public function updatePremiumStatus($id, $status) {
-        $this->db->query('UPDATE premium SET status = :status WHERE creator_id=:id');
+        $this->db->query('UPDATE premium SET status = :status WHERE creator_username=:id');
         $this->db->bind('status', $status);
         $this->db->bind('id', $id);
         $this->db->execute();
@@ -35,8 +35,8 @@ class Premium_model {
     }
 
     public function checkPremium($id) {
-        $this->db->query('SELECT * FROM premium WHERE creator_id=:creator_id');
-        $this->db->bind('creator_id', $id);
+        $this->db->query('SELECT * FROM premium WHERE creator_username=:creator_username');
+        $this->db->bind('creator_username', $id);
         $user = $this-> db->single();
         if ($user) {
             if ($user['status'] === 'ACCEPTED') {
@@ -47,8 +47,8 @@ class Premium_model {
     }
 
     public function getPremiumDesc($id) {
-        $this->db->query('SELECT * FROM premium WHERE creator_id=:creator_id');
-        $this->db->bind('creator_id', $id);
+        $this->db->query('SELECT * FROM premium WHERE creator_username=:creator_username');
+        $this->db->bind('creator_username', $id);
         return $this->db->single();
     }
 }

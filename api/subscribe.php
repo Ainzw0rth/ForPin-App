@@ -12,8 +12,8 @@ $app_address = getenv("APP_ADDRESS");
 
 
 if (isset($_POST)) {
-    $creator_id = $_POST['creator_id'];
-    $subscriber_id = $_POST['subscriber_id'];
+    $creator_username = $_POST['creator_username'];
+    $subscriber_username = $_POST['subscriber_username'];
     $curr_date = $_POST['curr_date'];
     
     $soap_service_url = $soap_url . '/subscription?wsdl';
@@ -22,8 +22,8 @@ if (isset($_POST)) {
     <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
     <newSubscription xmlns="http://interfaces/">
-    <creator_id>'. $creator_id .'</creator_id>
-    <subscriber_id>'. $subscriber_id .'</subscriber_id>
+    <creator_username>'. $creator_username .'</creator_username>
+    <subscriber_username>'. $subscriber_username .'</subscriber_username>
     </newSubscription>
     </soap:Body>
     </soap:Envelope>';
@@ -61,7 +61,7 @@ if (isset($_POST)) {
 
     if ($status == 'true') {
         try {
-            $subscriptionModel->addSubscription($creator_id, $subscriber_id);
+            $subscriptionModel->addSubscription($creator_username, $subscriber_username);
             http_response_code(201);
         } catch (Exception $e) {
             http_response_code($e->getCode());

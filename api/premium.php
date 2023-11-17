@@ -12,7 +12,7 @@ $app_address = getenv('APP_ADDRESS');
 
 
 if (isset($_POST)) {
-    $creator_id = $_POST['creator_id'];
+    $creator_id = $_POST['creator_username'];
     $curr_date = $_POST['curr_date'];
     
     $soap_service_url = $soap_url . '/premium?wsdl';
@@ -21,7 +21,7 @@ if (isset($_POST)) {
     <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
     <soap:Body>
     <newPremiumUser xmlns="http://interfaces/">
-    <creator_id>' . $creator_id . '</creator_id>
+    <creator_username>' . $creator_id . '</creator_username>
     </newPremiumUser>
     </soap:Body>
     </soap:Envelope>';

@@ -9,7 +9,8 @@ class Settings extends Controller {
                 $data['category'] = $this->model('Post_model')->getAllCategories();
                 $data['users'] = $this->model('User_model')->getUserListDesc();
                 $data['is_admin'] = $this->model('User_model')->getIsAdmin($_SESSION['user_id'])['is_admin'];
-                $data['premium_desc'] = $this->model('Premium_model')->getPremiumDesc($_SESSION['user_id']);
+                $data['creator_username_upgrade'] =  $this->model('User_model')->getUsernameById($_SESSION['user_id'])['username'];
+                $data['premium_desc'] = $this->model('Premium_model')->getPremiumDesc($data['creator_username_upgrade']);
                 if ($data['is_admin']) {
                     $this->view('settings/index', $data);
                 } else {

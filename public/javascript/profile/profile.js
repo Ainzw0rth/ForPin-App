@@ -43,8 +43,8 @@ function addUserDetails() {
         xhr.open("POST", `http://localhost:80/api/subscribe.php`);
     
         const formData = new FormData();
-        formData.append("creator_id", currentId);
-        formData.append("subscriber_id", sessionId);
+        formData.append("creator_username", creatorUsername);
+        formData.append("subscriber_username", subscriberUsername);
         formData.append("curr_date", new Date());
         xhr.send(formData)
 
