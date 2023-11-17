@@ -34,9 +34,9 @@ class Premium_model {
         return $this->db->rowCount();
     }
 
-    public function checkPremium($id) {
+    public function checkPremium($creator_username) {
         $this->db->query('SELECT * FROM premium WHERE creator_username=:creator_username');
-        $this->db->bind('creator_username', $id);
+        $this->db->bind('creator_username', $creator_username);
         $user = $this-> db->single();
         if ($user) {
             if ($user['status'] === 'ACCEPTED') {

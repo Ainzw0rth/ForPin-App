@@ -15,31 +15,31 @@ class Subscription_model {
     }
 
     public function getSubscription($id) {
-        $this->db->query('SELECT * FROM ' . $this->table .  ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->table .  ' WHERE creator_username=:id');
         $this->db->bind('id', $id);
         return $this->db->resultSet();
     }
 
-    public function addSubscription($creator_name, $subscriber_name) {
-        $this->db->query('INSERT INTO ' . $this->table . ' (creator_name, subscriber_name) VALUES (:creator_name, :subscriber_name)');
-        $this->db->bind('creator_name', $creator_name);
-        $this->db->bind('subscriber_name', $subscriber_name);
+    public function addSubscription($creator_username, $subscriber_username) {
+        $this->db->query('INSERT INTO ' . $this->table . ' (creator_username, subscriber_username) VALUES (:creator_username, :subscriber_username)');
+        $this->db->bind('creator_username', $creator_username);
+        $this->db->bind('subscriber_username', $subscriber_username);
         $this->db->execute();
     }
 
     public function updateSubscriptionStatus($creator_username, $subscriber_username, $status) {
-        $this->db->query('UPDATE ' . $this->table .  ' SET status = :status WHERE creator_name=:creator_name AND subscriber_name=:subscriber_name');
+        $this->db->query('UPDATE ' . $this->table .  ' SET status = :status WHERE creator_username=:creator_username AND subscriber_username=:subscriber_username');
         $this->db->bind('status', $status);
-        $this->db->bind('creator_name', $creator_username);
-        $this->db->bind('subscriber_name', $subscriber_username);
+        $this->db->bind('creator_username', $creator_username);
+        $this->db->bind('subscriber_username', $subscriber_username);
         $this->db->execute();
         return $this->db->rowCount();
     }
 
-    public function checkSubscriptionStatus($creator_name, $subscriber_name) {
-        $this->db->query('SELECT status FROM '. $this->table . ' WHERE creator_name=:creator_name AND subscriber_name=:subscriber_name');
-        $this->db->bind('creator_name', $creator_name);
-        $this->db->bind('subscriber_name', $subscriber_name);
+    public function checkSubscriptionStatus($creator_username, $subscriber_username) {
+        $this->db->query('SELECT status FROM '. $this->table . ' WHERE creator_username=:creator_username AND subscriber_username=:subscriber_username');
+        $this->db->bind('creator_username', $creator_username);
+        $this->db->bind('subscriber_username', $subscriber_username);
         $status = $this->db->single();
 
         if ($status) {
