@@ -28,8 +28,8 @@
         const sessionId = <?= $_SESSION['user_id'] ?>;
         var userId = <?= $_SESSION['user_id'] ?>;
         var premium = <?= $data['premium'] ?>;
-        var creatorUsername = <?= $data['creator_username'] ?>;
-        var subscriberUsername = <?= $data['subscriber_username'] ?>;
+        var creatorUsername = "<?= $data['creator_username'] ?>";
+        var subscriberUsername = "<?= $data['subscriber_username'] ?>";
         var subscriptionStatus = <?= $data['subscription_status'] ?>;
         var creatorUsernameUpgrade = "<?= $data['creator_username_upgrade'] ?>";
     </script>

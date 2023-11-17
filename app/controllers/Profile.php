@@ -24,23 +24,6 @@ class Profile extends Controller {
                     $data['subscription_status'] = $this->model('Subscription_model')->checkSubscriptionStatus($data['creator_username'], $data['subscriber_username']);
                 }
                 $data['posts'] = $this->model('Post_model')->getAllPostFromUserId($search, $data['user_id']);
-                // if (isset($data['premium']) && $data['premium']) {
-                //     $rest_url = $_ENV['REST_URL'] . '/exclusiveContent';
-                    
-                //     $channel = curl_init();
-                //     curl_setopt($channel, CURLOPT_POST, true);
-                //     curl_setopt($channel, CURLOPT_HTTPHEADER, $headers);
-                //     curl_setopt($channel, CURLOPT_POSTFIELDS, $request_body);
-                //     curl_setopt($channel, CURLOPT_URL, $rest_url);
-                //     curl_setopt($channel, CURLOPT_RETURNTRANSFER, 1);
-                //     curl_setopt($channel, CURLOPT_SSL_VERIFYHOST, false);
-                //     curl_setopt($channel, CURLOPT_SSL_VERIFYPEER, false);
-                    
-                //     $response = curl_exec($channel);
-                //     curl_close($channel);
-
-                //     // $data['posts'] = 
-                // }
                 $this->view('profile/index', $data);
             } catch (Exception $e) {
                 http_response_code($e->getCode());

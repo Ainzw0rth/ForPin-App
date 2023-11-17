@@ -49,6 +49,8 @@ function addUserDetails() {
         xhr.send(formData)
 
         console.log("here")
+        console.log(creatorUsername);
+        console.log(subscriberUsername);
 
         xhr.onreadystatechange = function () {
             if (this.readyState === XMLHttpRequest.DONE) {
