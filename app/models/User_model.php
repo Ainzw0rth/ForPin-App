@@ -17,7 +17,7 @@ class User_model {
         $this->db->query('SELECT username, fullname, profile_path, email FROM users WHERE user_id = ' . $userId);
         return $this->db->single();
     }
-   
+    
     public function getUsernameById($userId) {
         $this->db->query('SELECT username FROM users WHERE user_id = ' . $userId);
         return $this->db->single();

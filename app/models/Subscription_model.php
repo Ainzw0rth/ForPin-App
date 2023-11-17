@@ -30,8 +30,8 @@ class Subscription_model {
     public function updateSubscriptionStatus($creator_username, $subscriber_username, $status) {
         $this->db->query('UPDATE ' . $this->table .  ' SET status = :status WHERE creator_name=:creator_name AND subscriber_name=:subscriber_name');
         $this->db->bind('status', $status);
-        $this->db->bind('creator_name', $creator_name);
-        $this->db->bind('subscriber_name', $subscriber_name);
+        $this->db->bind('creator_name', $creator_username);
+        $this->db->bind('subscriber_name', $subscriber_username);
         $this->db->execute();
         return $this->db->rowCount();
     }

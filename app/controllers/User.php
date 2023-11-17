@@ -26,14 +26,19 @@ class User extends Controller {
                     $this->view('user/login');
                     exit;
                 case 'POST':
-                    $this->middleware('Token')->checkToken($_POST['csrf_token']);
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $userId = $this->model('User_model')->login($username, $password);
-                    $_SESSION['user_id'] = $userId;
-                    header('Content-Type: application/json');
-                    http_response_code(201);
-                    echo json_encode(["redirect_url" => BASE_URL . '/home']);
+                    if (isset($_POST)) {
+                        // $this->middleware('Token')->checkToken($_POST['csrf_token']);
+                        $username = $_POST['username'];
+                        $password = $_POST['password'];
+                        
+                        $userId = $this->model('User_model')->login($username, $password);
+                        $_SESSION['user_id'] = $userId;
+                        
+                        header('Content-Type: application/json');
+                        http_response_code(201);
+                        echo json_encode(["redirect_url" => BASE_URL . '/home']);
+                    }
+               
                     exit;
                 default:
                     throw new LoggedExceptions('Method Not Allowed', 405);
@@ -126,10 +131,15 @@ class User extends Controller {
         }
     }
 
-    public function getUser($userid) {
+    public function getUser($username) {
         try {
             switch($_SERVER['REQUEST_METHOD']) {
-                   
+                case 'GET':
+                    $data = $this->model('User_model')->getUserDescByUsername($username);
+                    $json = json_encode($data);
+                    header('Content-Type: application/json');
+                    echo $json;
+                    break;
             }
         } catch (Exception $e) {
             http_response_code($e->getCode());
