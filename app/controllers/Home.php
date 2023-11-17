@@ -24,40 +24,38 @@ class Home extends Controller {
                 $response = curl_exec($channel);
                 curl_close($channel);
 
-                $data = json_decode($response, true);
+                $dataPost = json_decode($response, true);
 
-                foreach ($data['data'] as $post) {
-                    $postId = $post['post_id'];
-                    $caption = $post['caption'];
-                    $postTime = $post['post_time'];
-                    $likes = $post['likes'];
-                
-                    $genre = isset($post['premium_user']['genre']) ? $post['premium_user']['genre'] : '';
-                
-                    $mediaPaths = [];
-                
-                    foreach ($post['exclusive_media'] as $media) {
-                        $mediaPaths[] = $media['media_path'];
+                if ($dataPost['data']) {
+                    foreach ($dataPost['data'] as $post) {
+                        $postId = $post['post_id'];
+                        $caption = $post['caption'];
+                        $postTime = $post['post_time'];
+                        $likes = $post['likes'];
+                    
+                        $genre = isset($post['premium_user']['genre']) ? $post['premium_user']['genre'] : '';
+                    
+                        $mediaPaths = [];
+                    
+                        foreach ($post['exclusive_media'] as $media) {
+                            $mediaPaths[] = $media['media_path'];
+                        }
+                    
+                        $mediaPathsString = implode('@', $mediaPaths);
+                    
+                        $transformedPost = [
+                            'post_id' => $postId,
+                            'caption' => $caption,
+                            'post_time' => $postTime,
+                            'likes' => $likes,
+                            'genre' => $genre,
+                            'media_paths' => $mediaPathsString,
+                        ];
+                    
+                        $data['posts'][] = $transformedPost;
                     }
-                
-                    $mediaPathsString = implode('@', $mediaPaths);
-                
-                    $transformedPost = [
-                        'post_id' => $postId,
-                        'caption' => $caption,
-                        'post_time' => $postTime,
-                        'likes' => $likes,
-                        'genre' => $genre,
-                        'media_paths' => $mediaPathsString,
-                    ];
-                
-                    // $data['posts'][] = $transformedPost;
+    
                 }
-
-                var_dump($transformedPost);
-                // $data['posts'][] = $transformedPost;
-                // var_dump($data['posts']);
-                
 
                 $this->view('home/index', $data);    
             } catch (Exception $e) {
