@@ -367,3 +367,10 @@ Setelah diminta untuk membangun 1000 startup oleh Teh Roro, Kang Bondowoso memut
 ### Error Page
 
 ![Error Page](./screenshots/error_lh.jpg)
+
+### Pembagian Task di Tugas Besar 2
+1. Upgrade button FE dan BE : 13521156
+2. Subscribe button FE dan BE : 13521156
+3. BE Endpoint callback : 13521156
+4. BE PHP to SOAP : 13521156
+
